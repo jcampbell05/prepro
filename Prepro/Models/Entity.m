@@ -8,6 +8,7 @@
 //
 
 #import "Entity.h"
+#import "Document.h"
 #import "PPAppDelegate.h"
 #import "NSObject+AppDelegate.h"
 
@@ -32,6 +33,10 @@
     }
     
     return entity;
+}
+
+- (void)onSave:(Document *)document {
+    
 }
 
 @end

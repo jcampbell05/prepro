@@ -20,6 +20,8 @@
 @property (nonatomic, retain) NSString * duration;
 @property (nonatomic, retain) NSString * descriptionText;
 @property (nonatomic, retain) NSString * locationType;
+@property (nonatomic, retain) NSString * angle;
+@property (nonatomic, retain) NSString * transition;
 @property (nonatomic, retain) NSData *photo;
 @property (nonatomic, retain) Project *project;
 

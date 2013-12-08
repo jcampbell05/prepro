@@ -5,6 +5,7 @@
 //  Created by James Campbell on 04/05/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
+// TODO: Refactor and simplify as well as make more automated
 
 #import <Foundation/Foundation.h>
 #import "EntityCategory.h"

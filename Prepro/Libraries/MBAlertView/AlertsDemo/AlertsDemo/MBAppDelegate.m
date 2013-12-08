@@ -21,6 +21,13 @@
     UIViewController *controller = [RootViewController new];
     self.window.rootViewController = controller;
     
+    [self playDemo];
+
+    return YES;
+}
+
+- (void)playDemo
+{
     void (^goodbye)() = ^{
         [MBHUDView hudWithBody:@"Goodbye then" type:MBAlertViewHUDTypeDefault hidesAfter:2.0 show:YES];
     };
@@ -32,7 +39,7 @@
         MBAlertView *please = [MBAlertView alertWithBody:@"Did you say please?" cancelTitle:nil cancelBlock:nil];
         please.size = CGSizeMake(280, 180);
         [please addButtonWithText:@"Yes" type:MBAlertViewItemTypePositive block:^{
-        
+            
             [MBHUDView hudWithBody:@"Good boy." type:MBAlertViewHUDTypeCheckmark hidesAfter:1.0 show:YES];
             [MBHUDView hudWithBody:@"Wait." type:MBAlertViewHUDTypeActivityIndicator hidesAfter:4.0 show:YES];
             [MBHUDView hudWithBody:@"Ready?" type:MBAlertViewHUDTypeDefault hidesAfter:2.0 show:YES];
@@ -47,9 +54,9 @@
                 [MBHUDView hudWithBody:@"2" type:MBAlertViewHUDTypeDefault hidesAfter:1.0 show:YES];
                 [MBHUDView hudWithBody:@"1" type:MBAlertViewHUDTypeDefault hidesAfter:2.0 show:YES];
                 [self doSomething:^{
-                   MBHUDView *hud = [MBHUDView hudWithBody:@"Goodbye" type:MBAlertViewHUDTypeExclamationMark hidesAfter:2.0 show:YES];
+                    MBHUDView *hud = [MBHUDView hudWithBody:@"Goodbye" type:MBAlertViewHUDTypeExclamationMark hidesAfter:2.0 show:YES];
                     hud.uponDismissalBlock = ^{
-                        [UIView animateWithDuration:0.5 animations:^{ [controller.view setBackgroundColor:[UIColor blackColor]]; }];
+                        [UIView animateWithDuration:0.5 animations:^{ [self.window.rootViewController.view setBackgroundColor:[UIColor blackColor]]; }];
                     };
                 } afterDelay:2.0];
             }];
@@ -73,7 +80,6 @@
     [alert addButtonWithText:@"No" type:MBAlertViewItemTypeDestructive block:goodbye];
     
     [alert addToDisplayQueue];
-    return YES;
 }
 
 -(void)doSomething:(id)block afterDelay:(float)delay

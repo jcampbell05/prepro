@@ -55,6 +55,7 @@
 - (id)viewControllerForEditingEntity:(id)entity {
     
     FullScreenTextViewEditorViewController *fullscreenScreenTextViewEditorViewController = [[FullScreenTextViewEditorViewController alloc] init];
+
     
     fullscreenScreenTextViewEditorViewController.document = self;
     fullscreenScreenTextViewEditorViewController.entity = entity;
@@ -72,5 +73,6 @@
     return fullscreenScreenTextViewEditorViewController;
     
 }
+
 
 @end

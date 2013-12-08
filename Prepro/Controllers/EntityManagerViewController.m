@@ -14,6 +14,7 @@
 #import "MBAlertView.h"
 #import "Entity.h"
 #import "PPAppDelegate.h"
+#import "ProjectViewController.h"
 
 @interface EntityManagerViewController ()
 
@@ -36,6 +37,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.definesPresentationContext = YES;
     
     UIBarButtonItem *addProjectButtonBar;
     
@@ -324,6 +327,12 @@
     batchNumberPickerViewController.document = _document;
     batchNumberPickerViewController.addBlock = ^(int value){
         
+        //TODO: Use this concurrent code
+        /*dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_apply(value, queue, ^(size_t idx) {
+            [_document newEntity];
+        });*/
+        
         for (int i = 0; i < value; i++) {
             [_document newEntity];
         }
@@ -476,5 +485,6 @@
         NSLog(@"Project saved.");
     }
 }
+
 
 @end

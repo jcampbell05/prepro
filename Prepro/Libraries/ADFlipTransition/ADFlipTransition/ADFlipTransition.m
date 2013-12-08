@@ -200,7 +200,7 @@
 		CGFloat height = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])?[[UIApplication sharedApplication] statusBarFrame].size.height:[[UIApplication sharedApplication] statusBarFrame].size.width;
 		
 		if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-			rect = [self switchRectOrientation:rect];
+            rect = [self switchRectOrientation:rect];
 		}
 		
 		rect.origin.y += height;

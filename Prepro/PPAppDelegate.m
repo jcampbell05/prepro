@@ -184,11 +184,7 @@
          
          */
         
-        [[MBAlertView alertWithBody:@"There was an error loading the app data, all previous data has been removed to allow you to use the app." cancelTitle:@"Continue" cancelBlock:nil] addToWindow];
-        
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        
-        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
         
     }    
     

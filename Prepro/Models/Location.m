@@ -13,6 +13,14 @@
 
 @dynamic name;
 @dynamic type;
+@dynamic addressLine1;
+@dynamic addressLine2;
+@dynamic addressLine3;
+@dynamic addressLine4;
+@dynamic addressLine5;
+@dynamic contactName;
+@dynamic email;
+@dynamic phone;
 @dynamic notes;
 @dynamic photo;
 

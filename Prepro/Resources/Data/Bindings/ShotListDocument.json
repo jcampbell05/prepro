@@ -29,6 +29,20 @@
                     "bind": "selectedItem:locationType",
                   },
                   {
+                  "type":"QRadioElement",
+                  "key":"angle",
+                  "title":"Angle",
+                  "items":["Birds Eye view", "High", "Eye Level", "Low", "Oblique/Canted"],
+                  "bind":"selectedItem:angle"
+                  },
+                  {
+                  "type":"QRadioElement",
+                  "key":"transition",
+                  "title":"Transition",
+                  "items":["Cut", "Straight Cut", "Contrast Cut", "L Cut", "Form Cut", "Match Cut", "Parallel Editing Cut", "Jump Cut", "Fade In / Out", "Dissolve", "Wipe", "Morph", "Other"],
+                  "bind":"selectedItem:transition"
+                  },
+                  {
                     "type":"PPTimeCodeElement", "key":"duration", "title":"Duration", "bind":"textValue:duration"
                   },
                   {

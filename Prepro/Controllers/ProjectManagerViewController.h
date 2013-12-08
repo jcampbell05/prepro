@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FPPicker/FPPicker.h>
 #import "ProjectViewController.h"
+#import "PPExposeController.h"
 
 #define ProjectManagerViewCollectionViewCellWidth 100
 #define ProjectManagerViewCollectionViewCellHeight 150
@@ -21,7 +22,7 @@
     
     NSArray *projects;
     
-    UINavigationController *flipNavigationController;
+    PPExposeController *exposeController;
 }
 
 - (void)newProject;

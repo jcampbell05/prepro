@@ -115,7 +115,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     fpController.shouldDownload = YES;
     
     // Display it.
-    [self presentViewController:fpController animated:YES completion:nil];
+    [self.navigationController presentViewController:fpController animated:YES completion:nil];
 }
 
 - (BOOL)loadProjects {
@@ -372,28 +372,17 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     
     NSLog(@"Opening \"%@\".", appDelegate.currentProject.title);
     
-    if (flipNavigationController) {
-        flipNavigationController = nil;
+    if (exposeController) {
+        exposeController = nil;
     }
     
-    ProjectViewController * projectViewController = [[ProjectViewController alloc] init];
-    projectViewController.projectManagerViewController = self;
+    exposeController = [[PPExposeController alloc] initWithProjectManager:self];
+    exposeController.view.frame = self.view.frame;
     
-    flipNavigationController =  [[UINavigationController alloc] initWithRootViewController:projectViewController];
-    
-    flipNavigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        flipNavigationController.navigationBar.tintColor = [UIColor whiteColor];
-        flipNavigationController.navigationBar.barTintColor = [UIColor blackColor];
-        flipNavigationController.navigationBar.translucent = NO;
-    }
-    
-    [flipNavigationController viewWillAppear:YES];
     if (indexPath == nil) {
-        [self flipToViewController:flipNavigationController fromView:self.view withCompletion:NULL];
+        [self flipToViewController:exposeController fromView:self.view withCompletion:NULL];
     } else {
-        [self flipToViewController:flipNavigationController fromItemAtIndexPath:indexPath withCompletion:NULL];
+        [self flipToViewController:exposeController fromItemAtIndexPath:indexPath withCompletion:NULL];
     }
 }
 
@@ -404,10 +393,10 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     NSUInteger row = [projects indexOfObject:appDelegate.currentProject];
     
     if (row == NSNotFound) {
-        [flipNavigationController dismissFlipWithCompletion:NULL];
+        [exposeController dismissFlipWithCompletion:NULL];
     } else {
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[@(row) intValue] inSection:0];
-        [flipNavigationController dismissFlipToIndexPath:indexPath withCompletion:NULL];
+        [exposeController dismissFlipToIndexPath:indexPath withCompletion:NULL];
     }
     
     

@@ -10,7 +10,6 @@
 #import "EntityManagerViewController.h"
 #import "MBAlertView.h"
 #import "Entity.h"
-#import "JTTransformableTableViewCell.h"
 
 @implementation Document
 
@@ -107,6 +106,9 @@
         [root fetchValueIntoObject:entity];
         
         NSLog(@"Entity: %@", [entity description]);
+        
+        //Tell entity we are about to save it so it can do some last minute processing
+        [entity onSave:self];
         
         NSManagedObjectContext *managedObjectContext = [NSObject managedObjectContext];
      

@@ -438,7 +438,11 @@ NSString * const DELETE_BUTTON_IMAGE = @"deleteBtn.png";
     CGAffineTransform t = CGAffineTransformMakeTranslation(tx, ty);
     t = CGAffineTransformScale(t, self.scaleFactor, self.scaleFactor);
     viewController.view.transform = t;
+    
+    
+    [self addChildViewController:viewController];
     [self.scrollView addSubview:viewController.view];
+    [viewController didMoveToParentViewController:self];
     
     // Add container view
     UIView *containerView = [[[UIView alloc] initWithFrame:viewController.view.bounds] autorelease];
@@ -568,7 +572,9 @@ NSString * const DELETE_BUTTON_IMAGE = @"deleteBtn.png";
                              [self.exposeDelegate exposeController:self didDeleteViewController:viewController atIndex:deleteIndex];
                          }
                          
+                         [viewController willMoveToParentViewController:nil];
                          [viewController.view removeFromSuperview];
+                         [viewController removeFromParentViewController];
                          [containerView removeFromSuperview];
                          [button removeFromSuperview];
                          viewController.exposeController = nil;

@@ -16,6 +16,14 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * addressLine1;
+@property (nonatomic, retain) NSString * addressLine2;
+@property (nonatomic, retain) NSString * addressLine3;
+@property (nonatomic, retain) NSString * addressLine4;
+@property (nonatomic, retain) NSString * addressLine5;
+@property (nonatomic, retain) NSString * contactName;
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSString * phone;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSData *photo;
 @property (nonatomic, retain) Project *project;

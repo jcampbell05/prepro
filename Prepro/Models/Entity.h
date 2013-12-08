@@ -10,9 +10,10 @@
 #import <CoreData/CoreData.h>
 #import "NSManagedObject+Serialization.h"
 
-@class Project;
+@class Document;
 @interface Entity : NSManagedObject <NSCoding>
 
 + (id)createNew;
+- (void)onSave:(Document *)document;
 
 @end

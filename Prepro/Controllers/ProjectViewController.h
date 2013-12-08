@@ -11,17 +11,23 @@
 #import "NSObject+AppDelegate.h"
 #import "UIViewController+ADFlipTransition.h"
 #import "Project.h"
+#import "PPPanelViewControllerDelegate.h"
+
+//TODO: Revamp code so it doesn't save Project multiple times due to new Tab System.
 
 @class ProjectManagerViewController;
-@interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate> {
+@interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate> {
     UITextField *titleTextField;
     UITapGestureRecognizer *titleDoubleTapGestureRecognizer;
     UITapGestureRecognizer *singleTapRecognizer;
+    
+    NSIndexPath *currentDocument;
 }
 
 @property (readonly, strong, nonatomic) NSArray *documents;
 @property (strong, nonatomic) ProjectManagerViewController * projectManagerViewController;
 
+- (void)showTabs;
 - (void)startEditingProjectTitle;
 - (void)endEditingProjectTitle;
 - (void)saveProject;
