@@ -19,13 +19,13 @@
                     "key":"type",
                     "title":"Type",
                     "items":["EWS", "VWS", "WS", "MS", "MCU", "CU", "ECU", "CA", "CI", "TS", "OTS", "POV", "DUT"],
-                    "bind":"textValue:type"
+                    "bind":"selectedItem:type"
                   },
                   {
                     "type":"QRadioElement",
                     "key": "locationType",
                     "title":"Location Type",
-                    "items":["EXT", "INT"],
+                    "items":["EXT", "INT", "I/E"],
                     "bind": "selectedItem:locationType",
                   },
                   {

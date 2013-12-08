@@ -14,6 +14,10 @@
 
 @dynamic jobRole;
 @dynamic name;
+@dynamic mobile;
+@dynamic email;
+@dynamic pay;
+@dynamic payrate;
 @dynamic department;
 @dynamic project;
 @dynamic photo;
@@ -21,6 +25,7 @@
 - (void)awakeFromInsert {
     self.name = @"New Crew Member";
     self.department = @"Misc";
+    self.payrate = @"Flat";
 }
 
 @end

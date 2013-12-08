@@ -12,14 +12,30 @@
                     "type":"QEntryElement", "key":"name", "title":"Name", "bind":"textValue:name"
                 },
                 {
-                  "type":"QRadioElement",
-                  "key": "department",
-                  "title":"Department",
-                  "items":["Production", "Direction", "Storage", "Locations", "Art", "Costume", "Hair And Makeup", "Special Effects", "Camera", "Production Sound", "Grip", "Electrical", "Editing", "Visual Effects", "Sound Effects", "Soundtrack", "Promotion", "Distribution", "Misc"],
-                  "bind": "selectedItem:department",
+                    "type":"QRadioElement",
+                    "key": "department",
+                    "title":"Department",
+                    "items":["Production", "Direction", "Storage", "Locations", "Art", "Costume", "Hair And Makeup", "Special Effects", "Camera", "Production Sound", "Grip", "Electrical", "Editing", "Visual Effects", "Sound Effects", "Soundtrack", "Promotion", "Distribution", "Misc"],
+                    "bind": "selectedItem:department"
                 },
                 {
                     "type":"QEntryElement", "key":"jobRole", "title":"Job Role", "bind":"textValue:jobRole"
+                },
+                {
+                    "type":"QEntryElement", "key":"email", "title":"Email", "bind":"textValue:email"
+                },
+                {
+                    "type":"QEntryElement", "key":"mobile", "title":"Mobile", "bind":"textValue:mobile"
+                },
+                {
+                    "type":"QRadioElement",
+                    "key": "payrate",
+                    "title":"Rate",
+                    "items":["N/A", "Expenses", "Flat", "Per Hour", "Per Day", "Per Week"],
+                    "bind" : "selectedItem:payrate"
+                },
+                {
+                    "type":"QDecimalElement", "key":"pay", "title":"Pay", "floatValue":0, "fractionDigits":2, "bind":"floatValue:pay"
                 }
              ]
         }

@@ -379,6 +379,7 @@
 		741CF29817EFB8C2007DDD42 /* FPPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FPPicker.framework; sourceTree = "<group>"; };
 		742CB95417F9E70D00A3E549 /* NSManagedObject+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+Serialization.h"; path = "Catergories/NSManagedObject+Serialization.h"; sourceTree = "<group>"; };
 		742CB95517F9E70D00A3E549 /* NSManagedObject+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+Serialization.m"; path = "Catergories/NSManagedObject+Serialization.m"; sourceTree = "<group>"; };
+		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		745881B6177230C0008F9307 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		745881B81772315D008F9307 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7458828B17723930008F9307 /* CastDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CastDocument.json; path = Resources/Data/Bindings/CastDocument.json; sourceTree = "<group>"; };
@@ -1788,10 +1789,11 @@
 		1AFB358416FCF17200590D87 /* Prepro.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */,
 				748D806018208A9C00FB0DB8 /* Prepro1.1.xcdatamodel */,
 				1AFB358516FCF17200590D87 /* Prepro1.0.xcdatamodel */,
 			);
-			currentVersion = 748D806018208A9C00FB0DB8 /* Prepro1.1.xcdatamodel */;
+			currentVersion = 744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */;
 			path = Prepro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

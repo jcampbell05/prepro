@@ -16,6 +16,10 @@
 
 @property (nonatomic, retain) NSString * jobRole;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * mobile;
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSNumber * pay;
+@property (nonatomic, retain) NSString * payrate;
 @property (nonatomic, retain) NSString * department;
 @property (nonatomic, retain) NSData *photo;
 @property (nonatomic, retain) Project *project;

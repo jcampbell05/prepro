@@ -14,15 +14,19 @@
 @implementation Cast
 
 @dynamic name;
+@dynamic agency;
 @dynamic characterName;
 @dynamic mobile;
 @dynamic email;
+@dynamic pay;
+@dynamic payrate;
 @dynamic photo;
 @dynamic project;
 @dynamic character;
 
 - (void)awakeFromInsert {
     self.name = @"New Cast Member";
+    self.payrate = @"Flat";
 }
 
 @end

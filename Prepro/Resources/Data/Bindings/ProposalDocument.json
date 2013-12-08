@@ -9,10 +9,55 @@
                     "type":"QEntryElement", "key":"title", "title":"Title", "bind":"textValue:title"
                 },
                 {
-                    "type":"QEntryElement", "key":"genre", "title":"Genre", "bind":"textValue:genre"
+                    "type":"QRadioElement",
+                    "key":"genre",
+                    "title":"Genre",
+                    "items":[
+                             "Action and Adventure",
+                             "Animation",
+                             "Biopics",
+                             "Bollywood",
+                             "Comedy",
+                             "Crime",
+                             "Documentary",
+                             "Drama",
+                             "Experimental",
+                             "Family",
+                             "Horror",
+                             "Misc",
+                             "Music Documentary",
+                             "Musical",
+                             "Period and Historical",
+                             "Romance",
+                             "Science Fiction",
+                             "Fantasy",
+                             "Sport",
+                             "Thriller",
+                             "War Film",
+                             "Western",
+                             "World Cinema"
+              
+                ], "bind":"selectedItem:genre"
                 },
                 {
                     "type":"PPTimeCodeElement", "key":"duration", "title":"Duration", "bind":"textValue:duration"
+                },
+                {
+                  "type":"QRadioElement",
+                  "key":"fps",
+                  "title":"FPS",
+                  "items":[
+                           "24p",
+                           "25p",
+                           "30p",
+                           "48p",
+                           "50i",
+                           "60i",
+                           "50p",
+                           "60p",
+                           "72p",
+                           "120p"
+                    ], "bind":"selectedItem:fps"
                 },
                 {
                     "type":"QEntryElement", "key":"format", "title":"Format", "bind":"textValue:format"

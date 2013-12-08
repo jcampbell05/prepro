@@ -15,9 +15,12 @@
 @interface Cast : Entity
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * agency;
 @property (nonatomic, retain) NSString * characterName;
 @property (nonatomic, retain) NSString * mobile;
 @property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSNumber * pay;
+@property (nonatomic, retain) NSString * payrate;
 @property (nonatomic, retain) NSData *photo;
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) CharacterProfile *character;
