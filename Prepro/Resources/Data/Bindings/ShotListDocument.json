@@ -1,0 +1,40 @@
+{
+	"grouped": true,
+    "sections": [
+                 {
+                 
+                 "title" : "Shot", "bind":"title:title", "elements":
+                 [
+                  {
+                    "type":"PPPhotoPickerElement", "key":"photo", "title":"Photo", "bind":"dataValue:photo"
+                  },
+                  {
+                    "type":"QDecimalElement", "key":"number", "title":"Number", "fractionDigits":0, "bind":"floatValue:number"
+                  },
+                  {
+                    "type":"QEntryElement", "key":"title", "title":"Title", "bind":"textValue:title"
+                  },
+                  {
+                    "type":"QRadioElement",
+                    "key":"type",
+                    "title":"Type",
+                    "items":["EWS", "VWS", "WS", "MS", "MCU", "CU", "ECU", "CA", "CI", "TS", "OTS", "POV", "DUT"],
+                    "bind":"textValue:type"
+                  },
+                  {
+                    "type":"QRadioElement",
+                    "key": "locationType",
+                    "title":"Location Type",
+                    "items":["EXT", "INT"],
+                    "bind": "selectedItem:locationType",
+                  },
+                  {
+                    "type":"PPTimeCodeElement", "key":"duration", "title":"Duration", "bind":"textValue:duration"
+                  },
+                  {
+                    "type":"QMultilineElement", "key":"descriptionText", "title":"Description", "bind":"textValue:descriptionText"
+                  }
+                ]
+            }
+     ]
+}

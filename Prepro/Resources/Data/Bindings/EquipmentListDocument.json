@@ -1,0 +1,58 @@
+{
+    "grouped": true,
+    "sections": [
+        {
+            "title": "Equipment",
+            "bind": "title:name",
+            "elements": [
+                {
+                    "type": "PPPhotoPickerElement",
+                    "key": "photo",
+                    "title": "Photo",
+                    "bind": "dataValue:photo"
+                },
+                {
+                    "type": "QEntryElement",
+                    "key": "name",
+                    "title": "Name",
+                    "bind": "textValue:name"
+                },
+                {
+                    "type":"QRadioElement",
+                    "key": "type",
+                    "title":"Type",
+                    "items":["Camera", "Lenses", "Storage", "Power", "Rigs", "Audio", "Lighting", "Accessories", "Misc"],
+                    "bind": "selectedItem:type",
+                },
+                {
+                    "type": "QDecimalElement",
+                    "key": "price",
+                    "title": "Price",
+                    "floatValue": 0,
+                    "fractionDigits": 2,
+                    "bind": "floatValue:price"
+                },
+                {
+                    "type":"QDecimalElement",
+                    "key":"quantity",
+                    "title":"Quantity",
+                    "floatValue":0,
+                    "fractionDigits":0,
+                    "bind":"floatValue:quantity"
+                },
+                {
+                    "type": "QEntryElement",
+                    "key": "supplier",
+                    "title": "Supplier",
+                    "bind": "textValue:supplier"
+                },
+                {
+                    "type": "QMultilineElement",
+                    "key": "notes",
+                    "title": "Notes",
+                    "bind": "textValue:notes"
+                }
+            ]
+        }
+    ]
+}

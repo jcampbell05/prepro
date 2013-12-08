@@ -1,0 +1,26 @@
+{
+	"grouped": true,
+	"sections": [
+        {
+             
+             "title" : "Cast Member", "bind":"title:name", "elements":
+             [
+                {
+                    "type":"PPPhotoPickerElement", "key":"photo", "title":"Photo", "bind":"dataValue:photo"
+                },
+                {
+                    "type":"QEntryElement", "key":"name", "title":"Name", "bind":"textValue:name"
+                },
+                {
+                    "type":"QEntryElement", "key":"characterName", "title":"Character Name", "bind":"textValue:characterName"
+                },
+                {
+                    "type":"QEntryElement", "key":"email", "title":"Email", "bind":"textValue:email"
+                },
+                {
+                    "type":"QEntryElement", "key":"mobile", "title":"Mobile", "bind":"textValue:mobile"
+                }
+             ]
+        }
+    ]
+}

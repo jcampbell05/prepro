@@ -1,0 +1,35 @@
+{
+	"grouped": true,
+	"sections": [
+        {
+             
+             "title" : "Proposal", "bind":"title:title", "elements":
+             [
+                {
+                    "type":"QEntryElement", "key":"title", "title":"Title", "bind":"textValue:title"
+                },
+                {
+                    "type":"QEntryElement", "key":"genre", "title":"Genre", "bind":"textValue:genre"
+                },
+                {
+                    "type":"PPTimeCodeElement", "key":"duration", "title":"Duration", "bind":"textValue:duration"
+                },
+                {
+                    "type":"QEntryElement", "key":"format", "title":"Format", "bind":"textValue:format"
+                },
+                {
+                    "type":"QMultilineElement", "key":"synopsis", "title":"Synopsis", "bind":"textValue:synopsis"
+                },
+                {
+                    "type":"QMultilineElement", "key":"style", "title":"Style", "bind":"textValue:style"
+                },
+                {
+                    "type":"QMultilineElement", "key":"structure", "title":"Structure", "bind":"textValue:structure"
+                },
+                {
+                    "type":"QMultilineElement", "key":"audience", "title":"Audience", "bind":"textValue:audience"
+                }
+             ]
+        }
+    ]
+}
