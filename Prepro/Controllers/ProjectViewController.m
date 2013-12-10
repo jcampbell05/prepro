@@ -297,15 +297,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)FPSaveController:(FPSaveController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)FPSaveControllerDidCancel:(FPSaveController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [popoverController dismissPopoverAnimated:YES];
     return;
 }
 
 - (void)FPSaveControllerDidSave:(FPSaveController *)picker {
+    [popoverController dismissPopoverAnimated:YES];
     return;
 }
 

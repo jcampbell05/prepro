@@ -361,15 +361,16 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     NSIndexPath * newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.collectionView insertItemsAtIndexPaths:@[ newIndexPath ]];
 
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)FPPickerController:(FPPickerController *)picker didPickMediaWithInfo:(NSDictionary *)info {
+    [popoverController dismissPopoverAnimated:YES];
     return;
 }
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [popoverController dismissPopoverAnimated:YES];
     return;
 }
 
