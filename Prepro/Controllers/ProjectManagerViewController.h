@@ -28,6 +28,7 @@
 - (void)newProject;
 - (void)importProject;
 - (BOOL)loadProjects;
+- (void)showSettings;
 - (void)toggleProjectEditMode;
 - (void)projectSelectedAtCellIndexPath:(NSIndexPath *)indexPath;
 - (void)removeProjects;

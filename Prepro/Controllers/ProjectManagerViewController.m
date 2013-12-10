@@ -63,8 +63,10 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     editProjectsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleProjectEditMode)];
     editProjectsButton.enabled = NO;
     
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
+    
     [self.navigationItem setLeftBarButtonItems:@[addProjectButton, importProjectButton]];
-    self.navigationItem.rightBarButtonItem = editProjectsButton;
+    self.navigationItem.rightBarButtonItems = @[settingsButton, editProjectsButton];
     
     deleteProjectsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeProjects)];
     deleteProjectsButton.tintColor = [UIColor redColor];
@@ -162,6 +164,10 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     }
 }
 
+- (void)showSettings {
+    
+}
+
 - (void)removeProjects {
     
     int noSelected = [self.collectionView.indexPathsForSelectedItems count];
@@ -240,8 +246,6 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         [editProjectsButton setTitle:@"Done"];
         [editProjectsButton setStyle:UIBarButtonItemStyleDone];
         
-        self.navigationItem.rightBarButtonItem = editProjectsButton;
-        
         self.collectionView.allowsMultipleSelection = YES;
         
         [self.navigationController setToolbarHidden:NO animated:YES];
@@ -251,8 +255,6 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         
         [editProjectsButton setTitle:@"Edit"];
         [editProjectsButton setStyle:UIBarButtonItemStylePlain];
-        
-        self.navigationItem.rightBarButtonItem = editProjectsButton;
 
         self.collectionView.allowsMultipleSelection = NO;
         self.collectionView.allowsSelection = NO;
