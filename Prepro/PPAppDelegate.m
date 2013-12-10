@@ -52,7 +52,6 @@
     
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
         self.window.tintColor = [UIColor blackColor];
-        self.navigationController.navigationBar.translucent = NO;
         
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];

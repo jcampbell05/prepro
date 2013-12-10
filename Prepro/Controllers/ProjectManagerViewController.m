@@ -42,6 +42,14 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     
     [super viewDidLoad];
     
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
+        self.navigationController.view.backgroundColor = [UIColor clearColor];
+    }
+    
     self.navigationItem.title = @"Projects";
     
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
