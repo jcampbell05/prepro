@@ -29,7 +29,7 @@
 - (void)importProject;
 - (BOOL)loadProjects;
 - (void)showSettings;
-- (void)toggleProjectEditMode;
+- (void)toggleProjectEditMode:(UIBarButtonItem *)sender;
 - (void)projectSelectedAtCellIndexPath:(NSIndexPath *)indexPath;
 - (void)removeProjects;
 - (void)updateButtons;
