@@ -43,8 +43,6 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     [super viewDidLoad];
     
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                      forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
         self.navigationController.navigationBar.translucent = YES;
         self.navigationController.view.backgroundColor = [UIColor clearColor];
@@ -415,6 +413,22 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         [self updateButtons];
         [self.collectionView reloadData];
     }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
+        if (scrollView.contentOffset.y > - 30) {
+            [self.navigationController.navigationBar setBackgroundImage:nil
+                                                          forBarMetrics:UIBarMetricsDefault];
+        } else {
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                          forBarMetrics:UIBarMetricsDefault];
+        }
+    }
+    
 }
 
 @end

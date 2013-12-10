@@ -14,7 +14,7 @@
 #define ProjectManagerViewCollectionViewCellWidth 100
 #define ProjectManagerViewCollectionViewCellHeight 150
 
-@interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate> {
+@interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate, UIScrollViewDelegate> {
     UIBarButtonItem *editProjectsButton;
     UIBarButtonItem *deleteProjectsButton;
     UILabel *selectedCount;
