@@ -58,7 +58,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
     UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newProject)];
-    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(importProject)];
+    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(importProject:)];
     
     editProjectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleProjectEditMode)];
     editProjectsButton.enabled = NO;
@@ -100,7 +100,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     [self showProject:Nil fromIndexPath:nil];
 }
 
-- (void)importProject {
+- (void)importProject:(id)sender {
     // To create the object
     FPPickerController *fpController = [[FPPickerController alloc] init];
     
@@ -125,8 +125,10 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     fpController.shouldUpload = YES;
     fpController.shouldDownload = YES;
     
-    // Display it.
-    [self.navigationController presentViewController:fpController animated:YES completion:nil];
+    /*Display it in pop over*/
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:fpController];
+    
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
 }
 
 - (BOOL)loadProjects {

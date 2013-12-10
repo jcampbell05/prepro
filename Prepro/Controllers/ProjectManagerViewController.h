@@ -10,11 +10,15 @@
 #import <FPPicker/FPPicker.h>
 #import "ProjectViewController.h"
 #import "PPExposeController.h"
+#import "WYPopoverController.h"
 
 #define ProjectManagerViewCollectionViewCellWidth 100
 #define ProjectManagerViewCollectionViewCellHeight 150
 
 @interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate, UIScrollViewDelegate> {
+    
+    WYPopoverController *popoverController;
+    
     UIBarButtonItem *editProjectsButton;
     UIBarButtonItem *deleteProjectsButton;
     UILabel *selectedCount;
@@ -26,7 +30,7 @@
 }
 
 - (void)newProject;
-- (void)importProject;
+- (void)importProject:(id)sender;
 - (BOOL)loadProjects;
 - (void)showSettings;
 - (void)toggleProjectEditMode:(UIBarButtonItem *)sender;
