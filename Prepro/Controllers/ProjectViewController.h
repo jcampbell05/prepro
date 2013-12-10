@@ -12,11 +12,15 @@
 #import "UIViewController+ADFlipTransition.h"
 #import "Project.h"
 #import "PPPanelViewControllerDelegate.h"
+#import "WYPopoverController.h"
 
 //TODO: Revamp code so it doesn't save Project multiple times due to new Tab System.
 
 @class ProjectManagerViewController;
 @interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate> {
+    
+    WYPopoverController *popoverController;
+    
     UITextField *titleTextField;
     UITapGestureRecognizer *titleDoubleTapGestureRecognizer;
     UITapGestureRecognizer *singleTapRecognizer;
@@ -30,7 +34,7 @@
 - (void)showTabs;
 - (void)startEditingProjectTitle;
 - (void)endEditingProjectTitle;
-- (void)saveProject;
+- (void)saveProject:(id)sender;
 - (void)exportProject;
 - (void)dismissKeyboard;
 - (IBAction)backPressed:(UIButton *)sender;

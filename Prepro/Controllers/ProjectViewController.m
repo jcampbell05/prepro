@@ -55,7 +55,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     self.navigationItem.leftBarButtonItems = @[closeButton, tabsButton];
     
-    UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(exportProject)];
+    UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(exportProject:)];
     
     self.navigationItem.rightBarButtonItem = exportButton;
 }
@@ -124,7 +124,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     }
 }
 
-- (void)exportProject {
+- (void)exportProject:(id)sender {
     
     [self saveProject];
     
@@ -154,7 +154,10 @@ static NSString *CellIdentifier = @"CellIdentifier";
     }
     
     
-    [self presentViewController:fpSave animated:YES completion:nil];
+    /*Display it in pop over*/
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:fpSave];
+    
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
