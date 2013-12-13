@@ -217,6 +217,7 @@
 		74A9B3B2185B46A800454EF8 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B398185B46A800454EF8 /* settings.png */; };
 		74A9B3B3185B46A800454EF8 /* tabs-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B399185B46A800454EF8 /* tabs-small.png */; };
 		74A9B3B4185B46A800454EF8 /* tabs.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B39A185B46A800454EF8 /* tabs.png */; };
+		74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B3B5185B484400454EF8 /* Settings.bundle */; };
 		74AC37EF17D3B69000966861 /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */; };
 		74B05204185155D900ED4E88 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B051E1185155D900ED4E88 /* NSString+Trim.m */; };
 		74B05205185155D900ED4E88 /* UIFont+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B051E3185155D900ED4E88 /* UIFont+Alert.m */; };
@@ -621,6 +622,7 @@
 		74A9B398185B46A800454EF8 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		74A9B399185B46A800454EF8 /* tabs-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabs-small.png"; sourceTree = "<group>"; };
 		74A9B39A185B46A800454EF8 /* tabs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabs.png; sourceTree = "<group>"; };
+		74A9B3B5185B484400454EF8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		74AC37E217D3B69000966861 /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullScreenImageViewController.h; sourceTree = "<group>"; };
 		74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullScreenImageViewController.m; sourceTree = "<group>"; };
 		74B051E0185155D900ED4E88 /* NSString+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trim.h"; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 		1A499F6A16FD9C7E0055DB93 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				74A9B3B5185B484400454EF8 /* Settings.bundle */,
 				74A9B37F185B46A800454EF8 /* Images */,
 				7458828917723676008F9307 /* Data */,
 			);
@@ -1623,6 +1626,7 @@
 				74A9B39E185B46A800454EF8 /* documentList.png in Resources */,
 				74B2E5EB1778B3D6009B4E84 /* EquipmentListDocument.json in Resources */,
 				749E8C2A177BB0B4006AD8DB /* LocationListDocument.json in Resources */,
+				74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */,
 				74A9B3B0185B46A800454EF8 /* PreproBackground.png in Resources */,
 				749A4FDF177E51B500E357CA /* ProposalDocument.json in Resources */,
 				74A9B3AA185B46A800454EF8 /* proposal.png in Resources */,

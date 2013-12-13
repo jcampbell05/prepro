@@ -14,6 +14,7 @@
 #import "ProjectCollectionViewCell.h"
 #import "Project.h"
 #import "MBAlertView.h"
+#import "IASKAppSettingsViewController.h"
 
 @implementation ProjectManagerViewController
 
@@ -63,7 +64,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     editProjectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleProjectEditMode)];
     editProjectsButton.enabled = NO;
     
-    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
     
     [self.navigationItem setLeftBarButtonItems:@[addProjectButton, importProjectButton]];
     self.navigationItem.rightBarButtonItems = @[settingsButton, editProjectsButton];
@@ -166,8 +167,15 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     }
 }
 
-- (void)showSettings {
+- (void)showSettings:(id)sender {
     
+    IASKAppSettingsViewController *settingsController = [[IASKAppSettingsViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
+    
+      /*Display it in pop over*/
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:navigationController];
+    
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
 }
 
 - (void)removeProjects {
