@@ -58,12 +58,12 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
     UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newProject)];
-    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(importProject:)];
+    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"import"]  style:UIBarButtonItemStylePlain  target:self action:@selector(importProject:)];
     
     editProjectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleProjectEditMode)];
     editProjectsButton.enabled = NO;
     
-    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
     
     [self.navigationItem setLeftBarButtonItems:@[addProjectButton, importProjectButton]];
     self.navigationItem.rightBarButtonItems = @[settingsButton, editProjectsButton];
