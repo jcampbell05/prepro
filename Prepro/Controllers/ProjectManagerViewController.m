@@ -170,6 +170,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     
     IASKAppSettingsViewController *settingsController = [[IASKAppSettingsViewController alloc] init];
     settingsController.delegate = self;
+    settingsController.showCreditsFooter = NO;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
     
       /*Display it in pop over*/
