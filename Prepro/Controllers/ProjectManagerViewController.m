@@ -390,10 +390,8 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         heightForHeaderForSection:(NSInteger)section {
     NSString* key = [settingsViewController.settingsReader keyForSection:section];
 	if ([key isEqualToString:@"IASKLogo"]) {
-		return [UIImage imageNamed:@"Icon.png"].size.height + 25;
-	} else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
-		return 55.f;
-    }
+		return [UIImage imageNamed:@"Logo"].size.height + 25;
+	}
 	return 0;
 }
 
@@ -402,7 +400,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
            viewForHeaderForSection:(NSInteger)section {
     NSString* key = [settingsViewController.settingsReader keyForSection:section];
 	if ([key isEqualToString:@"IASKLogo"]) {
-		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon.png"]];
+		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 		imageView.contentMode = UIViewContentModeCenter;
 		return imageView;
 	}

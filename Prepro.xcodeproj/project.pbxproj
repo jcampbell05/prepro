@@ -99,6 +99,7 @@
 		741CF2C917EFB8C2007DDD42 /* FPPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741CF29817EFB8C2007DDD42 /* FPPicker.framework */; };
 		742CB95617F9E70D00A3E549 /* NSManagedObject+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 742CB95517F9E70D00A3E549 /* NSManagedObject+Serialization.m */; };
 		74487552185BF2D400BABB2D /* changelog.html in Resources */ = {isa = PBXBuildFile; fileRef = 74487551185BF2D400BABB2D /* changelog.html */; };
+		74487583185BF7C300BABB2D /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74487582185BF7C300BABB2D /* Logo.png */; };
 		744B80B918343E0C0034F4C2 /* LIExposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744B80A418343E0C0034F4C2 /* LIExposeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		745503BA184BC52200BD58DE /* PPPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503B9184BC52200BD58DE /* PPPanelViewController.m */; };
 		745503BD184BCE0100BD58DE /* UIViewController+PPPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503BC184BCE0100BD58DE /* UIViewController+PPPanel.m */; };
@@ -414,6 +415,7 @@
 		743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
 		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		74487551185BF2D400BABB2D /* changelog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = changelog.html; path = Resources/changelog.html; sourceTree = "<group>"; };
+		74487582185BF7C300BABB2D /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		744B80A318343E0C0034F4C2 /* LIExposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIExposeController.h; sourceTree = "<group>"; };
 		744B80A418343E0C0034F4C2 /* LIExposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIExposeController.m; sourceTree = "<group>"; };
 		745503B8184BC52200BD58DE /* PPPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPanelViewController.h; path = Controllers/PPPanelViewController.h; sourceTree = "<group>"; };
@@ -1360,6 +1362,7 @@
 		74A9B37F185B46A800454EF8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				74487582185BF7C300BABB2D /* Logo.png */,
 				74A9B380185B46A800454EF8 /* Add.png */,
 				74A9B381185B46A800454EF8 /* deleteBtn.png */,
 				74A9B382185B46A800454EF8 /* DeleteTick.png */,
@@ -1599,6 +1602,7 @@
 				74A9B3B3185B46A800454EF8 /* tabs-small.png in Resources */,
 				74A9B3A8185B46A800454EF8 /* notes.png in Resources */,
 				74A9B39C185B46A800454EF8 /* deleteBtn.png in Resources */,
+				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
 				74A9B3A0185B46A800454EF8 /* home.png in Resources */,
 				74D25C7C181495EA0097F9D7 /* Images.xcassets in Resources */,
