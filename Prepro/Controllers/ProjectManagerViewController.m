@@ -14,6 +14,7 @@
 #import "ProjectCollectionViewCell.h"
 #import "Project.h"
 #import "MBAlertView.h"
+#import "IASKSettingsReader.h"
 
 @implementation ProjectManagerViewController
 
@@ -379,6 +380,33 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker {
     [popoverController dismissPopoverAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark IASKAppSettingsViewControllerDelegate protocol
+
+- (CGFloat)settingsViewController:(id<IASKViewController>)settingsViewController
+                        tableView:(UITableView *)tableView
+        heightForHeaderForSection:(NSInteger)section {
+    NSString* key = [settingsViewController.settingsReader keyForSection:section];
+	if ([key isEqualToString:@"IASKLogo"]) {
+		return [UIImage imageNamed:@"Icon.png"].size.height + 25;
+	} else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
+		return 55.f;
+    }
+	return 0;
+}
+
+- (UIView *)settingsViewController:(id<IASKViewController>)settingsViewController
+                         tableView:(UITableView *)tableView
+           viewForHeaderForSection:(NSInteger)section {
+    NSString* key = [settingsViewController.settingsReader keyForSection:section];
+	if ([key isEqualToString:@"IASKLogo"]) {
+		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon.png"]];
+		imageView.contentMode = UIViewContentModeCenter;
+		return imageView;
+	}
+	return nil;
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
