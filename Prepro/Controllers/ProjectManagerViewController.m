@@ -14,7 +14,6 @@
 #import "ProjectCollectionViewCell.h"
 #import "Project.h"
 #import "MBAlertView.h"
-#import "IASKAppSettingsViewController.h"
 
 @implementation ProjectManagerViewController
 
@@ -170,6 +169,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
 - (void)showSettings:(id)sender {
     
     IASKAppSettingsViewController *settingsController = [[IASKAppSettingsViewController alloc] init];
+    settingsController.delegate = self;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
     
       /*Display it in pop over*/
@@ -374,12 +374,14 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
 
 - (void)FPPickerController:(FPPickerController *)picker didPickMediaWithInfo:(NSDictionary *)info {
     [popoverController dismissPopoverAnimated:YES];
-    return;
 }
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker {
     [popoverController dismissPopoverAnimated:YES];
-    return;
+}
+
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
+     [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)showProject: (Project *)project fromIndexPath:(NSIndexPath *)indexPath {

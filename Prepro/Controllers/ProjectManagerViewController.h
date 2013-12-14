@@ -11,11 +11,12 @@
 #import "ProjectViewController.h"
 #import "PPExposeController.h"
 #import "WYPopoverController.h"
+#import "IASKAppSettingsViewController.h"
 
 #define ProjectManagerViewCollectionViewCellWidth 100
 #define ProjectManagerViewCollectionViewCellHeight 150
 
-@interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate, UIScrollViewDelegate> {
+@interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate, UIScrollViewDelegate, IASKSettingsDelegate> {
     
     WYPopoverController *popoverController;
     
