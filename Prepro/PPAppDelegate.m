@@ -26,6 +26,7 @@
 #import "BudgetDocument.h"
 #import "NotesDocument.h"
 #import "LogBookDocument.h"
+#import "RiskAssessmentDocument.h"
 #import "MBAlertView.h"
 #import "WYPopoverController.h"
 
@@ -39,6 +40,12 @@
 {
     
     NSLog(@"Prepro launched.");
+    
+    //Move into settings default JSON
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{
+        @"pressAndHoldToRearrange": @YES,
+        @"pinchPullToCreateGesture": @YES
+    }];
     
     [NewRelicAgent startWithApplicationToken:@"AA77b276cfbbf23b32b1ba86ef1553f2c7b82e03cd"];
     
@@ -206,14 +213,15 @@
              [ShotListDocument alloc],
              [EquipmentListDocument alloc],
              [CastDocument alloc],
+             [CharacterProfilesDocument alloc],
              [CrewDocument alloc],
              [ScriptDocument alloc],
              //[StoryboardDocument alloc],
              //[SoundtrackDocument alloc],
-             [CharacterProfilesDocument alloc],
              [ContingencyPlansDocument alloc],
              [ShootingDatesDocument alloc],
              [LocationListDocument alloc],
+             [RiskAssessmentDocument alloc],
              [PropListDocument alloc],
              [BudgetDocument alloc],
              [NotesDocument alloc]

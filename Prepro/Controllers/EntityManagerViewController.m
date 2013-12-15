@@ -400,6 +400,8 @@
 
 - (NSIndexPath *)gestureRecognizer:(JTTableViewGestureRecognizer *)gestureRecognizer willCreateCellAtIndexPath:(NSIndexPath *)indexPath {
     
+     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinchPullToCreateGesture"]) return nil;
+    
     if (self.isEditing) {
         return nil;
     }
@@ -418,6 +420,7 @@
 }
 
 - (void)gestureRecognizer:(JTTableViewGestureRecognizer *)gestureRecognizer needsAddRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     EntityCategory * category = [self categoryForSection:indexPath.section excludeEmpty:YES];
     
     //Handle empty documents
@@ -434,6 +437,8 @@
 }
 
 - (BOOL)gestureRecognizer:(JTTableViewGestureRecognizer *)gestureRecognizer canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pressAndHoldToRearrange"]) return NO;
     
     if (self.isEditing) {
         return NO;

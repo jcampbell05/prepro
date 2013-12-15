@@ -120,6 +120,11 @@
 		7483054F1846ADAC00E79974 /* PPDocumentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483054E1846ADAC00E79974 /* PPDocumentListTableViewCell.m */; };
 		748305521846B90900E79974 /* UIImage+NegativeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 748305511846B90900E79974 /* UIImage+NegativeImage.m */; };
 		74848456185E30CF007905D6 /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = 74848455185E30CF007905D6 /* Changelog */; };
+		7484845B185E3768007905D6 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 74848457185E3768007905D6 /* facebook.png */; };
+		7484845C185E3768007905D6 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74848458185E3768007905D6 /* facebook@2x.png */; };
+		7484845D185E3768007905D6 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 74848459185E3768007905D6 /* twitter.png */; };
+		7484845E185E3768007905D6 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484845A185E3768007905D6 /* twitter@2x.png */; };
+		74848461185E630E007905D6 /* RiskAssessmentDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 74848460185E630E007905D6 /* RiskAssessmentDocument.m */; };
 		7484E4C3180B7CBC003F6E4A /* JTTableViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7484E48F180B7CBC003F6E4A /* JTTableViewGestureRecognizer.m */; };
 		7484E4C4180B7CBC003F6E4A /* JTTransformableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7484E491180B7CBC003F6E4A /* JTTransformableTableViewCell.m */; };
 		7484E4C5180B7CBC003F6E4A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7484E492180B7CBC003F6E4A /* LICENSE */; };
@@ -451,6 +456,12 @@
 		748305501846B90900E79974 /* UIImage+NegativeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+NegativeImage.h"; path = "Catergories/UIImage+NegativeImage.h"; sourceTree = "<group>"; };
 		748305511846B90900E79974 /* UIImage+NegativeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+NegativeImage.m"; path = "Catergories/UIImage+NegativeImage.m"; sourceTree = "<group>"; };
 		74848455185E30CF007905D6 /* Changelog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Changelog; path = Resources/Changelog; sourceTree = "<group>"; };
+		74848457185E3768007905D6 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		74848458185E3768007905D6 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		74848459185E3768007905D6 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		7484845A185E3768007905D6 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		7484845F185E630E007905D6 /* RiskAssessmentDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskAssessmentDocument.h; path = Models/RiskAssessmentDocument.h; sourceTree = "<group>"; };
+		74848460185E630E007905D6 /* RiskAssessmentDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskAssessmentDocument.m; path = Models/RiskAssessmentDocument.m; sourceTree = "<group>"; };
 		7484E48E180B7CBC003F6E4A /* JTTableViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTTableViewGestureRecognizer.h; sourceTree = "<group>"; };
 		7484E48F180B7CBC003F6E4A /* JTTableViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTTableViewGestureRecognizer.m; sourceTree = "<group>"; };
 		7484E490180B7CBC003F6E4A /* JTTransformableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTTransformableTableViewCell.h; sourceTree = "<group>"; };
@@ -836,6 +847,8 @@
 				1A9B73F917249DF0008BFF18 /* SoundtrackDocument.m */,
 				1A9B73F517249D80008BFF18 /* StoryboardDocument.h */,
 				1A9B73F617249D81008BFF18 /* StoryboardDocument.m */,
+				7484845F185E630E007905D6 /* RiskAssessmentDocument.h */,
+				74848460185E630E007905D6 /* RiskAssessmentDocument.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1362,6 +1375,10 @@
 		74A9B37F185B46A800454EF8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				74848457185E3768007905D6 /* facebook.png */,
+				74848458185E3768007905D6 /* facebook@2x.png */,
+				74848459185E3768007905D6 /* twitter.png */,
+				7484845A185E3768007905D6 /* twitter@2x.png */,
 				74487582185BF7C300BABB2D /* Logo.png */,
 				74A9B380185B46A800454EF8 /* Add.png */,
 				74A9B381185B46A800454EF8 /* deleteBtn.png */,
@@ -1600,16 +1617,19 @@
 			files = (
 				74A9B3A4185B46A800454EF8 /* contingency.png in Resources */,
 				74A9B3B3185B46A800454EF8 /* tabs-small.png in Resources */,
+				7484845C185E3768007905D6 /* facebook@2x.png in Resources */,
 				74A9B3A8185B46A800454EF8 /* notes.png in Resources */,
 				74A9B39C185B46A800454EF8 /* deleteBtn.png in Resources */,
 				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				74848456185E30CF007905D6 /* Changelog in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
+				7484845D185E3768007905D6 /* twitter.png in Resources */,
 				74A9B3A0185B46A800454EF8 /* home.png in Resources */,
 				74D25C7C181495EA0097F9D7 /* Images.xcassets in Resources */,
 				741CF2C817EFB8C2007DDD42 /* FPPicker.bundle in Resources */,
 				74A9B39B185B46A800454EF8 /* Add.png in Resources */,
 				74A9B3AF185B46A800454EF8 /* import.png in Resources */,
+				7484845E185E3768007905D6 /* twitter@2x.png in Resources */,
 				74A9B3A6185B46A800454EF8 /* equipment.png in Resources */,
 				74A9B3A2185B46A800454EF8 /* cast.png in Resources */,
 				7458828C17723930008F9307 /* CastDocument.json in Resources */,
@@ -1620,6 +1640,7 @@
 				74A9B39F185B46A800454EF8 /* export.png in Resources */,
 				74A9B3A1185B46A800454EF8 /* budget.png in Resources */,
 				74A9B3B1185B46A800454EF8 /* ProjectThumbnail.jpg in Resources */,
+				7484845B185E3768007905D6 /* facebook.png in Resources */,
 				74A9B3AC185B46A800454EF8 /* riskassessment.png in Resources */,
 				74A9B3AB185B46A800454EF8 /* props.png in Resources */,
 				74B2E5E21778AE16009B4E84 /* CrewDocument.json in Resources */,
@@ -1701,6 +1722,7 @@
 				748D8026181DDFCB00FB0DB8 /* QRadioSection.m in Sources */,
 				1A2CAF3D16FDEBBD008E79E4 /* ProjectViewController.m in Sources */,
 				748D805B1820753B00FB0DB8 /* WYStoryboardPopoverSegue.m in Sources */,
+				74848461185E630E007905D6 /* RiskAssessmentDocument.m in Sources */,
 				748D8034181DDFCB00FB0DB8 /* QuickDialogController+Loading.m in Sources */,
 				1A626B1916FE4801008527A6 /* Project.m in Sources */,
 				1A2E781F1700E7D900F73065 /* CharacterProfilesDocument.m in Sources */,
