@@ -27,6 +27,7 @@
 #import "NotesDocument.h"
 #import "LogBookDocument.h"
 #import "RiskAssessmentDocument.h"
+#import "CallSheetDocument.h"
 #import "MBAlertView.h"
 #import "WYPopoverController.h"
 
@@ -210,21 +211,22 @@
 - (NSArray *) documents {
     return @[
              [ProposalDocument alloc],
+             [ScriptDocument alloc],
+             [CharacterProfilesDocument alloc],
              [ShotListDocument alloc],
              [EquipmentListDocument alloc],
              [CastDocument alloc],
-             [CharacterProfilesDocument alloc],
              [CrewDocument alloc],
-             [ScriptDocument alloc],
-             //[StoryboardDocument alloc],
-             //[SoundtrackDocument alloc],
+             [LocationListDocument alloc],
+             [PropListDocument alloc],
+             [RiskAssessmentDocument alloc],
+             [BudgetDocument alloc],
              [ContingencyPlansDocument alloc],
              [ShootingDatesDocument alloc],
-             [LocationListDocument alloc],
-             [RiskAssessmentDocument alloc],
-             [PropListDocument alloc],
-             [BudgetDocument alloc],
-             [NotesDocument alloc]
+             [NotesDocument alloc],
+             [CallSheetDocument alloc]
+             //[StoryboardDocument alloc],
+             //[SoundtrackDocument alloc],
              //[LogBookDocument alloc]
             ];
 }

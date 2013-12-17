@@ -98,6 +98,8 @@
 		741CF2C817EFB8C2007DDD42 /* FPPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 741CF29717EFB8C2007DDD42 /* FPPicker.bundle */; };
 		741CF2C917EFB8C2007DDD42 /* FPPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741CF29817EFB8C2007DDD42 /* FPPicker.framework */; };
 		742CB95617F9E70D00A3E549 /* NSManagedObject+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 742CB95517F9E70D00A3E549 /* NSManagedObject+Serialization.m */; };
+		74329DEE1860AA6E000A8F61 /* CallSheetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 74329DED1860AA6E000A8F61 /* CallSheetDocument.m */; };
+		74329DF01860AA94000A8F61 /* callsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 74329DEF1860AA94000A8F61 /* callsheet.png */; };
 		74487583185BF7C300BABB2D /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74487582185BF7C300BABB2D /* Logo.png */; };
 		744B80B918343E0C0034F4C2 /* LIExposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744B80A418343E0C0034F4C2 /* LIExposeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		745503BA184BC52200BD58DE /* PPPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503B9184BC52200BD58DE /* PPPanelViewController.m */; };
@@ -417,6 +419,9 @@
 		741CF29817EFB8C2007DDD42 /* FPPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FPPicker.framework; sourceTree = "<group>"; };
 		742CB95417F9E70D00A3E549 /* NSManagedObject+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+Serialization.h"; path = "Catergories/NSManagedObject+Serialization.h"; sourceTree = "<group>"; };
 		742CB95517F9E70D00A3E549 /* NSManagedObject+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+Serialization.m"; path = "Catergories/NSManagedObject+Serialization.m"; sourceTree = "<group>"; };
+		74329DEC1860AA6E000A8F61 /* CallSheetDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallSheetDocument.h; path = Models/CallSheetDocument.h; sourceTree = "<group>"; };
+		74329DED1860AA6E000A8F61 /* CallSheetDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallSheetDocument.m; path = Models/CallSheetDocument.m; sourceTree = "<group>"; };
+		74329DEF1860AA94000A8F61 /* callsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callsheet.png; path = Icons/callsheet.png; sourceTree = "<group>"; };
 		743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
 		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		74487582185BF7C300BABB2D /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
@@ -849,6 +854,8 @@
 				1A9B73F617249D81008BFF18 /* StoryboardDocument.m */,
 				7484845F185E630E007905D6 /* RiskAssessmentDocument.h */,
 				74848460185E630E007905D6 /* RiskAssessmentDocument.m */,
+				74329DEC1860AA6E000A8F61 /* CallSheetDocument.h */,
+				74329DED1860AA6E000A8F61 /* CallSheetDocument.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1375,24 +1382,25 @@
 		74A9B37F185B46A800454EF8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				74848457185E3768007905D6 /* facebook.png */,
-				74848458185E3768007905D6 /* facebook@2x.png */,
-				74848459185E3768007905D6 /* twitter.png */,
-				7484845A185E3768007905D6 /* twitter@2x.png */,
-				74487582185BF7C300BABB2D /* Logo.png */,
 				74A9B380185B46A800454EF8 /* Add.png */,
+				74329DEF1860AA94000A8F61 /* callsheet.png */,
 				74A9B381185B46A800454EF8 /* deleteBtn.png */,
 				74A9B382185B46A800454EF8 /* DeleteTick.png */,
 				74A9B383185B46A800454EF8 /* documentList.png */,
 				74A9B384185B46A800454EF8 /* export.png */,
+				74848457185E3768007905D6 /* facebook.png */,
+				74848458185E3768007905D6 /* facebook@2x.png */,
 				74A9B385185B46A800454EF8 /* home.png */,
 				74A9B386185B46A800454EF8 /* Icons */,
 				74A9B395185B46A800454EF8 /* import.png */,
+				74487582185BF7C300BABB2D /* Logo.png */,
 				74A9B396185B46A800454EF8 /* PreproBackground.png */,
 				74A9B397185B46A800454EF8 /* ProjectThumbnail.jpg */,
 				74A9B398185B46A800454EF8 /* settings.png */,
 				74A9B399185B46A800454EF8 /* tabs-small.png */,
 				74A9B39A185B46A800454EF8 /* tabs.png */,
+				74848459185E3768007905D6 /* twitter.png */,
+				7484845A185E3768007905D6 /* twitter@2x.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -1645,6 +1653,7 @@
 				74A9B3AB185B46A800454EF8 /* props.png in Resources */,
 				74B2E5E21778AE16009B4E84 /* CrewDocument.json in Resources */,
 				74A9B3A9185B46A800454EF8 /* polaroid.png in Resources */,
+				74329DF01860AA94000A8F61 /* callsheet.png in Resources */,
 				74B2E5E51778B026009B4E84 /* PropListDocument.json in Resources */,
 				745933D9182ACDF0001CE8D0 /* Readme.md in Resources */,
 				74A9B3A5185B46A800454EF8 /* crew.png in Resources */,
@@ -1785,6 +1794,7 @@
 				74B0520D185155D900ED4E88 /* MBFlatAlertButton.m in Sources */,
 				1A9BF0F81732FA2900B5A813 /* Shot.m in Sources */,
 				748D801A181DDFCB00FB0DB8 /* QLabelElement.m in Sources */,
+				74329DEE1860AA6E000A8F61 /* CallSheetDocument.m in Sources */,
 				1A2034EE17359290002BD6E5 /* UIView+FindAndResignFirstResponder.m in Sources */,
 				74B05205185155D900ED4E88 /* UIFont+Alert.m in Sources */,
 				748D8033181DDFCB00FB0DB8 /* QuickDialogController+Helpers.m in Sources */,
