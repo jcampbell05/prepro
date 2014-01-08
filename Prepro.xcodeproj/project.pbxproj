@@ -47,7 +47,6 @@
 		1A9B73E8172499B0008BFF18 /* ProposalDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73E7172499B0008BFF18 /* ProposalDocument.m */; };
 		1A9B73EB17249ACE008BFF18 /* ShotListDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73EA17249ACE008BFF18 /* ShotListDocument.m */; };
 		1A9B73EE17249B1B008BFF18 /* EquipmentListDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73ED17249B1A008BFF18 /* EquipmentListDocument.m */; };
-		1A9B73F117249C04008BFF18 /* ScriptDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73F017249C04008BFF18 /* ScriptDocument.m */; };
 		1A9B73F417249C83008BFF18 /* CrewDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73F317249C83008BFF18 /* CrewDocument.m */; };
 		1A9B73F717249D81008BFF18 /* StoryboardDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73F617249D81008BFF18 /* StoryboardDocument.m */; };
 		1A9B73FA17249DF2008BFF18 /* SoundtrackDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B73F917249DF0008BFF18 /* SoundtrackDocument.m */; };
@@ -119,6 +118,8 @@
 		7473211A17A7B65400E69EE4 /* PPExpandingTextEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7473211917A7B65400E69EE4 /* PPExpandingTextEntryElement.m */; };
 		7473211E17A7B67600E69EE4 /* PPPhotoPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7473211D17A7B67600E69EE4 /* PPPhotoPickerElement.m */; };
 		74762DCC185002BC00D81223 /* PPNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74762DCB185002BC00D81223 /* PPNavigationViewController.m */; };
+		7476F13F187624AD00EE52D1 /* Script.m in Sources */ = {isa = PBXBuildFile; fileRef = 7476F13E187624AD00EE52D1 /* Script.m */; };
+		7476F142187624D800EE52D1 /* ScriptDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7476F141187624D800EE52D1 /* ScriptDocument.m */; };
 		7483054F1846ADAC00E79974 /* PPDocumentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483054E1846ADAC00E79974 /* PPDocumentListTableViewCell.m */; };
 		748305521846B90900E79974 /* UIImage+NegativeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 748305511846B90900E79974 /* UIImage+NegativeImage.m */; };
 		74848456185E30CF007905D6 /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = 74848455185E30CF007905D6 /* Changelog */; };
@@ -254,6 +255,7 @@
 		74D25C7C181495EA0097F9D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D25C7B181495EA0097F9D7 /* Images.xcassets */; };
 		74D3EBDE179DDA4E00E94FD9 /* PPTimeCodeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D3EBDD179DDA4E00E94FD9 /* PPTimeCodeElement.m */; };
 		74E044F4183AA1520036B4FB /* PPExposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E044F3183AA1520036B4FB /* PPExposeController.m */; };
+		74F8F816187C6F7800CBD93D /* PPScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F8F815187C6F7800CBD93D /* PPScriptViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,8 +331,6 @@
 		1A9B73EA17249ACE008BFF18 /* ShotListDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotListDocument.m; path = Models/ShotListDocument.m; sourceTree = "<group>"; };
 		1A9B73EC17249B1A008BFF18 /* EquipmentListDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquipmentListDocument.h; path = Models/EquipmentListDocument.h; sourceTree = "<group>"; };
 		1A9B73ED17249B1A008BFF18 /* EquipmentListDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquipmentListDocument.m; path = Models/EquipmentListDocument.m; sourceTree = "<group>"; };
-		1A9B73EF17249C04008BFF18 /* ScriptDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptDocument.h; path = Models/ScriptDocument.h; sourceTree = "<group>"; };
-		1A9B73F017249C04008BFF18 /* ScriptDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScriptDocument.m; path = Models/ScriptDocument.m; sourceTree = "<group>"; };
 		1A9B73F217249C83008BFF18 /* CrewDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrewDocument.h; path = Models/CrewDocument.h; sourceTree = "<group>"; };
 		1A9B73F317249C83008BFF18 /* CrewDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrewDocument.m; path = Models/CrewDocument.m; sourceTree = "<group>"; };
 		1A9B73F517249D80008BFF18 /* StoryboardDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryboardDocument.h; path = Models/StoryboardDocument.h; sourceTree = "<group>"; };
@@ -456,6 +456,11 @@
 		7473211D17A7B67600E69EE4 /* PPPhotoPickerElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPhotoPickerElement.m; path = Controls/PPPhotoPickerElement.m; sourceTree = "<group>"; };
 		74762DCA185002BC00D81223 /* PPNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPNavigationViewController.h; path = Controllers/PPNavigationViewController.h; sourceTree = "<group>"; };
 		74762DCB185002BC00D81223 /* PPNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPNavigationViewController.m; path = Controllers/PPNavigationViewController.m; sourceTree = "<group>"; };
+		7476F13D187624AD00EE52D1 /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Script.h; path = Models/Script.h; sourceTree = "<group>"; };
+		7476F13E187624AD00EE52D1 /* Script.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Script.m; path = Models/Script.m; sourceTree = "<group>"; };
+		7476F140187624D800EE52D1 /* ScriptDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptDocument.h; path = Models/ScriptDocument.h; sourceTree = "<group>"; };
+		7476F141187624D800EE52D1 /* ScriptDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScriptDocument.m; path = Models/ScriptDocument.m; sourceTree = "<group>"; };
+		7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.4.xcdatamodel; sourceTree = "<group>"; };
 		7483054D1846ADAC00E79974 /* PPDocumentListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDocumentListTableViewCell.h; path = Views/PPDocumentListTableViewCell.h; sourceTree = "<group>"; };
 		7483054E1846ADAC00E79974 /* PPDocumentListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDocumentListTableViewCell.m; path = Views/PPDocumentListTableViewCell.m; sourceTree = "<group>"; };
 		748305501846B90900E79974 /* UIImage+NegativeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+NegativeImage.h"; path = "Catergories/UIImage+NegativeImage.h"; sourceTree = "<group>"; };
@@ -690,6 +695,8 @@
 		74D3EBDD179DDA4E00E94FD9 /* PPTimeCodeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTimeCodeElement.m; path = Controls/PPTimeCodeElement.m; sourceTree = "<group>"; };
 		74E044F2183AA1520036B4FB /* PPExposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPExposeController.h; path = Controllers/PPExposeController.h; sourceTree = "<group>"; };
 		74E044F3183AA1520036B4FB /* PPExposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPExposeController.m; path = Controllers/PPExposeController.m; sourceTree = "<group>"; };
+		74F8F814187C6F7700CBD93D /* PPScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptViewController.h; path = Controllers/PPScriptViewController.h; sourceTree = "<group>"; };
+		74F8F815187C6F7800CBD93D /* PPScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptViewController.m; path = Controllers/PPScriptViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -840,8 +847,6 @@
 				1A3A3A38172BFE1B003124D0 /* Proposal.m */,
 				1A9B73E6172499B0008BFF18 /* ProposalDocument.h */,
 				1A9B73E7172499B0008BFF18 /* ProposalDocument.m */,
-				1A9B73EF17249C04008BFF18 /* ScriptDocument.h */,
-				1A9B73F017249C04008BFF18 /* ScriptDocument.m */,
 				1A9B73FE17249E43008BFF18 /* ShootingDatesDocument.h */,
 				1A9B73FF17249E44008BFF18 /* ShootingDatesDocument.m */,
 				1A9BF0F61732FA2900B5A813 /* Shot.h */,
@@ -856,6 +861,10 @@
 				74848460185E630E007905D6 /* RiskAssessmentDocument.m */,
 				74329DEC1860AA6E000A8F61 /* CallSheetDocument.h */,
 				74329DED1860AA6E000A8F61 /* CallSheetDocument.m */,
+				7476F13D187624AD00EE52D1 /* Script.h */,
+				7476F13E187624AD00EE52D1 /* Script.m */,
+				7476F140187624D800EE52D1 /* ScriptDocument.h */,
+				7476F141187624D800EE52D1 /* ScriptDocument.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1010,6 +1019,8 @@
 				745503B9184BC52200BD58DE /* PPPanelViewController.m */,
 				74762DCA185002BC00D81223 /* PPNavigationViewController.h */,
 				74762DCB185002BC00D81223 /* PPNavigationViewController.m */,
+				74F8F814187C6F7700CBD93D /* PPScriptViewController.h */,
+				74F8F815187C6F7800CBD93D /* PPScriptViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1716,6 +1727,7 @@
 				748D8039181DDFCB00FB0DB8 /* QuickDialogTableView.m in Sources */,
 				1AFB357D16FCF17200590D87 /* PPAppDelegate.m in Sources */,
 				1AFB358616FCF17200590D87 /* Prepro.xcdatamodeld in Sources */,
+				7476F13F187624AD00EE52D1 /* Script.m in Sources */,
 				748D8002181DDFCB00FB0DB8 /* QAutoEntryElement.m in Sources */,
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
@@ -1750,12 +1762,13 @@
 				748D803A181DDFCB00FB0DB8 /* QuickDialogWebController.m in Sources */,
 				745503BD184BCE0100BD58DE /* UIViewController+PPPanel.m in Sources */,
 				1A9B73EE17249B1B008BFF18 /* EquipmentListDocument.m in Sources */,
-				1A9B73F117249C04008BFF18 /* ScriptDocument.m in Sources */,
+				7476F142187624D800EE52D1 /* ScriptDocument.m in Sources */,
 				1A9B73F417249C83008BFF18 /* CrewDocument.m in Sources */,
 				74B05208185155D900ED4E88 /* MBAlertViewButton.m in Sources */,
 				1A9B73F717249D81008BFF18 /* StoryboardDocument.m in Sources */,
 				748D803B181DDFCB00FB0DB8 /* QWebElement.m in Sources */,
 				1A9B73FA17249DF2008BFF18 /* SoundtrackDocument.m in Sources */,
+				74F8F816187C6F7800CBD93D /* PPScriptViewController.m in Sources */,
 				1A9B73FD17249E2A008BFF18 /* ContingencyPlansDocument.m in Sources */,
 				1A9B740017249E45008BFF18 /* ShootingDatesDocument.m in Sources */,
 				1A9B740617249E74008BFF18 /* LocationListDocument.m in Sources */,
@@ -2108,12 +2121,13 @@
 		1AFB358416FCF17200590D87 /* Prepro.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */,
 				744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */,
 				743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */,
 				748D806018208A9C00FB0DB8 /* Prepro1.1.xcdatamodel */,
 				1AFB358516FCF17200590D87 /* Prepro1.0.xcdatamodel */,
 			);
-			currentVersion = 743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */;
+			currentVersion = 7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */;
 			path = Prepro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

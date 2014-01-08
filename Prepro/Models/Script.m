@@ -1,13 +1,13 @@
 //
-//  ScriptDocument.h
+//  Script.m
 //  Prepro
 //
 //  Created by James Campbell on 02/01/2014.
 //  Copyright (c) 2014 Dean Uzzell. All rights reserved.
 //
 
-#import "Document.h"
+#import "Script.h"
 
-@interface ScriptDocument : Document
+@implementation Script
 
 @end

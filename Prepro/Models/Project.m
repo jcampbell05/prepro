@@ -11,7 +11,7 @@
 
 @implementation Project
 
-@dynamic title, proposal, characterProfiles, notes, crew, cast, shots, locations, props, equpiment;
+@dynamic title, proposal, characterProfiles, notes, crew, cast, shots, locations, props, equpiment, scripts;
 
 + (id)createNew {
     

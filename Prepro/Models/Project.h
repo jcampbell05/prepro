@@ -24,5 +24,6 @@
 @property (nonatomic, retain) NSSet *locations;
 @property (nonatomic, retain) NSSet *props;
 @property (nonatomic, retain) NSSet *equpiment;
+@property (nonatomic, retain) NSSet *scripts;
 
 @end
