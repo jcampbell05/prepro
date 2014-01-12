@@ -10,4 +10,10 @@
 
 @implementation Script
 
+@dynamic name;
+
+- (void)awakeFromInsert {
+    self.name = @"New Script";
+}
+
 @end

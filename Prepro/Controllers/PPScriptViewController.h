@@ -10,4 +10,6 @@
 
 @interface PPScriptViewController : UIViewController
 
+@property (nonatomic, retain) UITextView *textView;
+
 @end

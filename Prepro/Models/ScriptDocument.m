@@ -33,9 +33,22 @@
     return @"scripts";
 }
 
+- (void)updateRow:(UITableViewCell *)cell ForEntity:(id)entity {
+    Script *script = (Script *)entity;
+    
+    cell.textLabel.text = script.name;
+}
+
+- (NSString *)titleForEntity:(id)entity {
+    Script *script = (Script *)entity;
+    return script.name;
+}
+
 - (id)viewControllerForEditingEntity:(id)entity {
     
-    return [[PPScriptViewController alloc] init];
+    PPScriptViewController * scriptViewController = [[PPScriptViewController alloc] init];
+    
+    return scriptViewController;
 }
 
 @end
