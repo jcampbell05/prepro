@@ -39,4 +39,10 @@
     
 }
 
+- (BOOL)save:(NSError **)error {
+    NSManagedObjectContext *managedObjectContext = [(PPAppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext];
+    
+    return [managedObjectContext save:error];
+}
+
 @end

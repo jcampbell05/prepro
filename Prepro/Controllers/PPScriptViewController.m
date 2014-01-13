@@ -7,6 +7,7 @@
 //
 
 #import "PPScriptViewController.h"
+#import "MBAlertView.h"
 
 @interface PPScriptViewController ()
 
@@ -15,13 +16,99 @@
 @implementation PPScriptViewController
 
 - (void)loadView {
-    _textView = [[UITextView alloc] init];
-    self.view = _textView;
+    
+    titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(37,7, 100,35)];
+    titleTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    titleTextField.backgroundColor = [UIColor clearColor];
+    titleTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    titleTextField.delegate = self;
+    titleTextField.enabled  = NO;
+    titleTextField.font = [UIFont systemFontOfSize:20.0];
+    titleTextField.opaque = NO;
+    titleTextField.textAlignment = NSTextAlignmentCenter;
+    titleTextField.textColor = [UIColor whiteColor];
+    titleTextField.returnKeyType = UIReturnKeyDone;
+    titleTextField.adjustsFontSizeToFitWidth = YES;
+    
+    self.navigationItem.titleView = titleTextField;
+    
+    textView = [[UITextView alloc] init];
+    
+    self.view = textView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    titleTextField.text = _script.name;
+    
+    titleDoubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
+    [titleDoubleTapGestureRecognizer addTarget:self action:@selector(startEditingTitle)];
+    titleDoubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [titleTextField addGestureRecognizer:titleDoubleTapGestureRecognizer];
+    
+    singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    singleTapRecognizer.numberOfTapsRequired = 1;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+ 
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    _script.content = textView.text;
+}
+
+- (void)startEditingTitle {
+    titleTextField.enabled = YES;
+    [titleTextField becomeFirstResponder];
+    
+    [self.view addGestureRecognizer:singleTapRecognizer];
+}
+
+- (void)endEditingTitle {
+    [titleTextField resignFirstResponder];
+    titleTextField.enabled = NO;
+    
+    _script.name = titleTextField.text;
+    
+    [self.view removeGestureRecognizer:singleTapRecognizer];
+    
+    NSError *error;
+    if(![_script save:&error]){
+        NSLog(@"Error saving script.");
+        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+    } else {
+        NSLog(@"Script saved.");
+    }
+}
+
+- (void)dismissKeyboard {
+    [self endEditingTitle];
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if ( [string isEqualToString:@"\n"] ){
+        
+        if ( titleTextField.text.length == 0 ){
+            [[MBAlertView alertWithBody:@"Please enter a project title" cancelTitle:@"Continue" cancelBlock:^{
+                [self startEditingTitle];
+            }] addToDisplayQueue];
+        } else {
+            [self endEditingTitle];
+        }
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

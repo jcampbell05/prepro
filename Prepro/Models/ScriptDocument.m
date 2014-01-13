@@ -47,6 +47,7 @@
 - (id)viewControllerForEditingEntity:(id)entity {
     
     PPScriptViewController * scriptViewController = [[PPScriptViewController alloc] init];
+    scriptViewController.script = (Script *)entity;
     
     return scriptViewController;
 }

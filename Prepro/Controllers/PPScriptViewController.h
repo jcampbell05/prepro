@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Script.h"
 
-@interface PPScriptViewController : UIViewController
+@interface PPScriptViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate> {
+    
+    UITextField * titleTextField;
+    UITextView * textView;
+    
+    UITapGestureRecognizer *titleDoubleTapGestureRecognizer;
+    UITapGestureRecognizer *singleTapRecognizer;
+}
 
-@property (nonatomic, retain) UITextView *textView;
+@property (strong, atomic) Script * script;
+
+- (void)startEditingTitle;
+- (void)endEditingTitle;
+- (void)dismissKeyboard;
 
 @end

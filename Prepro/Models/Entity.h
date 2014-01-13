@@ -15,5 +15,6 @@
 
 + (id)createNew;
 - (void)onSave:(Document *)document;
+- (BOOL)save:(NSError **)error;
 
 @end
