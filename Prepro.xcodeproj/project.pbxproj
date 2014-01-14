@@ -39,6 +39,7 @@
 		1A626B1916FE4801008527A6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A626B1816FE4801008527A6 /* Project.m */; };
 		1A6D31691729FDEF000171EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356C16FCF17100590D87 /* Foundation.framework */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
+		1A88921E1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */; };
 		1A9AE7B5175B8B05002F69FD /* Cast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B4175B8B05002F69FD /* Cast.m */; };
 		1A9AE7B8175D19FE002F69FD /* Crew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B7175D19FE002F69FD /* Crew.m */; };
 		1A9AE7BE175D2546002F69FD /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7BD175D2545002F69FD /* Location.m */; };
@@ -315,6 +316,8 @@
 		1A626B1816FE4801008527A6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = Models/Project.m; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
+		1A88921C1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptSectionTypeSelectorViewController.h; path = Controllers/PPScriptSectionTypeSelectorViewController.h; sourceTree = "<group>"; };
+		1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptSectionTypeSelectorViewController.m; path = Controllers/PPScriptSectionTypeSelectorViewController.m; sourceTree = "<group>"; };
 		1A9AE7B3175B8B05002F69FD /* Cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cast.h; path = Models/Cast.h; sourceTree = "<group>"; };
 		1A9AE7B4175B8B05002F69FD /* Cast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cast.m; path = Models/Cast.m; sourceTree = "<group>"; };
 		1A9AE7B6175D19FE002F69FD /* Crew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crew.h; path = Models/Crew.h; sourceTree = "<group>"; };
@@ -1021,6 +1024,8 @@
 				74762DCB185002BC00D81223 /* PPNavigationViewController.m */,
 				74F8F814187C6F7700CBD93D /* PPScriptViewController.h */,
 				74F8F815187C6F7800CBD93D /* PPScriptViewController.m */,
+				1A88921C1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.h */,
+				1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1730,6 +1735,7 @@
 				7476F13F187624AD00EE52D1 /* Script.m in Sources */,
 				748D8002181DDFCB00FB0DB8 /* QAutoEntryElement.m in Sources */,
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
+				1A88921E1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
 				7413CB051857AB170020E875 /* IASKSettingsStoreFile.m in Sources */,
 				748D8011181DDFCB00FB0DB8 /* QDynamicDataSection.m in Sources */,

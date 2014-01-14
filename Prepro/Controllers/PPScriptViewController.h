@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Script.h"
+#import "WYPopoverController.h"
 
 @interface PPScriptViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate> {
+    
+    UIToolbar * toolbar;
+    UIBarButtonItem * typeButton;
     
     UITextField * titleTextField;
     UITextView * textView;
     
-    UITapGestureRecognizer *titleDoubleTapGestureRecognizer;
-    UITapGestureRecognizer *singleTapRecognizer;
+    UITapGestureRecognizer * titleDoubleTapGestureRecognizer;
+    UITapGestureRecognizer * singleTapRecognizer;
+    
+    WYPopoverController * popoverController;
 }
 
 @property (strong, atomic) Script * script;
@@ -23,5 +29,6 @@
 - (void)startEditingTitle;
 - (void)endEditingTitle;
 - (void)dismissKeyboard;
+- (void)showSectionTypeSelector:(id)sender;
 
 @end

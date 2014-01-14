@@ -8,6 +8,7 @@
 
 #import "PPScriptViewController.h"
 #import "MBAlertView.h"
+#import "PPScriptSectionTypeSelectorViewController.h"
 
 @interface PPScriptViewController ()
 
@@ -35,12 +36,16 @@
     
     textView = [[UITextView alloc] init];
     
+    toolbar = [[UIToolbar alloc] init];
+    
+    typeButton = [[UIBarButtonItem alloc] initWithTitle:@"Type" style:UIBarButtonItemStylePlain target:self action:@selector(showSectionTypeSelector:)];
+    
+    [toolbar sizeToFit];
+    [toolbar setItems:@[typeButton]];
+    
+    textView.inputAccessoryView = toolbar;
+    
     self.view = textView;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,6 +114,22 @@
     }
     
     return YES;
+}
+
+- (void)showSectionTypeSelector:(id)sender {
+    
+    PPScriptSectionTypeSelectorViewController * sectionTypeSelectorViewController = [[PPScriptSectionTypeSelectorViewController alloc] init];
+    sectionTypeSelectorViewController.cancelBlock = ^{
+        [popoverController dismissPopoverAnimated:YES];
+    };
+    
+    UINavigationController * navicationController = [[UINavigationController alloc] initWithRootViewController:sectionTypeSelectorViewController];
+    
+    /*Display it in pop over*/
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:navicationController];
+    
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionDown animated:YES];
+    [self.view bringSubviewToFront:popoverController.contentViewController.view];
 }
 
 @end
