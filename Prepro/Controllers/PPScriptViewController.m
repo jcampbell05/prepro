@@ -145,39 +145,65 @@
 }
 
 - (void)typePickerChanged:(UISegmentedControl *)sender {
-    [self setCurrentFormatter:formatters[ sender.selectedSegmentIndex ]];
+    [self setCurrentFormatter:sender.selectedSegmentIndex];
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
-    
+-(void)updateCurrentFormatter {
     [formatters enumerateObjectsUsingBlock:^(PPScriptFormatter * formatter, NSUInteger idx, BOOL *stop) {
         if ( [textView.typingAttributes[@"type"] isEqualToString:[formatter title]] ) {
-            [self setCurrentFormatter:formatter];
-            typePicker.selectedSegmentIndex = idx;
+            [self setCurrentFormatter:idx];
             *stop = YES;
         }
     }];
 }
 
-- (void)setCurrentFormatter:(PPScriptFormatter *)formatter {
-    currentFormatter = formatter;
-    
-    textView.typingAttributes = [formatter attributes];
+- (void)textViewDidChange:(UITextView *)textView {
+    [self updateCurrentFormatter];
 }
 
+- (void)setCurrentFormatter:(NSUInteger)idx{
+    currentFormatter = formatters[idx];
+    typePicker.selectedSegmentIndex = idx;
+    textView.typingAttributes = [currentFormatter attributes];
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    [self updateCurrentFormatter];
+}
+
+
+//Maybe override so user has to hit tab or next/prev ?
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
+    if (text.length == 0) {
+        
+        //Checkline before isn't \n if it is then reset formatting
+        
+        return YES;
+    }
+    
     text = [currentFormatter transformInput:text];
+    [textView replaceRange:textView.selectedTextRange withText:text];
     
-    NSMutableAttributedString * newAttributedText = [textView.attributedText mutableCopy];
-    [newAttributedText replaceCharactersInRange:range
-                                 withString:text];
-    
-    UITextRange *selRange = textView.selectedTextRange;
-    textView.attributedText = newAttributedText;
-    textView.selectedTextRange = selRange;
+    if ( [text isEqualToString:@"\n"] ) {
+        
+        //Check we didnt take some of the text after the carriage return, if we did then re-format it
+        
+        [self nextLineFormatter];
+    }
     
     return NO;
+}
+
+- (void)nextLineFormatter {
+    Class nextFormatterClass = [currentFormatter formatterForNextLine];
+    
+    [formatters enumerateObjectsUsingBlock:^(PPScriptFormatter * formatter, NSUInteger idx, BOOL *stop) {
+        if ( nextFormatterClass == [formatter class] ) {
+            [self setCurrentFormatter:idx];
+            *stop = YES;
+        }
+    }];
 }
 
 @end

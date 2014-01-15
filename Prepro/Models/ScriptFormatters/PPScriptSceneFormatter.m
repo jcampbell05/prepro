@@ -7,6 +7,7 @@
 //
 
 #import "PPScriptSceneFormatter.h"
+#import "PPScriptActionFormatter.h"
 
 @implementation PPScriptSceneFormatter
 
@@ -20,6 +21,10 @@
 
 - (NSString *)transformInput:(NSString *)input {
     return [input uppercaseString];
+}
+
+- (Class)formatterForNextLine {
+    return [PPScriptActionFormatter class];
 }
 
 @end

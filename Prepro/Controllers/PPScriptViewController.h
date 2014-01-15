@@ -33,6 +33,8 @@
 - (void)dismissKeyboard;
 - (void)save;
 - (void)typePickerChanged:(UISegmentedControl *)sender;
-- (void)setCurrentFormatter:(PPScriptFormatter *)formatter;
+- (void)updateCurrentFormatter;
+- (void)setCurrentFormatter:(NSUInteger)idx;
+- (void)nextLineFormatter;
 
 @end

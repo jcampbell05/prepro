@@ -13,5 +13,6 @@
 - (NSString *)title;
 - (NSDictionary *)attributes;
 - (NSString *)transformInput:(NSString *)input;
+- (Class)formatterForNextLine;
 
 @end

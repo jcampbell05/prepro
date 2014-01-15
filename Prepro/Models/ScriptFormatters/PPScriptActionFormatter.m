@@ -7,6 +7,7 @@
 //
 
 #import "PPScriptActionFormatter.h"
+#import "PPScriptCharacterFormatter.h"
 
 @implementation PPScriptActionFormatter
 
@@ -16,6 +17,10 @@
 
 - (NSDictionary *)attributes {
     return @{ @"type" : [self title] };
+}
+
+- (Class)formatterForNextLine {
+    return [PPScriptCharacterFormatter class];
 }
 
 @end

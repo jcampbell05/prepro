@@ -22,4 +22,8 @@
     return input;
 }
 
+- (Class)formatterForNextLine {
+    return nil;
+}
+
 @end

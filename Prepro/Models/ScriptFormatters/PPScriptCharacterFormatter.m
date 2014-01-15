@@ -7,11 +7,27 @@
 //
 
 #import "PPScriptCharacterFormatter.h"
+#import "PPScriptDialogueFormatter.h"
 
 @implementation PPScriptCharacterFormatter
 
 - (NSString *)title {
     return @"Character";
+}
+
+- (NSDictionary *)attributes {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    
+    return @{ @"type" : [self title], NSParagraphStyleAttributeName : paragraphStyle };
+}
+
+- (NSString *)transformInput:(NSString *)input {
+    return [input uppercaseString];
+}
+
+- (Class)formatterForNextLine {
+    return [PPScriptDialogueFormatter class];
 }
 
 @end

@@ -14,4 +14,11 @@
     return @"Dialogue";
 }
 
+- (NSDictionary *)attributes {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    
+    return @{ @"type" : [self title], NSParagraphStyleAttributeName : paragraphStyle };
+}
+
 @end
