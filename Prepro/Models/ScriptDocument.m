@@ -41,6 +41,7 @@
 
 - (NSString *)titleForEntity:(id)entity {
     Script *script = (Script *)entity;
+    
     return script.name;
 }
 

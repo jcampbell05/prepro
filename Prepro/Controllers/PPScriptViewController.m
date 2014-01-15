@@ -8,7 +8,11 @@
 
 #import "PPScriptViewController.h"
 #import "MBAlertView.h"
-#import "PPScriptSectionTypeSelectorViewController.h"
+#import "PPScriptActionFormatter.h"
+#import "PPScriptCharacterFormatter.h"
+#import "PPScriptDialogueFormatter.h"
+#import "PPScriptParenthesesFormatter.h"
+#import "PPScriptSceneFormatter.h"
 
 @interface PPScriptViewController ()
 
@@ -35,21 +39,45 @@
     self.navigationItem.titleView = titleTextField;
     
     textView = [[UITextView alloc] init];
-    
     toolbar = [[UIToolbar alloc] init];
     
-    typeButton = [[UIBarButtonItem alloc] initWithTitle:@"Type" style:UIBarButtonItemStylePlain target:self action:@selector(showSectionTypeSelector:)];
+    formatters = @[
+        [PPScriptSceneFormatter alloc],
+        [PPScriptActionFormatter alloc],
+        [PPScriptCharacterFormatter alloc],
+        [PPScriptDialogueFormatter alloc],
+        [PPScriptParenthesesFormatter alloc]
+    ];
+    
+    NSMutableArray * typePickerItems = [[NSMutableArray alloc] init];
+    
+    [formatters enumerateObjectsUsingBlock:^(PPScriptFormatter * formatter, NSUInteger idx, BOOL *stop) {
+        [typePickerItems addObject:[formatter title]];
+    }];
+    
+    typePicker = [[UISegmentedControl alloc] initWithItems:[typePickerItems copy]];
+    [typePicker addTarget:self action:@selector(typePickerChanged:) forControlEvents:UIControlEventValueChanged];
+    typePicker.selectedSegmentIndex = 0;
+    [self typePickerChanged: typePicker];
+    
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
+        typePicker.tintColor = [UIColor whiteColor];
+    }
+    
+    UIBarButtonItem *typePickerWrapper = [[UIBarButtonItem alloc] initWithCustomView:typePicker];
     
     [toolbar sizeToFit];
-    [toolbar setItems:@[typeButton]];
+    [toolbar setItems:@[typePickerWrapper]];
     
     textView.inputAccessoryView = toolbar;
+    textView.delegate = self;
     
     self.view = textView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     titleTextField.text = _script.name;
+    textView.attributedText = _script.content;
     
     titleDoubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
     [titleDoubleTapGestureRecognizer addTarget:self action:@selector(startEditingTitle)];
@@ -61,11 +89,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
- 
-}
-
-- (void)textViewDidChange:(UITextView *)textView {
-    _script.content = textView.text;
+    [self save];
 }
 
 - (void)startEditingTitle {
@@ -79,17 +103,8 @@
     [titleTextField resignFirstResponder];
     titleTextField.enabled = NO;
     
-    _script.name = titleTextField.text;
-    
     [self.view removeGestureRecognizer:singleTapRecognizer];
-    
-    NSError *error;
-    if(![_script save:&error]){
-        NSLog(@"Error saving script.");
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
-    } else {
-        NSLog(@"Script saved.");
-    }
+    [self save];
 }
 
 - (void)dismissKeyboard {
@@ -116,20 +131,53 @@
     return YES;
 }
 
-- (void)showSectionTypeSelector:(id)sender {
+- (void)save {
+    _script.name =  titleTextField.text;
+    _script.content = textView.attributedText;
     
-    PPScriptSectionTypeSelectorViewController * sectionTypeSelectorViewController = [[PPScriptSectionTypeSelectorViewController alloc] init];
-    sectionTypeSelectorViewController.cancelBlock = ^{
-        [popoverController dismissPopoverAnimated:YES];
-    };
+    NSError *error;
+    if(![_script save:&error]){
+        NSLog(@"Error saving script.");
+        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+    } else {
+        NSLog(@"Script saved.");
+    }
+}
+
+- (void)typePickerChanged:(UISegmentedControl *)sender {
+    [self setCurrentFormatter:formatters[ sender.selectedSegmentIndex ]];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
     
-    UINavigationController * navicationController = [[UINavigationController alloc] initWithRootViewController:sectionTypeSelectorViewController];
+    [formatters enumerateObjectsUsingBlock:^(PPScriptFormatter * formatter, NSUInteger idx, BOOL *stop) {
+        if ( [textView.typingAttributes[@"type"] isEqualToString:[formatter title]] ) {
+            [self setCurrentFormatter:formatter];
+            typePicker.selectedSegmentIndex = idx;
+            *stop = YES;
+        }
+    }];
+}
+
+- (void)setCurrentFormatter:(PPScriptFormatter *)formatter {
+    currentFormatter = formatter;
     
-    /*Display it in pop over*/
-    popoverController = [[WYPopoverController alloc] initWithContentViewController:navicationController];
+    textView.typingAttributes = [formatter attributes];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
-    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionDown animated:YES];
-    [self.view bringSubviewToFront:popoverController.contentViewController.view];
+    text = [currentFormatter transformInput:text];
+    
+    NSMutableAttributedString * newAttributedText = [textView.attributedText mutableCopy];
+    [newAttributedText replaceCharactersInRange:range
+                                 withString:text];
+    
+    UITextRange *selRange = textView.selectedTextRange;
+    textView.attributedText = newAttributedText;
+    textView.selectedTextRange = selRange;
+    
+    return NO;
 }
 
 @end

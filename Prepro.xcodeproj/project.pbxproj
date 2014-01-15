@@ -39,7 +39,6 @@
 		1A626B1916FE4801008527A6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A626B1816FE4801008527A6 /* Project.m */; };
 		1A6D31691729FDEF000171EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356C16FCF17100590D87 /* Foundation.framework */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
-		1A88921E1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */; };
 		1A9AE7B5175B8B05002F69FD /* Cast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B4175B8B05002F69FD /* Cast.m */; };
 		1A9AE7B8175D19FE002F69FD /* Crew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B7175D19FE002F69FD /* Crew.m */; };
 		1A9AE7BE175D2546002F69FD /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7BD175D2545002F69FD /* Location.m */; };
@@ -100,6 +99,12 @@
 		742CB95617F9E70D00A3E549 /* NSManagedObject+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 742CB95517F9E70D00A3E549 /* NSManagedObject+Serialization.m */; };
 		74329DEE1860AA6E000A8F61 /* CallSheetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 74329DED1860AA6E000A8F61 /* CallSheetDocument.m */; };
 		74329DF01860AA94000A8F61 /* callsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 74329DEF1860AA94000A8F61 /* callsheet.png */; };
+		7438795F18868F360075EA76 /* PPScriptFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438795E18868F360075EA76 /* PPScriptFormatter.m */; };
+		743879621886912B0075EA76 /* PPScriptSceneFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 743879611886912B0075EA76 /* PPScriptSceneFormatter.m */; };
+		74387965188691660075EA76 /* PPScriptActionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74387964188691660075EA76 /* PPScriptActionFormatter.m */; };
+		74387968188691810075EA76 /* PPScriptCharacterFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74387967188691810075EA76 /* PPScriptCharacterFormatter.m */; };
+		7438796B188691990075EA76 /* PPScriptDialogueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */; };
+		7438796E188691C20075EA76 /* PPScriptParenthesesFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */; };
 		74487583185BF7C300BABB2D /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74487582185BF7C300BABB2D /* Logo.png */; };
 		744B80B918343E0C0034F4C2 /* LIExposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744B80A418343E0C0034F4C2 /* LIExposeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		745503BA184BC52200BD58DE /* PPPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503B9184BC52200BD58DE /* PPPanelViewController.m */; };
@@ -316,8 +321,6 @@
 		1A626B1816FE4801008527A6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = Models/Project.m; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
-		1A88921C1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptSectionTypeSelectorViewController.h; path = Controllers/PPScriptSectionTypeSelectorViewController.h; sourceTree = "<group>"; };
-		1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptSectionTypeSelectorViewController.m; path = Controllers/PPScriptSectionTypeSelectorViewController.m; sourceTree = "<group>"; };
 		1A9AE7B3175B8B05002F69FD /* Cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cast.h; path = Models/Cast.h; sourceTree = "<group>"; };
 		1A9AE7B4175B8B05002F69FD /* Cast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cast.m; path = Models/Cast.m; sourceTree = "<group>"; };
 		1A9AE7B6175D19FE002F69FD /* Crew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crew.h; path = Models/Crew.h; sourceTree = "<group>"; };
@@ -425,6 +428,18 @@
 		74329DEC1860AA6E000A8F61 /* CallSheetDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallSheetDocument.h; path = Models/CallSheetDocument.h; sourceTree = "<group>"; };
 		74329DED1860AA6E000A8F61 /* CallSheetDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallSheetDocument.m; path = Models/CallSheetDocument.m; sourceTree = "<group>"; };
 		74329DEF1860AA94000A8F61 /* callsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callsheet.png; path = Icons/callsheet.png; sourceTree = "<group>"; };
+		7438795D18868F360075EA76 /* PPScriptFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptFormatter.h; path = Models/ScriptFormatters/PPScriptFormatter.h; sourceTree = "<group>"; };
+		7438795E18868F360075EA76 /* PPScriptFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptFormatter.m; path = Models/ScriptFormatters/PPScriptFormatter.m; sourceTree = "<group>"; };
+		743879601886912B0075EA76 /* PPScriptSceneFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptSceneFormatter.h; path = Models/ScriptFormatters/PPScriptSceneFormatter.h; sourceTree = "<group>"; };
+		743879611886912B0075EA76 /* PPScriptSceneFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptSceneFormatter.m; path = Models/ScriptFormatters/PPScriptSceneFormatter.m; sourceTree = "<group>"; };
+		74387963188691660075EA76 /* PPScriptActionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptActionFormatter.h; path = Models/ScriptFormatters/PPScriptActionFormatter.h; sourceTree = "<group>"; };
+		74387964188691660075EA76 /* PPScriptActionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptActionFormatter.m; path = Models/ScriptFormatters/PPScriptActionFormatter.m; sourceTree = "<group>"; };
+		74387966188691810075EA76 /* PPScriptCharacterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptCharacterFormatter.h; path = Models/ScriptFormatters/PPScriptCharacterFormatter.h; sourceTree = "<group>"; };
+		74387967188691810075EA76 /* PPScriptCharacterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptCharacterFormatter.m; path = Models/ScriptFormatters/PPScriptCharacterFormatter.m; sourceTree = "<group>"; };
+		74387969188691990075EA76 /* PPScriptDialogueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptDialogueFormatter.h; path = Models/ScriptFormatters/PPScriptDialogueFormatter.h; sourceTree = "<group>"; };
+		7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptDialogueFormatter.m; path = Models/ScriptFormatters/PPScriptDialogueFormatter.m; sourceTree = "<group>"; };
+		7438796C188691C20075EA76 /* PPScriptParenthesesFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptParenthesesFormatter.h; path = Models/ScriptFormatters/PPScriptParenthesesFormatter.h; sourceTree = "<group>"; };
+		7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptParenthesesFormatter.m; path = Models/ScriptFormatters/PPScriptParenthesesFormatter.m; sourceTree = "<group>"; };
 		743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
 		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		74487582185BF7C300BABB2D /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
@@ -804,6 +819,7 @@
 		1AB5D25716FD185400423CEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7438795C18868ED60075EA76 /* ScriptFormatters */,
 				1A9B740A17249E95008BFF18 /* BudgetDocument.h */,
 				1A9B740B17249E96008BFF18 /* BudgetDocument.m */,
 				1A9AE7B3175B8B05002F69FD /* Cast.h */,
@@ -1024,8 +1040,6 @@
 				74762DCB185002BC00D81223 /* PPNavigationViewController.m */,
 				74F8F814187C6F7700CBD93D /* PPScriptViewController.h */,
 				74F8F815187C6F7800CBD93D /* PPScriptViewController.m */,
-				1A88921C1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.h */,
-				1A88921D1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1137,6 +1151,25 @@
 				741CF29817EFB8C2007DDD42 /* FPPicker.framework */,
 			);
 			path = library;
+			sourceTree = "<group>";
+		};
+		7438795C18868ED60075EA76 /* ScriptFormatters */ = {
+			isa = PBXGroup;
+			children = (
+				7438795D18868F360075EA76 /* PPScriptFormatter.h */,
+				7438795E18868F360075EA76 /* PPScriptFormatter.m */,
+				743879601886912B0075EA76 /* PPScriptSceneFormatter.h */,
+				743879611886912B0075EA76 /* PPScriptSceneFormatter.m */,
+				74387963188691660075EA76 /* PPScriptActionFormatter.h */,
+				74387964188691660075EA76 /* PPScriptActionFormatter.m */,
+				74387966188691810075EA76 /* PPScriptCharacterFormatter.h */,
+				74387967188691810075EA76 /* PPScriptCharacterFormatter.m */,
+				74387969188691990075EA76 /* PPScriptDialogueFormatter.h */,
+				7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */,
+				7438796C188691C20075EA76 /* PPScriptParenthesesFormatter.h */,
+				7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */,
+			);
+			name = ScriptFormatters;
 			sourceTree = "<group>";
 		};
 		744B808518343E0C0034F4C2 /* LIExposeController */ = {
@@ -1735,7 +1768,6 @@
 				7476F13F187624AD00EE52D1 /* Script.m in Sources */,
 				748D8002181DDFCB00FB0DB8 /* QAutoEntryElement.m in Sources */,
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
-				1A88921E1885D2CA00165CD9 /* PPScriptSectionTypeSelectorViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
 				7413CB051857AB170020E875 /* IASKSettingsStoreFile.m in Sources */,
 				748D8011181DDFCB00FB0DB8 /* QDynamicDataSection.m in Sources */,
@@ -1766,6 +1798,7 @@
 				1A9B73EB17249ACE008BFF18 /* ShotListDocument.m in Sources */,
 				748D8030181DDFCB00FB0DB8 /* QTextElement.m in Sources */,
 				748D803A181DDFCB00FB0DB8 /* QuickDialogWebController.m in Sources */,
+				74387965188691660075EA76 /* PPScriptActionFormatter.m in Sources */,
 				745503BD184BCE0100BD58DE /* UIViewController+PPPanel.m in Sources */,
 				1A9B73EE17249B1B008BFF18 /* EquipmentListDocument.m in Sources */,
 				7476F142187624D800EE52D1 /* ScriptDocument.m in Sources */,
@@ -1829,10 +1862,13 @@
 				748D802C181DDFCB00FB0DB8 /* QSelectItemElement.m in Sources */,
 				748D8029181DDFCB00FB0DB8 /* QRootElement.m in Sources */,
 				748D800B181DDFCB00FB0DB8 /* QCountdownElement.m in Sources */,
+				743879621886912B0075EA76 /* PPScriptSceneFormatter.m in Sources */,
 				748D8023181DDFCB00FB0DB8 /* QPickerTableViewCell.m in Sources */,
+				7438795F18868F360075EA76 /* PPScriptFormatter.m in Sources */,
 				748D8024181DDFCB00FB0DB8 /* QRadioElement.m in Sources */,
 				748D8035181DDFCB00FB0DB8 /* QuickDialogController+Navigation.m in Sources */,
 				741CF25017EFAAAE007DDD42 /* EntityCategory.m in Sources */,
+				74387968188691810075EA76 /* PPScriptCharacterFormatter.m in Sources */,
 				748D8016181DDFCB00FB0DB8 /* QEntryTableViewCell.m in Sources */,
 				748D8013181DDFCB00FB0DB8 /* QElement.m in Sources */,
 				74B0520B185155D900ED4E88 /* UIView+Autolayout.m in Sources */,
@@ -1855,6 +1891,7 @@
 				748D805F18207F2F00FB0DB8 /* TDBadgedCell.m in Sources */,
 				748D805A1820753B00FB0DB8 /* WYPopoverController.m in Sources */,
 				748D8006181DDFCB00FB0DB8 /* QBadgeTableCell.m in Sources */,
+				7438796B188691990075EA76 /* PPScriptDialogueFormatter.m in Sources */,
 				748D7FFE181DDFCB00FB0DB8 /* DOAutocompleteTextField.m in Sources */,
 				748D8008181DDFCB00FB0DB8 /* QBooleanElement.m in Sources */,
 				748D801E181DDFCB00FB0DB8 /* QMapViewController.m in Sources */,
@@ -1872,6 +1909,7 @@
 				1A9AE7C1175D2548002F69FD /* Prop.m in Sources */,
 				745933C9182ACDF0001CE8D0 /* UIViewController+ADFlipTransition.m in Sources */,
 				7413CB081857AB170020E875 /* IASKPSSliderSpecifierViewCell.m in Sources */,
+				7438796E188691C20075EA76 /* PPScriptParenthesesFormatter.m in Sources */,
 				748D8012181DDFCB00FB0DB8 /* QElement+Appearance.m in Sources */,
 				74B05209185155D900ED4E88 /* MBAlertViewItem.m in Sources */,
 				74B05210185155D900ED4E88 /* MBHUDView.m in Sources */,
