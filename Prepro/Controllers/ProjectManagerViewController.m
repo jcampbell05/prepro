@@ -15,6 +15,7 @@
 #import "Project.h"
 #import "MBAlertView.h"
 #import "IASKSettingsReader.h"
+#import "SplashViewController.h"
 
 @implementation ProjectManagerViewController
 

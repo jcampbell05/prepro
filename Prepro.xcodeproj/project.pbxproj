@@ -38,6 +38,10 @@
 		1A589E771766963400BC0458 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A589E761766963400BC0458 /* AdSupport.framework */; };
 		1A626B1916FE4801008527A6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A626B1816FE4801008527A6 /* Project.m */; };
 		1A6D31691729FDEF000171EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356C16FCF17100590D87 /* Foundation.framework */; };
+		1A6FC2AB1887164300F08C49 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AA1887164300F08C49 /* SplashViewController.m */; };
+		1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AC1887219F00F08C49 /* Default-568h.png */; };
+		1A6FC2B01887219F00F08C49 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AD1887219F00F08C49 /* Default.png */; };
+		1A6FC2B11887219F00F08C49 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AE1887219F00F08C49 /* Default@2x.png */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
 		1A9AE7B5175B8B05002F69FD /* Cast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B4175B8B05002F69FD /* Cast.m */; };
 		1A9AE7B8175D19FE002F69FD /* Crew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AE7B7175D19FE002F69FD /* Crew.m */; };
@@ -319,6 +323,11 @@
 		1A589E761766963400BC0458 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		1A626B1716FE4801008527A6 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = Models/Project.h; sourceTree = "<group>"; };
 		1A626B1816FE4801008527A6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = Models/Project.m; sourceTree = "<group>"; };
+		1A6FC2A91887164300F08C49 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = Controllers/SplashViewController.h; sourceTree = "<group>"; };
+		1A6FC2AA1887164300F08C49 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = Controllers/SplashViewController.m; sourceTree = "<group>"; };
+		1A6FC2AC1887219F00F08C49 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
+		1A6FC2AD1887219F00F08C49 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1A6FC2AE1887219F00F08C49 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
 		1A9AE7B3175B8B05002F69FD /* Cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cast.h; path = Models/Cast.h; sourceTree = "<group>"; };
@@ -1028,18 +1037,20 @@
 				1A2034F91736565E002BD6E5 /* FullScreenTextViewEditorViewController.m */,
 				74E044F2183AA1520036B4FB /* PPExposeController.h */,
 				74E044F3183AA1520036B4FB /* PPExposeController.m */,
+				74762DCA185002BC00D81223 /* PPNavigationViewController.h */,
+				74762DCB185002BC00D81223 /* PPNavigationViewController.m */,
+				745503B8184BC52200BD58DE /* PPPanelViewController.h */,
+				745503B9184BC52200BD58DE /* PPPanelViewController.m */,
+				74F8F814187C6F7700CBD93D /* PPScriptViewController.h */,
+				74F8F815187C6F7800CBD93D /* PPScriptViewController.m */,
 				1AFB35B416FCF92B00590D87 /* ProjectManagerViewController.h */,
 				1AFB35B516FCF92B00590D87 /* ProjectManagerViewController.m */,
 				1A2CAF3B16FDEBBC008E79E4 /* ProjectViewController.h */,
 				1A2CAF3C16FDEBBC008E79E4 /* ProjectViewController.m */,
 				1AB5D25416FD178A00423CEE /* RootNavigationViewController.h */,
 				1AB5D25516FD178A00423CEE /* RootNavigationViewController.m */,
-				745503B8184BC52200BD58DE /* PPPanelViewController.h */,
-				745503B9184BC52200BD58DE /* PPPanelViewController.m */,
-				74762DCA185002BC00D81223 /* PPNavigationViewController.h */,
-				74762DCB185002BC00D81223 /* PPNavigationViewController.m */,
-				74F8F814187C6F7700CBD93D /* PPScriptViewController.h */,
-				74F8F815187C6F7800CBD93D /* PPScriptViewController.m */,
+				1A6FC2A91887164300F08C49 /* SplashViewController.h */,
+				1A6FC2AA1887164300F08C49 /* SplashViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1431,6 +1442,9 @@
 		74A9B37F185B46A800454EF8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1A6FC2AC1887219F00F08C49 /* Default-568h.png */,
+				1A6FC2AD1887219F00F08C49 /* Default.png */,
+				1A6FC2AE1887219F00F08C49 /* Default@2x.png */,
 				74A9B380185B46A800454EF8 /* Add.png */,
 				74329DEF1860AA94000A8F61 /* callsheet.png */,
 				74A9B381185B46A800454EF8 /* deleteBtn.png */,
@@ -1676,9 +1690,11 @@
 				74A9B3B3185B46A800454EF8 /* tabs-small.png in Resources */,
 				7484845C185E3768007905D6 /* facebook@2x.png in Resources */,
 				74A9B3A8185B46A800454EF8 /* notes.png in Resources */,
+				1A6FC2B11887219F00F08C49 /* Default@2x.png in Resources */,
 				74A9B39C185B46A800454EF8 /* deleteBtn.png in Resources */,
 				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				74848456185E30CF007905D6 /* Changelog in Resources */,
+				1A6FC2B01887219F00F08C49 /* Default.png in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
 				7484845D185E3768007905D6 /* twitter.png in Resources */,
 				74A9B3A0185B46A800454EF8 /* home.png in Resources */,
@@ -1692,6 +1708,7 @@
 				7458828C17723930008F9307 /* CastDocument.json in Resources */,
 				7484E4C5180B7CBC003F6E4A /* LICENSE in Resources */,
 				7458828E177261A2008F9307 /* CharacterProfilesDocument.json in Resources */,
+				1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */,
 				74A9B3A7185B46A800454EF8 /* locations.png in Resources */,
 				74A9B3AD185B46A800454EF8 /* script.png in Resources */,
 				74A9B39F185B46A800454EF8 /* export.png in Resources */,
@@ -1773,6 +1790,7 @@
 				748D8011181DDFCB00FB0DB8 /* QDynamicDataSection.m in Sources */,
 				74B05212185155D900ED4E88 /* MBAlertAbstract.m in Sources */,
 				1AB5D25616FD178A00423CEE /* RootNavigationViewController.m in Sources */,
+				1A6FC2AB1887164300F08C49 /* SplashViewController.m in Sources */,
 				748D803D181DDFCB00FB0DB8 /* UIColor+ColorUtilities.m in Sources */,
 				748D800F181DDFCB00FB0DB8 /* QDecimalElement.m in Sources */,
 				1A499F6916FD9C100055DB93 /* ProjectCollectionViewCelll.m in Sources */,
