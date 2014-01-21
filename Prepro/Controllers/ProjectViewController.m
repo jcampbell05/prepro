@@ -16,6 +16,8 @@
 #import "LIExposeController.h"
 #import "PPDocumentListTableViewCell.h"
 #import "UIViewController+PPPanel.h"
+#import "PPExportTypeViewController.h"
+#import "PPPreproProjectExportType.h"
 
 @interface ProjectViewController ()
 
@@ -128,36 +130,16 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     [self saveProject];
     
-    // To create the object
-    FPSaveController *fpSave = [[FPSaveController alloc] init];
+    PPExportTypeViewController * exportTypeViewController = [[PPExportTypeViewController alloc] initWithDataSource:self];
     
-    // Set the delegate
-    fpSave.fpdelegate = self;
-    fpSave.sourceNames = [[NSArray alloc] initWithObjects: FPSourceDropbox, FPSourceGoogleDrive, FPSourceSkydrive, FPSourceGmail, FPSourceGithub, FPSourceBox, nil];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:exportTypeViewController];
     
-    Project *project = [NSObject currentProject];
+    /*Display it in pop over - diabled in 1.3 due to issues with new export feaure, restore old 1.2.1 popover feature*/
+//    popoverController = [[WYPopoverController alloc] initWithContentViewController:navigationController];
+//    
+//    [popoverController presentPopoverFromBarButtonItem:exportTypeViewController permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     
-    // Set the data and data type to be saved.
-    fpSave.data = [NSKeyedArchiver archivedDataWithRootObject:[project toDictionary]];
-    fpSave.dataType = @"text/plain";
-    fpSave.dataExtension = @"prp";
-    
-    //optional: propose the default file name
-    fpSave.proposedFilename = project.title;
-    
-    // Display it.
-    UIViewController * pa = self.parentViewController;
-    NSLog(@"PVC Stack");
-    while (pa) {
-        NSLog(@"PVC: %@", [pa debugDescription]);
-        pa = pa.parentViewController;
-    }
-    
-    
-    /*Display it in pop over*/
-    popoverController = [[WYPopoverController alloc] initWithContentViewController:fpSave];
-    
-    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -329,6 +311,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)panelDidSwap {
     
+}
+
+#pragma mark PPExportDataSource
+
+- (id)exportObject {
+    return [NSObject currentProject];
+}
+
+- (NSString *)exportTitle {
+    return [NSObject currentProject].title;
+}
+
+- (NSArray *)exportTypes {
+    return @[
+        [PPPreproProjectExportType alloc]
+    ];
 }
 
 @end

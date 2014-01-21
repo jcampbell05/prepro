@@ -73,7 +73,7 @@
     [UIView beginAnimations:@"openBook" context:nil];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-    [UIView setAnimationDuration:3.0];
+    [UIView setAnimationDuration:1.5];
     [UIView setAnimationDelay:0];
     CATransform3D _3Dt = CATransform3DIdentity;
     _3Dt = CATransform3DMakeRotation(M_PI/2.0, 0.0f, -1.0f, 0.0f);

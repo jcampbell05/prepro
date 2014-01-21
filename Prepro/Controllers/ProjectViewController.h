@@ -13,11 +13,12 @@
 #import "Project.h"
 #import "PPPanelViewControllerDelegate.h"
 #import "WYPopoverController.h"
+#import "PPExportDataSource.h"
 
 //TODO: Revamp code so it doesn't save Project multiple times due to new Tab System.
 
 @class ProjectManagerViewController;
-@interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate> {
+@interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate, PPExportDataSource> {
     
     WYPopoverController *popoverController;
     

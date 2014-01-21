@@ -491,5 +491,14 @@
     }
 }
 
+#pragma mark PPPrintDocumentSection 
+
+- (NSString *)printDocumentSectionTitle {
+    return [_document plural];
+}
+
+- (int)numberOfPrintDocumentSectionSubSections {
+    return [self.entities count];
+}
 
 @end

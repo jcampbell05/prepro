@@ -15,7 +15,7 @@
 #import "JTTableViewGestureRecognizer.h"
 #import "JTTransformableTableViewCell.h"
 
-@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate>{
+@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate> {
     WYPopoverController *popoverController;
     UIBarButtonItem *editModeButtonBar;
     UIBarButtonItem *deleteEntitiesButton;

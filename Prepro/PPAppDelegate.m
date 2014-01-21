@@ -225,11 +225,11 @@
              [CrewDocument alloc],
              [LocationListDocument alloc],
              [PropListDocument alloc],
+             [NotesDocument alloc],
              [RiskAssessmentDocument alloc],
              [BudgetDocument alloc],
              [ContingencyPlansDocument alloc],
              [ShootingDatesDocument alloc],
-             [NotesDocument alloc],
              [CallSheetDocument alloc]
              //[StoryboardDocument alloc],
              //[SoundtrackDocument alloc],
