@@ -15,7 +15,7 @@
                     "type":"QRadioElement",
                     "key": "department",
                     "title":"Department",
-                    "items":["Production", "Direction", "Storage", "Locations", "Art", "Costume", "Hair And Makeup", "Special Effects", "Camera", "Production Sound", "Grip", "Electrical", "Editing", "Visual Effects", "Sound Effects", "Soundtrack", "Promotion", "Distribution", "Misc"],
+                    "items":["Production", "Direction", "Storage", "Locations", "Art", "Costume", "Hair And Makeup", "Special Effects", "Camera", "Production Sound", "Grip", "Electrical", "Editing", "Visual Effects", "Sound Effects", "Soundtrack", "Promotion", "Distribution", "Writers", "Misc"],
                     "bind": "selectedItem:department"
                 },
                 {

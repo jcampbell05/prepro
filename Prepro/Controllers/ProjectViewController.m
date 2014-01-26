@@ -134,7 +134,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:exportTypeViewController];
     
-    /*Display it in pop over - diabled in 1.3 due to issues with new export feaure, restore old 1.2.1 popover feature*/
+    /*Display it in pop over - diabled in 1.3 due to issues with new export feaure, restore old 1.2.1 popover feature, perhaps with different Popover library ?*/
 //    popoverController = [[WYPopoverController alloc] initWithContentViewController:navigationController];
 //    
 //    [popoverController presentPopoverFromBarButtonItem:exportTypeViewController permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];

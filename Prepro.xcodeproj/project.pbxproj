@@ -70,6 +70,7 @@
 		1A6FC2B01887219F00F08C49 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AD1887219F00F08C49 /* Default.png */; };
 		1A6FC2B11887219F00F08C49 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AE1887219F00F08C49 /* Default@2x.png */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
+		1AB2933B188F38F100DF96F3 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB29338188F38F100DF96F3 /* PopoverView.m */; };
 		1AB5D25316FD16ED00423CEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5D25116FD16DD00423CEE /* QuartzCore.framework */; };
 		1AB5D25616FD178A00423CEE /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5D25516FD178A00423CEE /* RootNavigationViewController.m */; };
 		1AE63D201739989800B07175 /* BatchNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */; };
@@ -114,7 +115,7 @@
 		74387965188691660075EA76 /* PPScriptActionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74387964188691660075EA76 /* PPScriptActionFormatter.m */; };
 		74387968188691810075EA76 /* PPScriptCharacterFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74387967188691810075EA76 /* PPScriptCharacterFormatter.m */; };
 		7438796B188691990075EA76 /* PPScriptDialogueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */; };
-		7438796E188691C20075EA76 /* PPScriptParenthesesFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */; };
+		7438796E188691C20075EA76 /* PPScriptParentheticalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7438796D188691C20075EA76 /* PPScriptParentheticalFormatter.m */; };
 		74487583185BF7C300BABB2D /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74487582185BF7C300BABB2D /* Logo.png */; };
 		744B80B918343E0C0034F4C2 /* LIExposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744B80A418343E0C0034F4C2 /* LIExposeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		745503BA184BC52200BD58DE /* PPPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503B9184BC52200BD58DE /* PPPanelViewController.m */; };
@@ -388,6 +389,10 @@
 		1A6FC2AE1887219F00F08C49 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
+		1AB29337188F38F100DF96F3 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		1AB29338188F38F100DF96F3 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		1AB29339188F38F100DF96F3 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
+		1AB2933A188F38F100DF96F3 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
 		1AB5D25116FD16DD00423CEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AB5D25416FD178A00423CEE /* RootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootNavigationViewController.h; path = Controllers/RootNavigationViewController.h; sourceTree = "<group>"; };
 		1AB5D25516FD178A00423CEE /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootNavigationViewController.m; path = Controllers/RootNavigationViewController.m; sourceTree = "<group>"; };
@@ -463,8 +468,8 @@
 		74387967188691810075EA76 /* PPScriptCharacterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptCharacterFormatter.m; path = Models/ScriptFormatters/PPScriptCharacterFormatter.m; sourceTree = "<group>"; };
 		74387969188691990075EA76 /* PPScriptDialogueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptDialogueFormatter.h; path = Models/ScriptFormatters/PPScriptDialogueFormatter.h; sourceTree = "<group>"; };
 		7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptDialogueFormatter.m; path = Models/ScriptFormatters/PPScriptDialogueFormatter.m; sourceTree = "<group>"; };
-		7438796C188691C20075EA76 /* PPScriptParenthesesFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptParenthesesFormatter.h; path = Models/ScriptFormatters/PPScriptParenthesesFormatter.h; sourceTree = "<group>"; };
-		7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptParenthesesFormatter.m; path = Models/ScriptFormatters/PPScriptParenthesesFormatter.m; sourceTree = "<group>"; };
+		7438796C188691C20075EA76 /* PPScriptParentheticalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptParentheticalFormatter.h; path = Models/ScriptFormatters/PPScriptParentheticalFormatter.h; sourceTree = "<group>"; };
+		7438796D188691C20075EA76 /* PPScriptParentheticalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptParentheticalFormatter.m; path = Models/ScriptFormatters/PPScriptParentheticalFormatter.m; sourceTree = "<group>"; };
 		743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
 		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		74487582185BF7C300BABB2D /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
@@ -933,6 +938,18 @@
 			path = Libraries/FormKit/Vendor/BWLongTextViewController;
 			sourceTree = "<group>";
 		};
+		1AB29336188F38F100DF96F3 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				1AB29337188F38F100DF96F3 /* PopoverView.h */,
+				1AB29338188F38F100DF96F3 /* PopoverView.m */,
+				1AB29339188F38F100DF96F3 /* PopoverView_Configuration.h */,
+				1AB2933A188F38F100DF96F3 /* PopoverViewCompatibility.h */,
+			);
+			name = PopoverView;
+			path = Libraries/PopoverView;
+			sourceTree = "<group>";
+		};
 		1AB5D25716FD185400423CEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,6 +1126,7 @@
 		1AFB35A716FCF26300590D87 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1AB29336188F38F100DF96F3 /* PopoverView */,
 				7413CA751857AB160020E875 /* InAppSettingsKit */,
 				74B051DE185155D900ED4E88 /* MBAlertView */,
 				744B808518343E0C0034F4C2 /* LIExposeController */,
@@ -1228,8 +1246,8 @@
 				74387967188691810075EA76 /* PPScriptCharacterFormatter.m */,
 				74387969188691990075EA76 /* PPScriptDialogueFormatter.h */,
 				7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */,
-				7438796C188691C20075EA76 /* PPScriptParenthesesFormatter.h */,
-				7438796D188691C20075EA76 /* PPScriptParenthesesFormatter.m */,
+				7438796C188691C20075EA76 /* PPScriptParentheticalFormatter.h */,
+				7438796D188691C20075EA76 /* PPScriptParentheticalFormatter.m */,
 			);
 			name = ScriptFormatters;
 			sourceTree = "<group>";
@@ -1838,6 +1856,7 @@
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
 				1A3CE6DE1888995000F95C44 /* CastDocument.m in Sources */,
+				1AB2933B188F38F100DF96F3 /* PopoverView.m in Sources */,
 				7413CB051857AB170020E875 /* IASKSettingsStoreFile.m in Sources */,
 				748D8011181DDFCB00FB0DB8 /* QDynamicDataSection.m in Sources */,
 				74B05212185155D900ED4E88 /* MBAlertAbstract.m in Sources */,
@@ -1975,7 +1994,7 @@
 				745933C6182ACDF0001CE8D0 /* UICollectionViewController+ADFlipTransition.m in Sources */,
 				745933C9182ACDF0001CE8D0 /* UIViewController+ADFlipTransition.m in Sources */,
 				7413CB081857AB170020E875 /* IASKPSSliderSpecifierViewCell.m in Sources */,
-				7438796E188691C20075EA76 /* PPScriptParenthesesFormatter.m in Sources */,
+				7438796E188691C20075EA76 /* PPScriptParentheticalFormatter.m in Sources */,
 				748D8012181DDFCB00FB0DB8 /* QElement+Appearance.m in Sources */,
 				1A3CE6F91888995000F95C44 /* Script.m in Sources */,
 				74B05209185155D900ED4E88 /* MBAlertViewItem.m in Sources */,

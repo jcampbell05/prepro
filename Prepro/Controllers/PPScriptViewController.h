@@ -9,19 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "Script.h"
 #import "PPScriptFormatter.h"
+#import "WYPopoverController.h"
 
-@interface PPScriptViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate> {
+@interface PPScriptViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     
     NSArray *formatters;
     
     UIToolbar * toolbar;
-    UISegmentedControl * typePicker;
+    
+    UITableViewController *typePicker;
+    UIBarButtonItem *typeButton;
     
     UITextField * titleTextField;
     UITextView * textView;
     
     UITapGestureRecognizer * titleDoubleTapGestureRecognizer;
     UITapGestureRecognizer * singleTapRecognizer;
+    
+    WYPopoverController *popoverController;
     
     PPScriptFormatter * currentFormatter;
 }
@@ -32,9 +37,10 @@
 - (void)endEditingTitle;
 - (void)dismissKeyboard;
 - (void)save;
-- (void)typePickerChanged:(UISegmentedControl *)sender;
 - (void)updateCurrentFormatter;
 - (void)setCurrentFormatter:(NSUInteger)idx;
+- (void)reformatCurrentLine;
 - (void)nextLineFormatter;
+- (void)typePressed:(UIBarButtonItem *)sender;
 
 @end

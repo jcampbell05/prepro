@@ -26,4 +26,12 @@
     return nil;
 }
 
+- (NSString *)prefixString {
+    return nil;
+}
+
+- (NSString *)postfixString {
+    return nil;
+}
+
 @end

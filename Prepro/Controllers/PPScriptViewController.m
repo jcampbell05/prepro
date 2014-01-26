@@ -49,28 +49,19 @@
         [PPScriptParenthesesFormatter alloc]
     ];
     
-    NSMutableArray * typePickerItems = [[NSMutableArray alloc] init];
-    
-    [formatters enumerateObjectsUsingBlock:^(PPScriptFormatter * formatter, NSUInteger idx, BOOL *stop) {
-        [typePickerItems addObject:[formatter title]];
-    }];
-    
-    typePicker = [[UISegmentedControl alloc] initWithItems:[typePickerItems copy]];
-    [typePicker addTarget:self action:@selector(typePickerChanged:) forControlEvents:UIControlEventValueChanged];
-    typePicker.selectedSegmentIndex = 0;
-    [self typePickerChanged: typePicker];
+    typeButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(typePressed:)];
     
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        typePicker.tintColor = [UIColor whiteColor];
+        textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     }
     
-    UIBarButtonItem *typePickerWrapper = [[UIBarButtonItem alloc] initWithCustomView:typePicker];
-    
     [toolbar sizeToFit];
-    [toolbar setItems:@[typePickerWrapper]];
+    [toolbar setItems:@[typeButton]];
     
     textView.inputAccessoryView = toolbar;
     textView.delegate = self;
+    
+    [self setCurrentFormatter: 0];
     
     self.view = textView;
 }
@@ -163,8 +154,13 @@
 
 - (void)setCurrentFormatter:(NSUInteger)idx{
     currentFormatter = formatters[idx];
-    typePicker.selectedSegmentIndex = idx;
     textView.typingAttributes = [currentFormatter attributes];
+    
+    [typeButton setTitle: [NSString stringWithFormat:@"Type: %@", [currentFormatter title]] ];
+}
+
+- (void)reformatCurrentLine {
+    
 }
 
 - (void)textViewDidChangeSelection:(UITextView *)textView {
@@ -174,10 +170,24 @@
 
 //Maybe override so user has to hit tab or next/prev ?
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
+
     if (text.length == 0) {
-        
+
         //Checkline before isn't \n if it is then reset formatting
+        if ( textView.text.length > 1 && [[textView.text substringWithRange:NSMakeRange(range.location - 1, range.length)] isEqualToString:@"\n"] ) {
+            
+            PPScriptFormatter * oldFormetter = currentFormatter;
+            
+            [textView deleteBackward];
+            
+            textView.typingAttributes = [oldFormetter attributes];
+
+            [self updateCurrentFormatter];
+            
+            return NO;
+        }
+        
+        [self updateCurrentFormatter];
         
         return YES;
     }
@@ -185,12 +195,11 @@
     text = [currentFormatter transformInput:text];
     [textView replaceRange:textView.selectedTextRange withText:text];
     
-    if ( [text isEqualToString:@"\n"] ) {
-        
-        //Check we didnt take some of the text after the carriage return, if we did then re-format it
-        
+    if ([text isEqualToString:@"\n"]) {
         [self nextLineFormatter];
     }
+    
+    [self updateCurrentFormatter];
     
     return NO;
 }
@@ -204,6 +213,72 @@
             *stop = YES;
         }
     }];
+}
+
+- (void)typePressed:(UIBarButtonItem *)sender {
+    
+    if (popoverController == nil) {
+        
+        typePicker = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+        typePicker.tableView.delegate = self;
+        typePicker.tableView.dataSource = self;
+        
+        popoverController = [[WYPopoverController alloc] initWithContentViewController:typePicker];
+    }
+    
+    if ( ![popoverController isPopoverVisible] ) {
+        
+        [typePicker.tableView reloadData];
+        
+        [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+        
+    } else {
+        
+        [popoverController dismissPopoverAnimated:YES];
+    }
+    
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [popoverController dismissPopoverAnimated:YES];
+    [self setCurrentFormatter:indexPath.row];
+}
+
+#pragma mark UITableViewDataSource
+
+- (int)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [formatters count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString * identifier = @"Cell";
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    PPScriptFormatter * formatter = formatters[ indexPath.row ];
+    
+    cell.textLabel.text = formatter.title;
+    
+    if (formatter == currentFormatter) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
 }
 
 @end

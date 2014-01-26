@@ -1,5 +1,5 @@
 //
-//  PPScriptParenthesesFormatter.h
+//  PPScriptParentheticalFormatter.h
 //  Prepro
 //
 //  Created by James Campbell on 15/01/2014.
@@ -8,6 +8,6 @@
 
 #import "PPScriptFormatter.h"
 
-@interface PPScriptParenthesesFormatter : PPScriptFormatter
+@interface PPScriptParentheticalFormatter : PPScriptFormatter
 
 @end

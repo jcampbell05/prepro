@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F9BDD6E8-BBD8-48CC-B382-434C98A68698</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Prepro</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EED39C02-BC86-41AE-AFA2-43B84F77FED4</key>
+		<string>https://bitbucket.org/prepro/prepro.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Prepro.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EED39C02-BC86-41AE-AFA2-43B84F77FED4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/prepro/prepro.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EED39C02-BC86-41AE-AFA2-43B84F77FED4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EED39C02-BC86-41AE-AFA2-43B84F77FED4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>prepro</string>
+		</dict>
+	</array>
+</dict>
+</plist>
