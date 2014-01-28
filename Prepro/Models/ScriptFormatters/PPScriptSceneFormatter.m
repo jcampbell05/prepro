@@ -16,7 +16,14 @@
 }
 
 - (NSDictionary *)attributes {
-    return @{ @"type" : [self title], NSBackgroundColorAttributeName : [UIColor lightGrayColor] };
+    
+    UIFont *font = [UIFont fontWithName:@"Arial" size:14];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
+
+    paragraphStyle.paragraphSpacing = 0.5 * font.lineHeight;
+    
+    return @{ @"type" : [self title], NSBackgroundColorAttributeName : [UIColor lightGrayColor], NSParagraphStyleAttributeName : paragraphStyle };
 }
 
 - (NSString *)transformInput:(NSString *)input {

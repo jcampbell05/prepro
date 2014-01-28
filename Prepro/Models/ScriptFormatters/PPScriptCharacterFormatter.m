@@ -16,8 +16,12 @@
 }
 
 - (NSDictionary *)attributes {
+    
+    UIFont *font = [UIFont fontWithName:@"Arial" size:14];
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
-    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.paragraphSpacing = 0.2 * font.lineHeight;
     
     return @{ @"type" : [self title], NSParagraphStyleAttributeName : paragraphStyle };
 }

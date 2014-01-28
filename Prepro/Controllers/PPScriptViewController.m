@@ -11,7 +11,7 @@
 #import "PPScriptActionFormatter.h"
 #import "PPScriptCharacterFormatter.h"
 #import "PPScriptDialogueFormatter.h"
-#import "PPScriptParenthesesFormatter.h"
+#import "PPScriptParentheticalFormatter.h"
 #import "PPScriptSceneFormatter.h"
 
 @interface PPScriptViewController ()
@@ -38,7 +38,7 @@
     
     self.navigationItem.titleView = titleTextField;
     
-    textView = [[UITextView alloc] init];
+    textView = [[PPTextView alloc] init];
     toolbar = [[UIToolbar alloc] init];
     
     formatters = @[
@@ -46,7 +46,7 @@
         [PPScriptActionFormatter alloc],
         [PPScriptCharacterFormatter alloc],
         [PPScriptDialogueFormatter alloc],
-        [PPScriptParenthesesFormatter alloc]
+        [PPScriptParentheticalFormatter alloc]
     ];
     
     typeButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(typePressed:)];
@@ -55,8 +55,12 @@
         textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     }
     
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
     [toolbar sizeToFit];
-    [toolbar setItems:@[typeButton]];
+    [toolbar setItems:@[typeButton, flexibleItem, doneButton]];
     
     textView.inputAccessoryView = toolbar;
     textView.delegate = self;
@@ -75,7 +79,7 @@
     titleDoubleTapGestureRecognizer.numberOfTapsRequired = 2;
     [titleTextField addGestureRecognizer:titleDoubleTapGestureRecognizer];
     
-    singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditingTitle)];
     singleTapRecognizer.numberOfTapsRequired = 1;
 }
 
@@ -99,7 +103,7 @@
 }
 
 - (void)dismissKeyboard {
-    [self endEditingTitle];
+    [textView resignFirstResponder];
 }
 
 #pragma mark UITextFieldDelegate
@@ -152,7 +156,8 @@
     [self updateCurrentFormatter];
 }
 
-- (void)setCurrentFormatter:(NSUInteger)idx{
+- (void)setCurrentFormatter:(NSUInteger)idx {
+    
     currentFormatter = formatters[idx];
     textView.typingAttributes = [currentFormatter attributes];
     
@@ -161,20 +166,22 @@
 
 - (void)reformatCurrentLine {
     
+    UITextRange * selectedTextRange = textView.selectedTextRange;
+    
+    NSMutableAttributedString *mutableAttributedString = [textView.attributedText mutableCopy];
+    [mutableAttributedString setAttributes:[currentFormatter attributes] range:[textView rangeForCurrentLine]];
+    textView.attributedText = mutableAttributedString;
+    
+    textView.selectedTextRange = selectedTextRange;
 }
-
-- (void)textViewDidChangeSelection:(UITextView *)textView {
-    [self updateCurrentFormatter];
-}
-
 
 //Maybe override so user has to hit tab or next/prev ?
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (BOOL)textView:(PPTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
 
     if (text.length == 0) {
 
         //Checkline before isn't \n if it is then reset formatting
-        if ( textView.text.length > 1 && [[textView.text substringWithRange:NSMakeRange(range.location - 1, range.length)] isEqualToString:@"\n"] ) {
+        if ( textView.text.length > range.location && [[textView.text substringWithRange:NSMakeRange(range.location - 1, range.length)] isEqualToString:@"\n"] ) {
             
             PPScriptFormatter * oldFormetter = currentFormatter;
             
@@ -246,6 +253,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [popoverController dismissPopoverAnimated:YES];
     [self setCurrentFormatter:indexPath.row];
+    [self reformatCurrentLine];
 }
 
 #pragma mark UITableViewDataSource

@@ -64,6 +64,7 @@
 		1A589E731766959300BC0458 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A589E721766959300BC0458 /* Social.framework */; };
 		1A589E75176695F500BC0458 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A589E74176695F500BC0458 /* CFNetwork.framework */; };
 		1A589E771766963400BC0458 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A589E761766963400BC0458 /* AdSupport.framework */; };
+		1A6643EA1898440B00BF10E8 /* PPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6643E91898440B00BF10E8 /* PPTextView.m */; };
 		1A6D31691729FDEF000171EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356C16FCF17100590D87 /* Foundation.framework */; };
 		1A6FC2AB1887164300F08C49 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AA1887164300F08C49 /* SplashViewController.m */; };
 		1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AC1887219F00F08C49 /* Default-568h.png */; };
@@ -382,6 +383,8 @@
 		1A589E721766959300BC0458 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1A589E74176695F500BC0458 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1A589E761766963400BC0458 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1A6643E81898440B00BF10E8 /* PPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTextView.h; path = Controls/PPTextView.h; sourceTree = "<group>"; };
+		1A6643E91898440B00BF10E8 /* PPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTextView.m; path = Controls/PPTextView.m; sourceTree = "<group>"; };
 		1A6FC2A91887164300F08C49 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = Controllers/SplashViewController.h; sourceTree = "<group>"; };
 		1A6FC2AA1887164300F08C49 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = Controllers/SplashViewController.m; sourceTree = "<group>"; };
 		1A6FC2AC1887219F00F08C49 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
@@ -1665,6 +1668,8 @@
 				7473211917A7B65400E69EE4 /* PPExpandingTextEntryElement.m */,
 				7473211C17A7B67600E69EE4 /* PPPhotoPickerElement.h */,
 				7473211D17A7B67600E69EE4 /* PPPhotoPickerElement.m */,
+				1A6643E81898440B00BF10E8 /* PPTextView.h */,
+				1A6643E91898440B00BF10E8 /* PPTextView.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -1980,6 +1985,7 @@
 				748D8008181DDFCB00FB0DB8 /* QBooleanElement.m in Sources */,
 				1A3CE6EB1888995000F95C44 /* ShootingDatesDocument.m in Sources */,
 				748D801E181DDFCB00FB0DB8 /* QMapViewController.m in Sources */,
+				1A6643EA1898440B00BF10E8 /* PPTextView.m in Sources */,
 				748D8038181DDFCB00FB0DB8 /* QuickDialogTableDelegate.m in Sources */,
 				1A3CE6E61888995000F95C44 /* NotesDocument.m in Sources */,
 				1A3CE6E41888995000F95C44 /* LocationListDocument.m in Sources */,

@@ -10,6 +10,7 @@
 #import "Script.h"
 #import "PPScriptFormatter.h"
 #import "WYPopoverController.h"
+#import "PPTextView.h"
 
 @interface PPScriptViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     
@@ -21,7 +22,7 @@
     UIBarButtonItem *typeButton;
     
     UITextField * titleTextField;
-    UITextView * textView;
+    PPTextView * textView;
     
     UITapGestureRecognizer * titleDoubleTapGestureRecognizer;
     UITapGestureRecognizer * singleTapRecognizer;
@@ -42,5 +43,8 @@
 - (void)reformatCurrentLine;
 - (void)nextLineFormatter;
 - (void)typePressed:(UIBarButtonItem *)sender;
+
+- (int)indexOfNewLineBeforeCaret;
+- (int)indexOfNewLineAfterCaret;
 
 @end

@@ -15,6 +15,6 @@
 - (NSString *)transformInput:(NSString *)input;
 - (NSString *)prefixString;
 - (NSString *)postfixString;
-- (Class)formatterForNextLine;
+- (Class)formatterForNextLine; //TODO: Allow user to pick how this works
 
 @end
