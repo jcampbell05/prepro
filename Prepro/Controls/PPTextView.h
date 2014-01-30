@@ -13,6 +13,8 @@
 - (int)locationOfRegexMatchBeforeCaret:(NSString *)pattern;
 - (int)locationOfRegexMatchAfterCaret:(NSString *)pattern;
 
+- (NSRange)rangeForSelectedText;
 - (NSRange)rangeForCurrentLine;
+- (UITextRange *)textRangeFromRange:(NSRange)range;
 
 @end

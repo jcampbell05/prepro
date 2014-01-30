@@ -10,7 +10,7 @@
 
 @implementation Script
 
-@dynamic name, content;
+@dynamic name, content, rawContent;
 
 - (void)awakeFromInsert {
     self.name = @"New Script";

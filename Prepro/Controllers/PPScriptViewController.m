@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Dean Uzzell. All rights reserved.
 //
 
+
 #import "PPScriptViewController.h"
 #import "MBAlertView.h"
 #import "PPScriptActionFormatter.h"
@@ -21,25 +22,12 @@
 @implementation PPScriptViewController
 
 - (void)loadView {
-    
-    titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(37,7, 100,35)];
-    titleTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    titleTextField.backgroundColor = [UIColor clearColor];
-    titleTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    titleTextField.delegate = self;
-    titleTextField.enabled  = NO;
-    titleTextField.font = [UIFont systemFontOfSize:20.0];
-    titleTextField.opaque = NO;
-    titleTextField.textAlignment = NSTextAlignmentCenter;
-    titleTextField.textColor = [UIColor whiteColor];
-    titleTextField.returnKeyType = UIReturnKeyDone;
-    titleTextField.adjustsFontSizeToFitWidth = YES;
-    
-    self.navigationItem.titleView = titleTextField;
+
     
     textView = [[PPTextView alloc] init];
     toolbar = [[UIToolbar alloc] init];
+    
+    rawContent = [[NSMutableString alloc] init];
     
     formatters = @[
         [PPScriptSceneFormatter alloc],
@@ -71,35 +59,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    titleTextField.text = _script.name;
+    
+    self.title = _script.name;
     textView.attributedText = _script.content;
+    rawContent = [_script.rawContent mutableCopy];
     
-    titleDoubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
-    [titleDoubleTapGestureRecognizer addTarget:self action:@selector(startEditingTitle)];
-    titleDoubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [titleTextField addGestureRecognizer:titleDoubleTapGestureRecognizer];
-    
-    singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditingTitle)];
-    singleTapRecognizer.numberOfTapsRequired = 1;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self save];
-}
-
-- (void)startEditingTitle {
-    titleTextField.enabled = YES;
-    [titleTextField becomeFirstResponder];
-    
-    [self.view addGestureRecognizer:singleTapRecognizer];
-}
-
-- (void)endEditingTitle {
-    [titleTextField resignFirstResponder];
-    titleTextField.enabled = NO;
-    
-    [self.view removeGestureRecognizer:singleTapRecognizer];
-    [self save];
+    if (rawContent == nil) {
+        rawContent = [[NSMutableString alloc] init];
+    }
 }
 
 - (void)dismissKeyboard {
@@ -112,11 +79,14 @@
     
     if ( [string isEqualToString:@"\n"] ){
         
-        if ( titleTextField.text.length == 0 ){
+        if ( self.title.length == 0 ){
+            
             [[MBAlertView alertWithBody:@"Please enter a project title" cancelTitle:@"Continue" cancelBlock:^{
                 [self startEditingTitle];
             }] addToDisplayQueue];
+            
         } else {
+            
             [self endEditingTitle];
         }
         
@@ -127,8 +97,9 @@
 }
 
 - (void)save {
-    _script.name =  titleTextField.text;
+    _script.name =  self.title;
     _script.content = textView.attributedText;
+    _script.rawContent = [rawContent copy];
     
     NSError *error;
     if(![_script save:&error]){
@@ -153,6 +124,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
+    textView.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     [self updateCurrentFormatter];
 }
 
@@ -167,9 +139,21 @@
 - (void)reformatCurrentLine {
     
     UITextRange * selectedTextRange = textView.selectedTextRange;
+    UITextRange * sourceTextTextRange = selectedTextRange;
+    NSRange sourceTextRange = [textView rangeForSelectedText];
+
+    if ([textView rangeForSelectedText].length == 0) {
+        sourceTextTextRange = [textView textRangeFromRange:[textView rangeForCurrentLine]];
+        sourceTextRange = [textView rangeForCurrentLine];
+    }
+    
+    NSString * selectedText = [rawContent substringWithRange:sourceTextRange];
+    selectedText = [currentFormatter transformInput:selectedText];
+    
+    [textView replaceRange:sourceTextTextRange withText:selectedText];
     
     NSMutableAttributedString *mutableAttributedString = [textView.attributedText mutableCopy];
-    [mutableAttributedString setAttributes:[currentFormatter attributes] range:[textView rangeForCurrentLine]];
+    [mutableAttributedString setAttributes:[currentFormatter attributes] range:sourceTextRange];
     textView.attributedText = mutableAttributedString;
     
     textView.selectedTextRange = selectedTextRange;
@@ -194,10 +178,13 @@
             return NO;
         }
         
+        [rawContent deleteCharactersInRange:range];
         [self updateCurrentFormatter];
         
         return YES;
     }
+    
+    [rawContent insertString:text atIndex:range.location];
     
     text = [currentFormatter transformInput:text];
     [textView replaceRange:textView.selectedTextRange withText:text];

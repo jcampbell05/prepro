@@ -74,6 +74,7 @@
 		1AB2933B188F38F100DF96F3 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB29338188F38F100DF96F3 /* PopoverView.m */; };
 		1AB5D25316FD16ED00423CEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5D25116FD16DD00423CEE /* QuartzCore.framework */; };
 		1AB5D25616FD178A00423CEE /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5D25516FD178A00423CEE /* RootNavigationViewController.m */; };
+		1ADC3056189A50600036AED6 /* PPDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC3055189A50600036AED6 /* PPDocumentViewController.m */; };
 		1AE63D201739989800B07175 /* BatchNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */; };
 		1AF4CD531728A1C500860600 /* NSObject+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF4CD521728A1C500860600 /* NSObject+AppDelegate.m */; };
 		1AF88E1A171205860065E577 /* EntityManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF88E19171205850065E577 /* EntityManagerViewController.m */; };
@@ -399,6 +400,8 @@
 		1AB5D25116FD16DD00423CEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AB5D25416FD178A00423CEE /* RootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootNavigationViewController.h; path = Controllers/RootNavigationViewController.h; sourceTree = "<group>"; };
 		1AB5D25516FD178A00423CEE /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootNavigationViewController.m; path = Controllers/RootNavigationViewController.m; sourceTree = "<group>"; };
+		1ADC3054189A50600036AED6 /* PPDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDocumentViewController.h; path = Controllers/PPDocumentViewController.h; sourceTree = "<group>"; };
+		1ADC3055189A50600036AED6 /* PPDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDocumentViewController.m; path = Controllers/PPDocumentViewController.m; sourceTree = "<group>"; };
 		1AE63D1E1739989800B07175 /* BatchNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatchNumberPickerViewController.h; path = Controllers/BatchNumberPickerViewController.h; sourceTree = "<group>"; };
 		1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatchNumberPickerViewController.m; path = Controllers/BatchNumberPickerViewController.m; sourceTree = "<group>"; };
 		1AF4CD511728A1C500860600 /* NSObject+AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+AppDelegate.h"; path = "Catergories/NSObject+AppDelegate.h"; sourceTree = "<group>"; };
@@ -1122,6 +1125,8 @@
 				1A6FC2AA1887164300F08C49 /* SplashViewController.m */,
 				1A303F79188DED0B007BB0B7 /* PPExportTypeViewController.h */,
 				1A303F7A188DED0B007BB0B7 /* PPExportTypeViewController.m */,
+				1ADC3054189A50600036AED6 /* PPDocumentViewController.h */,
+				1ADC3055189A50600036AED6 /* PPDocumentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1854,6 +1859,7 @@
 				748D803C181DDFCB00FB0DB8 /* QWebViewController.m in Sources */,
 				7413CB091857AB170020E875 /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
 				748D8039181DDFCB00FB0DB8 /* QuickDialogTableView.m in Sources */,
+				1ADC3056189A50600036AED6 /* PPDocumentViewController.m in Sources */,
 				1A3CE6FA1888995000F95C44 /* Shot.m in Sources */,
 				1AFB357D16FCF17200590D87 /* PPAppDelegate.m in Sources */,
 				1AFB358616FCF17200590D87 /* Prepro.xcdatamodeld in Sources */,

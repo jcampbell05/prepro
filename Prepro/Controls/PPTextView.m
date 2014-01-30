@@ -59,6 +59,20 @@
     return result;
 }
 
+- (NSRange)rangeForSelectedText {
+    
+    UITextRange * textRange = self.selectedTextRange;
+    
+    UITextPosition * beginning = self.beginningOfDocument;
+    UITextPosition * start = textRange.start;
+    UITextPosition * end = textRange.end;
+    
+    NSInteger location = [self offsetFromPosition:beginning toPosition:start];
+    NSInteger length = [self offsetFromPosition:start toPosition:end];
+    
+    return NSMakeRange(location, length);
+}
+
 - (NSRange)rangeForCurrentLine {
     
     int locationOfNewLineBeforeCaret = [self locationOfRegexMatchBeforeCaret:@"\n"];
@@ -77,6 +91,15 @@
     result.length = locationOfNewLineAfterCaret - locationOfNewLineBeforeCaret;
     
     return result;
+}
+
+- (UITextRange *)textRangeFromRange:(NSRange)range
+{
+    UITextPosition *beginning = self.beginningOfDocument;
+    UITextPosition *start = [self positionFromPosition:beginning offset:range.location];
+    UITextPosition *end = [self positionFromPosition:start offset:range.length];
+    
+    return [self textRangeFromPosition:start toPosition:end];
 }
 
 @end

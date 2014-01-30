@@ -5,7 +5,7 @@
 //  Created by James Campbell on 22/03/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
-// TODO: Make Defualt Value Not Part of the Model ? 
+// TODO: Make Defualt Value Not Part of the Model ? Clean up code so messages vs dots and ivars vs self. aren't mixed up
 
 #import <UIKit/UIKit.h>
 #import "RootNavigationViewController.h"
