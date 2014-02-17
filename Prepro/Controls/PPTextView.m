@@ -7,6 +7,7 @@
 //
 
 #import "PPTextView.h"
+#import "FountainRegexes.h"
 
 @implementation PPTextView (Private)
 
@@ -20,6 +21,56 @@
 @end
 
 @implementation PPTextView
+
+- (id)init {
+    if ( self = [super init] ){
+        [self registerForKeyboardNotifications];
+    }
+    
+    return self;
+}
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.contentInset = contentInsets;
+    self.scrollIndicatorInsets = contentInsets;
+    
+    
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.frame.origin) ) {
+        [self scrollRectToVisible:self.frame animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.contentInset = contentInsets;
+    self.scrollIndicatorInsets = contentInsets;
+}
 
 - (int)locationOfRegexMatchBeforeCaret:(NSString *)pattern {
     
@@ -93,6 +144,18 @@
     return result;
 }
 
+- (NSString *)textForCurrentLine {
+    return [self.text substringWithRange:[self rangeForCurrentLine]];
+}
+
+- (BOOL)currentLineHasPrefix:(NSString *)prefix {
+    return [[self textForCurrentLine] hasPrefix: prefix];
+}
+
+- (BOOL)currentLineHasSuffix:(NSString *)suffix {
+   return [[self textForCurrentLine] hasSuffix: suffix];
+}
+
 - (UITextRange *)textRangeFromRange:(NSRange)range
 {
     UITextPosition *beginning = self.beginningOfDocument;
@@ -100,6 +163,25 @@
     UITextPosition *end = [self positionFromPosition:start offset:range.length];
     
     return [self textRangeFromPosition:start toPosition:end];
+}
+
+- (void)scrollToCaret {
+    CGRect line = [self caretRectForPosition: self.selectedTextRange.start];
+    
+    CGFloat overflow = line.origin.y + line.size.height - ( self.contentOffset.y + self.bounds.size.height - self.contentInset.bottom - self.contentInset.top );
+    
+    if ( overflow > 0 ) {
+        // We are at the bottom of the visible text and introduced a line feed, scroll down (iOS 7 does not do it)
+        // Scroll caret to visible area
+        CGPoint offset = self.contentOffset;
+        
+        offset.y += overflow + 7; // leave 7 pixels margin
+        
+        // Cannot animate with setContentOffset:animated: or caret will not appear
+        [UIView animateWithDuration:.2 animations:^{
+            [self setContentOffset:offset];
+        }];
+    }
 }
 
 @end

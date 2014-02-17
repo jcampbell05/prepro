@@ -7,28 +7,34 @@
 //
 
 #import "PPScriptDialogueFormatter.h"
-#import "PPScriptCharacterFormatter.h"
+#import "PPScriptDialogueSection.h"
 
 @implementation PPScriptDialogueFormatter
 
+- (QRootElement *)visualEditForm {
+    
+    QRootElement * rootElement = [[QRootElement alloc] init];
+    rootElement.title = @"Dialogue";
+    
+    QSection * defaultSection = [[QSection alloc] initWithTitle:nil];
+    
+    QMultilineElement * dialogueText = [[QMultilineElement alloc] initWithKey:@"text"];
+    dialogueText.title = @"Text";
+    dialogueText.bind = @"textValue:text";
+    
+    [defaultSection addElement: dialogueText];
+    
+    [rootElement addSection: defaultSection];
+    
+    return rootElement;
+}
+
+- (PPScriptSection *)scriptSectionForFormat {
+    return [[PPScriptDialogueSection alloc] init];
+}
+
 - (NSString *)title {
     return @"Dialogue";
-}
-
-- (NSDictionary *)attributes {
-    
-    UIFont *font = [UIFont fontWithName:@"Arial" size:14];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
-    
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.paragraphSpacing = 0.5 * font.lineHeight;
-    
-    return @{ @"type" : [self title], NSParagraphStyleAttributeName : paragraphStyle };
-}
-
-- (Class)formatterForNextLine {
-    return [PPScriptCharacterFormatter class];
 }
 
 @end

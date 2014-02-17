@@ -7,31 +7,34 @@
 //
 
 #import "PPScriptCharacterFormatter.h"
-#import "PPScriptDialogueFormatter.h"
+#import "PPScriptCharacterSection.h"
 
 @implementation PPScriptCharacterFormatter
 
+- (QRootElement *)visualEditForm {
+    
+    QRootElement * rootElement = [[QRootElement alloc] init];
+    rootElement.title = @"Character";
+    
+    QSection * defaultSection = [[QSection alloc] initWithTitle:nil];
+    
+    QEntryElement * characterName = [[QEntryElement alloc] initWithKey:@"name"];
+    characterName.title = @"Name";
+    characterName.bind = @"textValue:name";
+    
+    [defaultSection addElement: characterName];
+    
+    [rootElement addSection: defaultSection];
+    
+    return rootElement;
+}
+
+- (PPScriptSection *)scriptSectionForFormat {
+    return [[PPScriptCharacterSection alloc] init];
+}
+
 - (NSString *)title {
     return @"Character";
-}
-
-- (NSDictionary *)attributes {
-    
-    UIFont *font = [UIFont fontWithName:@"Arial" size:14];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.paragraphSpacing = 0.2 * font.lineHeight;
-    
-    return @{ @"type" : [self title], NSParagraphStyleAttributeName : paragraphStyle };
-}
-
-- (NSString *)transformInput:(NSString *)input {
-    return [input uppercaseString];
-}
-
-- (Class)formatterForNextLine {
-    return [PPScriptDialogueFormatter class];
 }
 
 @end

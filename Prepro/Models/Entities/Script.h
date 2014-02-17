@@ -11,7 +11,6 @@
 @interface Script : Entity
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSAttributedString * content;
-@property (nonatomic, retain) NSString * rawContent;
+@property (nonatomic, retain) NSString * content;
 
 @end

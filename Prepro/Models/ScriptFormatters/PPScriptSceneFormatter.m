@@ -7,31 +7,40 @@
 //
 
 #import "PPScriptSceneFormatter.h"
-#import "PPScriptActionFormatter.h"
+#import "PPScriptSceneSection.h"
 
 @implementation PPScriptSceneFormatter
 
+- (QRootElement *)visualEditForm {
+    
+    QRootElement * rootElement = [[QRootElement alloc] init];
+    rootElement.title = @"Scene";
+    
+    QSection * defaultSection = [[QSection alloc] initWithTitle:nil];
+    
+    QRadioElement * sceneType = [[QRadioElement alloc] initWithItems:@[@"INT", @"EXT", @"EST", @"INT/EXT", @"EXT/INT"] selected:1];
+    sceneType.key = @"type";
+    sceneType.title = @"Type";
+    sceneType.bind = @"selectedItem:type";
+    
+    QEntryElement * sceneTitle = [[QEntryElement alloc] initWithKey:@"title"];
+    sceneTitle.title = @"Title";
+    sceneTitle.bind = @"textValue:title";
+    
+    [defaultSection addElement: sceneType];
+    [defaultSection addElement: sceneTitle];
+    
+    [rootElement addSection: defaultSection];
+    
+    return rootElement;
+}
+
+- (PPScriptSection *)scriptSectionForFormat {
+    return [[PPScriptSceneSection alloc] init];
+}
+
 - (NSString *)title {
     return @"Scene";
-}
-
-- (NSDictionary *)attributes {
-    
-    UIFont *font = [UIFont fontWithName:@"Arial" size:14];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init] ;
-
-    paragraphStyle.paragraphSpacing = 0.5 * font.lineHeight;
-    
-    return @{ @"type" : [self title], NSBackgroundColorAttributeName : [UIColor lightGrayColor], NSParagraphStyleAttributeName : paragraphStyle };
-}
-
-- (NSString *)transformInput:(NSString *)input {
-    return [input uppercaseString];
-}
-
-- (Class)formatterForNextLine {
-    return [PPScriptActionFormatter class];
 }
 
 @end

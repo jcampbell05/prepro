@@ -5,7 +5,7 @@
 //  Created by James Campbell on 23/03/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
-// TODO: make image view on cells auto invert on selection
+// TODO: make image view on cells auto invert on selection, also reduce code
 
 #import "ProjectViewController.h"
 #import "PPAppDelegate.h"
@@ -27,6 +27,16 @@
 
 static NSString *CellIdentifier = @"CellIdentifier";
 
+
+- (void)loadView {
+    
+    _tableView = [[UITableView alloc] init];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+    self.view = _tableView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -34,22 +44,6 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor grayColor];
-    
-    titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(37,7, 100,35)];
-    titleTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    titleTextField.backgroundColor = [UIColor clearColor];
-    titleTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    titleTextField.delegate = self;
-    titleTextField.enabled  = NO;
-    titleTextField.font = [UIFont systemFontOfSize:20.0];
-    titleTextField.opaque = NO;
-    titleTextField.textAlignment = NSTextAlignmentCenter;
-    titleTextField.textColor = [UIColor whiteColor];
-    titleTextField.returnKeyType = UIReturnKeyDone;
-    titleTextField.adjustsFontSizeToFitWidth = YES;
-    
-    self.navigationItem.titleView = titleTextField;
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self action:@selector(backPressed:)];
     
@@ -66,26 +60,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     [super viewDidAppear:animated];
     
-    titleTextField.text = [NSObject currentProject].title;
-    
-    titleDoubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
-    [titleDoubleTapGestureRecognizer addTarget:self action:@selector(startEditingProjectTitle)];
-    titleDoubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [titleTextField addGestureRecognizer:titleDoubleTapGestureRecognizer];
-    
-    singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    singleTapRecognizer.numberOfTapsRequired = 1;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    
-    if ( titleTextField.isEditing ){
-        [self endEditingProjectTitle];
-    } else {
-        [self saveProject];
-    }
+    self.title = [NSObject currentProject].title;
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,18 +73,9 @@ static NSString *CellIdentifier = @"CellIdentifier";
     [self.navigationController.panelController.exposeController setEditing:YES];
 }
 
-- (void)startEditingProjectTitle {
-    titleTextField.enabled = YES;
-    [titleTextField becomeFirstResponder];
-    [self.view addGestureRecognizer:singleTapRecognizer];
-}
-
-- (void)endEditingProjectTitle {
-    [titleTextField resignFirstResponder];
-    titleTextField.enabled = NO;
+- (void)save {
     
-    [NSObject currentProject].title = titleTextField.text;
-    [self.view removeGestureRecognizer:singleTapRecognizer];
+    [NSObject currentProject].title = self.title;
     
     [self saveProject];
 }
@@ -140,24 +106,6 @@ static NSString *CellIdentifier = @"CellIdentifier";
 //    [popoverController presentPopoverFromBarButtonItem:exportTypeViewController permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     
     [self presentViewController:navigationController animated:YES completion:nil];
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    
-    if ( [string isEqualToString:@"\n"] ){
-        
-        if ( titleTextField.text.length == 0 ){
-            [[MBAlertView alertWithBody:@"Please enter a project title" cancelTitle:@"Continue" cancelBlock:^{
-                [self startEditingProjectTitle];
-            }] addToDisplayQueue];
-        } else {
-            [self endEditingProjectTitle];
-        }
-        
-        return NO;
-    }
-    
-    return YES;
 }
 
 - (NSArray *)documents {
@@ -274,21 +222,32 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (void)dismissKeyboard {
-    [self endEditingProjectTitle];
-}
-
 - (void)FPSaveController:(FPSaveController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [popoverController dismissPopoverAnimated:YES];
+    
+    //Hack for 1.3
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+   //1.2 - Code get working for 1.3 +
+    // [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)FPSaveControllerDidCancel:(FPSaveController *)picker {
-    [popoverController dismissPopoverAnimated:YES];
+    
+    //Hack for 1.3
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    //1.2 - Code get working for 1.3 +
+   // [popoverController dismissPopoverAnimated:YES];
     return;
 }
 
 - (void)FPSaveControllerDidSave:(FPSaveController *)picker {
-    [popoverController dismissPopoverAnimated:YES];
+    
+    //Hack for 1.3
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    //1.2 - Code get working for 1.3 +
+    //[popoverController dismissPopoverAnimated:YES];
     return;
 }
 

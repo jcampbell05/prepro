@@ -7,12 +7,22 @@
 //
 
 #import "PPDocumentViewController.h"
+#import "MBAlertView.h"
+#import "Masonry.h"
 
 @interface PPDocumentViewController ()
 
 - (void)createTitleView;
+- (void)createViewSelector;
 - (void)attachSingleTapRecognizer;
 - (void)attachTitleViewDoubleTapGesture;
+
+- (void)switchToView:(PPDocumentView *)documentView;
+- (void)viewSelected:(UISegmentedControl *)segment;
+- (void)switchViewController:(UIViewController *)viewController;
+
+- (BOOL)isTitleValid;
+- (void)showEnterTitleAlert;
 
 @end
 
@@ -22,32 +32,71 @@
 
 - (id)init {
     
-    if ( self = [super init] ) {
+    if ( self = [super initWithNibName:nil bundle:nil] ) {
         _isTitleDoubleTapToEditGestureEnabled = YES;
     }
     
     return self;
 }
 
+- (void)loadView
+{
+    self.view = [[UIView alloc] init];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    [self createTitleView];
+    [self loadDocumentViews];
     
+    [self createTitleView];
+    [self createViewSelector];
+    
+    if ( _views.count > 0 ) {
+        [self setSelectedView: 0];
+    }
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setToolbarHidden:NO animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [self save];
+    
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [super viewDidAppear:animated];
+    [super viewDidAppear: animated];
     
     [self attachTitleViewDoubleTapGesture];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self save];
+#pragma mark PPDocumentViewController Implementation
+
+- (void)setSelectedView:(NSUInteger)selectedView {
+    
+    _currentView = [self.views objectAtIndex: selectedView];
+    _viewSelector.selectedSegmentIndex = selectedView;
+    
+    [self switchToView: _currentView];
 }
 
-#pragma mark PPDocumentViewController Implementation
+- (NSUInteger)selectedView {
+    
+    return [self.views indexOfObject: _currentView];
+}
 
 - (void)setTitle:(NSString *)title {
     _titleTextField.text = title;
@@ -59,6 +108,36 @@
 
 - (void)setIsTitleDoubleTapToEditGestureEnabled:(BOOL)isTitleDoubleTapToEditGestureEnabled {
     _titleDoubleTapGestureRecognizer.enabled = _isTitleDoubleTapToEditGestureEnabled;
+}
+
+- (void)loadDocumentViews {
+    
+}
+
+- (void)startEditingTitle {
+    
+    [self attachSingleTapRecognizer];
+    
+    _titleTextField.enabled  = YES;
+    _singleTapRecognizer.enabled = YES;
+    
+    [_titleTextField becomeFirstResponder];
+}
+
+- (void)endEditingTitle {
+    [_titleTextField resignFirstResponder];
+}
+
+- (void)willSwitchToDocumentView:(PPDocumentView *)documentView {
+    
+}
+
+- (void)didSwitchToDocumentView:(PPDocumentView *)documentView {
+    
+}
+
+- (void)save {
+    
 }
 
 - (void)createTitleView {
@@ -80,11 +159,41 @@
     self.navigationItem.titleView = _titleTextField;
 }
 
+- (void)createViewSelector {
+    
+    NSMutableArray * viewSelectorItems = [[NSMutableArray alloc] init];
+    
+    [self.views enumerateObjectsUsingBlock:^(PPDocumentView * documentView, NSUInteger idx, BOOL *stop) {
+        
+        [viewSelectorItems addObject: documentView.title];
+    }];
+    
+    _viewSelector = [[UISegmentedControl alloc] initWithItems: viewSelectorItems];
+    _viewSelector.segmentedControlStyle = UISegmentedControlStyleBar;
+    
+    [_viewSelector addTarget:self action:@selector(viewSelected:) forControlEvents:UIControlEventValueChanged];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        _viewSelector.tintColor = [UIColor whiteColor];
+    }
+    
+    UIBarButtonItem * spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem * viewPickerWrapper = [[UIBarButtonItem alloc] initWithCustomView: _viewSelector];
+    
+    self.toolbarItems = @[spacer, viewPickerWrapper, spacer];
+}
+
 - (void)attachSingleTapRecognizer {
-    _singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditingTitle)];
+    
+    if ( _singleTapRecognizer != nil) {
+        _singleTapRecognizer = nil;
+    }
+    
+    _singleTapRecognizer = [[UITapGestureRecognizer alloc] init];
     _singleTapRecognizer.enabled = NO;
     _singleTapRecognizer.numberOfTapsRequired = 1;
     
+    [_singleTapRecognizer addTarget:self action:@selector(endEditingTitle)];
     [self.view addGestureRecognizer:_singleTapRecognizer];
 }
 
@@ -102,22 +211,73 @@
     [_titleTextField addGestureRecognizer:_titleDoubleTapGestureRecognizer];
 }
 
-- (void)startEditingTitle {
-    _titleTextField.enabled  = YES;
-    _singleTapRecognizer.enabled = YES;
+- (void)switchToView:(PPDocumentView *)documentView {
     
-    [_titleTextField becomeFirstResponder];
+    [self willSwitchToDocumentView: documentView];
+    
+    [self switchViewController: documentView.viewController];
+    
+    [self didSwitchToDocumentView: documentView];
 }
 
-- (void)endEditingTitle {
-    [_titleTextField resignFirstResponder];
+- (void)switchViewController:(UIViewController *)viewController {
+    if ( _currentViewController ) {
+
+        [_currentViewController.view removeFromSuperview];
+        [_currentViewController removeFromParentViewController];
+
+        _currentViewController = nil;
+    }
+
+    [self addChildViewController: viewController];
+    [self.view addSubview: viewController.view];
+    
+    [viewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+
+    [viewController didMoveToParentViewController:self];
+    _currentViewController = viewController;
 }
 
-- (void)save {
-   
+- (BOOL)isTitleValid {
+    return (_titleTextField.text.length > 0);
+}
+
+- (void)showEnterTitleAlert {
+    [[MBAlertView alertWithBody:@"Please enter a title" cancelTitle:@"Continue" cancelBlock:^{
+        [self startEditingTitle];
+    }] addToDisplayQueue];
+}
+
+#pragma mark Events
+
+- (void)viewSelected:(UISegmentedControl *)segment {
+    self.selectedView = segment.selectedSegmentIndex;
 }
 
 #pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if ( [string isEqualToString:@"\n"] ) {
+        
+        [self endEditingTitle];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    if ( ![self isTitleValid] ) {
+        [self showEnterTitleAlert];
+    }
+    
+    return YES;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     

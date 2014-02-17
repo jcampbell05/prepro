@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1.3" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="1.3" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Cast" representedClassName="Cast" syncable="YES">
         <attribute name="agency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
@@ -73,6 +73,7 @@
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="project" inverseEntity="Note" syncable="YES"/>
         <relationship name="proposal" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Proposal" inverseName="project" inverseEntity="Proposal" syncable="YES"/>
         <relationship name="props" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Prop" inverseName="project" inverseEntity="Prop" syncable="YES"/>
+        <relationship name="scripts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Script" inverseName="project" inverseEntity="Script" syncable="YES"/>
         <relationship name="shots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Shot" inverseName="project" inverseEntity="Shot" syncable="YES"/>
     </entity>
     <entity name="Prop" representedClassName="Prop" syncable="YES">
@@ -96,7 +97,7 @@
         <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="proposal" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Script" syncable="YES">
-        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="scripts" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Shot" representedClassName="Shot" syncable="YES">
         <attribute name="angle" optional="YES" attributeType="String" syncable="YES"/>

@@ -12,29 +12,25 @@
 #import "UIViewController+ADFlipTransition.h"
 #import "Project.h"
 #import "PPPanelViewControllerDelegate.h"
+#import "PPDocumentViewController.h"
 #import "WYPopoverController.h"
 #import "PPExportDataSource.h"
 
-//TODO: Revamp code so it doesn't save Project multiple times due to new Tab System.
+//TODO: Revamp code so it doesn't save Project multiple times due to new Tab System. Also make it use new Document View Controller Class.
 
 @class ProjectManagerViewController;
-@interface ProjectViewController : UITableViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate, PPExportDataSource> {
+@interface ProjectViewController : PPDocumentViewController<UITextFieldDelegate, FPSaveDelegate, PPPanelViewControllerDelegate, PPExportDataSource, UITableViewDataSource, UITableViewDelegate> {
     
     WYPopoverController *popoverController;
-    
-    UITextField *titleTextField;
-    UITapGestureRecognizer *titleDoubleTapGestureRecognizer;
-    UITapGestureRecognizer *singleTapRecognizer;
     
     NSIndexPath *currentDocument;
 }
 
 @property (readonly, strong, nonatomic) NSArray *documents;
+@property (strong, nonatomic) UITableView * tableView;
 @property (strong, nonatomic) ProjectManagerViewController * projectManagerViewController;
 
 - (void)showTabs;
-- (void)startEditingProjectTitle;
-- (void)endEditingProjectTitle;
 - (void)saveProject:(id)sender;
 - (void)exportProject;
 - (void)dismissKeyboard;

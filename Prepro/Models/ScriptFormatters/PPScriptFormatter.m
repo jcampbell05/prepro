@@ -10,28 +10,16 @@
 
 @implementation PPScriptFormatter
 
+- (QRootElement *)visualEditForm {
+    return nil;
+}
+
+- (PPScriptSection *)scriptSectionForFormat {
+    return nil;
+}
+
 - (NSString *)title {
     return @"Title";
-}
-
-- (NSDictionary *)attributes {
-    return @{};
-}
-
-- (NSString *)transformInput:(NSString *)input {
-    return input;
-}
-
-- (Class)formatterForNextLine {
-    return nil;
-}
-
-- (NSString *)prefixString {
-    return nil;
-}
-
-- (NSString *)postfixString {
-    return nil;
 }
 
 @end

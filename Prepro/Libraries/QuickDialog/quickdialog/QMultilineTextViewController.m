@@ -41,6 +41,8 @@
         _textView.delegate = self;
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _textView.font = [UIFont systemFontOfSize:18.0f];
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     return self;
 }

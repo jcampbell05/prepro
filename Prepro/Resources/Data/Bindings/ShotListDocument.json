@@ -25,7 +25,7 @@
                     "type":"QRadioElement",
                     "key": "locationType",
                     "title":"Location Type",
-                    "items":["EXT", "INT", "I/E"],
+                    "items":["EXT", "INT", "INT/EXT", "EXT/INT", "EST"],
                     "bind": "selectedItem:locationType",
                   },
                   {

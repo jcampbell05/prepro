@@ -84,7 +84,18 @@
     //optional: propose the default file name
     fpSave.proposedFilename = project.title;
     
-    [self.navigationController pushViewController:fpSave animated:YES];
+    //Caused Issues in 1.3 - fix in 1.3.1
+    //[self.navigationController pushViewController:fpSave animated:YES];
+    
+    //Hack until we fix it
+    UIViewController * presentor = self.presentingViewController;
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        fpSave.delegate = presentor;
+        [presentor presentViewController:fpSave animated:YES completion:nil];
+    }];
+    
 }
 
 @end

@@ -14,7 +14,15 @@
 - (int)locationOfRegexMatchAfterCaret:(NSString *)pattern;
 
 - (NSRange)rangeForSelectedText;
+
 - (NSRange)rangeForCurrentLine;
+- (NSString *)textForCurrentLine;
+
+- (BOOL)currentLineHasPrefix:(NSString *)prefix;
+- (BOOL)currentLineHasSuffix:(NSString *)suffix;
+
 - (UITextRange *)textRangeFromRange:(NSRange)range;
+
+- (void)scrollToCaret;
 
 @end
