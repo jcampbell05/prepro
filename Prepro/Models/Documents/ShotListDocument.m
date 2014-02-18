@@ -21,7 +21,7 @@
 }
 
 - (UIImage *)icon {
-    return [UIImage imageNamed:@"polaroid"];
+    return [UIImage imageNamed:@"shots"];
 }
 
 - (NSString *)single {
