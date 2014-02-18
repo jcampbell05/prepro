@@ -33,8 +33,33 @@
     return @"Parenthetical";
 }
 
+//Move this regex stuff into own class ? or even put place for regex constants ?
 - (void)processElementText:(NSString *)text {
-    self.text = text;
+    
+    NSError  *error  = NULL;
+    
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:@"\\((.+)\\)"
+                                  options:0
+                                  error:&error];
+    
+    NSArray *matches = [regex matchesInString:text
+                                      options:0
+                                        range:NSMakeRange(0, [text length])];
+    
+    if (matches.count > 0) {
+        
+        NSTextCheckingResult * match = matches[0];
+        
+        NSRange textRange = [match rangeAtIndex: 1];
+
+        self.text = [text substringWithRange: textRange];
+        
+    } else {
+        
+        self.text = text;
+    }
+    
 }
 
 @end

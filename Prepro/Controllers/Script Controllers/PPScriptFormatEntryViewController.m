@@ -48,8 +48,10 @@
 
 #pragma mark Implementation
 
+//TODO: Add is a bad name for this
 - (void)add {
     
+    //TODO: Reduce Code here
     if ( _section ) {
         
         [self.root fetchValueIntoObject: _section];

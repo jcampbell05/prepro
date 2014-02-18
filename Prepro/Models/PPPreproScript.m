@@ -58,6 +58,7 @@
         if ( [element.elementType isEqualToString: [section elementType]] ) {
             
             [section processElementText: element.elementText];
+            *stop = YES;
         } else {
             
             section = nil;

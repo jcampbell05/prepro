@@ -40,8 +40,35 @@
     return @"Scene Heading";
 }
 
+//Move this regex stuff into own class ? or even put place for regex constants ?
 - (void)processElementText:(NSString *)text {
-    self.title = text;
+    
+    NSError  *error  = NULL;
+    
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:@"([A-Z/]+)\\. (.+)"
+                                  options:0
+                                  error:&error];
+    
+    NSArray *matches = [regex matchesInString:text
+                                               options:0
+                                                 range:NSMakeRange(0, [text length])];
+    
+    if (matches.count > 0) {
+    
+        NSTextCheckingResult * match = matches[0];
+        
+        NSRange typeRange = [match rangeAtIndex: 1];
+        NSRange titleRange = [match rangeAtIndex: 2];
+        
+        self.type = [text substringWithRange: typeRange];
+        self.title = [text substringWithRange: titleRange];
+        
+    } else {
+        
+        self.title = text;
+    }
+    
 }
 
 @end

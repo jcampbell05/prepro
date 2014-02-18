@@ -54,6 +54,7 @@
     
     _sections = [preproScript sections];
     
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
