@@ -12,6 +12,5 @@
 
 - (BOOL)findAndResignFirstResponder;
 - (id)findFirstResponder;
-- (id)deepFindViewWithTag:(int)tag;
 
 @end

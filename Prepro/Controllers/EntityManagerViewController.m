@@ -352,7 +352,7 @@
 }
 
 -(void)editEntity:(id)entity {
-    [self.navigationController pushViewController:[_document viewControllerForEditingEntity:entity] animated:YES];
+   [self.navigationController pushViewController:[_document viewControllerForEditingEntity:entity] animated:YES];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -491,5 +491,14 @@
     }
 }
 
+#pragma mark PPPrintDocumentSection 
+
+- (NSString *)printDocumentSectionTitle {
+    return [_document plural];
+}
+
+- (int)numberOfPrintDocumentSectionSubSections {
+    return [self.entities count];
+}
 
 @end

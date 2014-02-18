@@ -12,23 +12,23 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Pinch/Pull To Create Documents</string>
-            <key>Key</key>
-            <string>pinchPullToCreateGesture</string>
-            <key>DefaultValue</key>
-            <true/>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Pinch/Pull To Create Documents</string>
+			<key>Key</key>
+			<string>pinchPullToCreateGesture</string>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
-        <dict>
+		<dict>
 			<key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Press And Hold To Rearrange</string>
-            <key>Key</key>
-            <string>pressAndHoldToRearrange</string>
-            <key>DefaultValue</key>
-            <true/>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Press And Hold To Rearrange</string>
+			<key>Key</key>
+			<string>pressAndHoldToRearrange</string>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Title</key>
@@ -46,7 +46,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>v1.2.1</string>
+			<string>v1.3</string>
 			<key>Key</key>
 			<string>version</string>
 			<key>Title</key>
@@ -76,30 +76,40 @@
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
-        <dict>
-            <key>File</key>
+		<dict>
+			<key>File</key>
+			<string>https://bitbucket.org/prepro/prepro/</string>
+			<key>Type</key>
+			<string>IASKOpenURLSpecifier</string>
+			<key>Key</key>
+			<string>feedback</string>
+			<key>Title</key>
+			<string>Feedback</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>https://www.twitter.com/preproapp</string>
-            <key>Type</key>
-            <string>IASKOpenURLSpecifier</string>
-            <key>Key</key>
-            <string>twitter</string>
-            <key>Title</key>
-            <string>Twitter</string>
-            <key>IASKCellImage</key>
-            <string>twitter</string>
-        </dict>
-        <dict>
-            <key>File</key>
+			<key>Type</key>
+			<string>IASKOpenURLSpecifier</string>
+			<key>Key</key>
+			<string>twitter</string>
+			<key>Title</key>
+			<string>Twitter</string>
+			<key>IASKCellImage</key>
+			<string>twitter</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>https://www.facebook.com/preproapp</string>
-            <key>Type</key>
-            <string>IASKOpenURLSpecifier</string>
-            <key>Key</key>
-            <string>facebook</string>
-            <key>Title</key>
-            <string>Facebook</string>
-            <key>IASKCellImage</key>
-            <string>facebook</string>
-        </dict>
+			<key>Type</key>
+			<string>IASKOpenURLSpecifier</string>
+			<key>Key</key>
+			<string>facebook</string>
+			<key>Title</key>
+			<string>Facebook</string>
+			<key>IASKCellImage</key>
+			<string>facebook</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

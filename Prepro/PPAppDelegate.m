@@ -30,6 +30,7 @@
 #import "CallSheetDocument.h"
 #import "MBAlertView.h"
 #import "WYPopoverController.h"
+#import "SplashViewController.h"
 
 @implementation PPAppDelegate
 
@@ -77,7 +78,12 @@
     [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     [self.window makeKeyAndVisible];
+    
+    
+    SplashViewController *splashViewController = [[SplashViewController alloc] init];
+    [self.window addSubview:splashViewController.view];
     
     return YES;
 }
@@ -219,11 +225,11 @@
              [CrewDocument alloc],
              [LocationListDocument alloc],
              [PropListDocument alloc],
+             [NotesDocument alloc],
              [RiskAssessmentDocument alloc],
              [BudgetDocument alloc],
              [ContingencyPlansDocument alloc],
              [ShootingDatesDocument alloc],
-             [NotesDocument alloc],
              [CallSheetDocument alloc]
              //[StoryboardDocument alloc],
              //[SoundtrackDocument alloc],

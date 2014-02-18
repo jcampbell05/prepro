@@ -9,6 +9,7 @@
 #import "EntityCategory.h"
 #import "Entity.h"
 #import "NSObject+AppDelegate.h"
+#import "PPExportType.h"
 
 @implementation EntityCategory
 

@@ -15,10 +15,13 @@
 #import "JTTableViewGestureRecognizer.h"
 #import "JTTransformableTableViewCell.h"
 
-@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate>{
+@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate> {
+    
     WYPopoverController *popoverController;
+    
     UIBarButtonItem *editModeButtonBar;
     UIBarButtonItem *deleteEntitiesButton;
+    
     UILabel *selectedCount;
     NSArray *toolbarItems;
     
@@ -29,7 +32,7 @@
 @property (atomic, strong) Document *document;
 @property (readonly) NSArray *entities;
 @property (assign) bool allowsBatchEntry;
-@property (nonatomic, strong) JTTableViewGestureRecognizer *tableViewRecognizer;
+@property (nonatomic, strong) JTTableViewGestureRecognizer * tableViewRecognizer;
 
 - (void)updateCategories;
 - (void)syncTableView;
