@@ -7,13 +7,14 @@
 //
 
 #import "CrewDocument.h"
+#import "EntityCategory.h"
 #import "EntityManagerViewController.h"
 #import "Crew.h"
 
 @implementation CrewDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"crew"];
+    return [UIImage imageNamed:@"Crew"];
 }
 
 - (NSString *)single {

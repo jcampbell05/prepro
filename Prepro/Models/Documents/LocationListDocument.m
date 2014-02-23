@@ -13,7 +13,7 @@
 @implementation LocationListDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"locations"];
+    return [UIImage imageNamed:@"Location"];
 }
 
 - (NSString *)single {

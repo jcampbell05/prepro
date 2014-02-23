@@ -45,13 +45,13 @@ static NSString *CellIdentifier = @"CellIdentifier";
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor grayColor];
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self action:@selector(backPressed:)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Projects"] style:UIBarButtonItemStylePlain target:self action:@selector(backPressed:)];
     
-    UIBarButtonItem *tabsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tabs-small"] style:UIBarButtonItemStylePlain target:self action:@selector(showTabs)];
+    UIBarButtonItem *tabsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(showTabs)];
     
     self.navigationItem.leftBarButtonItems = @[closeButton, tabsButton];
     
-    UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"export"]  style:UIBarButtonItemStylePlain target:self action:@selector(exportProject:)];
+    UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Export"]  style:UIBarButtonItemStylePlain target:self action:@selector(exportProject:)];
     
     self.navigationItem.rightBarButtonItem = exportButton;
 }

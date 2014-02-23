@@ -11,7 +11,7 @@
 @implementation ShootingDatesDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"shooting dates"];
+    return [UIImage imageNamed:@"Shooting Dates"];
 }
 
 - (NSString *)single {

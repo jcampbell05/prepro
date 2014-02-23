@@ -14,7 +14,7 @@
 @implementation ScriptDocument
 
 - (UIImage *)icon {
-    return [UIImage imageNamed:@"script"];
+    return [UIImage imageNamed:@"Script"];
 }
 
 - (NSString *)single {

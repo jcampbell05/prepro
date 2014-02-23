@@ -14,6 +14,7 @@
 @implementation EntityCategory
 
 - (void)updateEntities:(NSArray *) entities {
+    _entities = nil;
     _entities = [(_updateEntitiesBlock) ? _updateEntitiesBlock(entities) : entities mutableCopy];
 }
 
@@ -36,7 +37,7 @@
     [_entities insertObject:entity atIndex:index];
     
     if (_moveToBlock) {
-        entity = _moveToBlock(index, entity);
+        _moveToBlock(index, entity);
     }
 }
 

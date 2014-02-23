@@ -32,16 +32,25 @@
 #import "WYPopoverController.h"
 #import "SplashViewController.h"
 
+@interface PPAppDelegate ()
+
+- (void)loadDocuments;
+
+@end
+
 @implementation PPAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+//Refactor This for 1.4
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     NSLog(@"Prepro launched.");
+    
+    [self loadDocuments];
     
     //Move into settings default JSON
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
@@ -80,7 +89,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
-    
     
     SplashViewController *splashViewController = [[SplashViewController alloc] init];
     [self.window addSubview:splashViewController.view];
@@ -212,29 +220,31 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark Implementation
 
-
-- (NSArray *) documents {
-    return @[
-             [ProposalDocument alloc],
-             [ScriptDocument alloc],
-             [CharacterProfilesDocument alloc],
-             [ShotListDocument alloc],
-             [EquipmentListDocument alloc],
-             [CastDocument alloc],
-             [CrewDocument alloc],
-             [LocationListDocument alloc],
-             [PropListDocument alloc],
-             [NotesDocument alloc],
-             [RiskAssessmentDocument alloc],
-             [BudgetDocument alloc],
-             [ContingencyPlansDocument alloc],
-             [ShootingDatesDocument alloc],
-             [CallSheetDocument alloc]
-             //[StoryboardDocument alloc],
-             //[SoundtrackDocument alloc],
-             //[LogBookDocument alloc]
-            ];
+- (void)loadDocuments {
+    
+    _documents =  @[
+                    [ProposalDocument alloc],
+                    [ScriptDocument alloc],
+                    [CharacterProfilesDocument alloc],
+                    [ShotListDocument alloc],
+                    [EquipmentListDocument alloc],
+                    [CastDocument alloc],
+                    [CrewDocument alloc],
+                    [LocationListDocument alloc],
+                    [PropListDocument alloc],
+                    [NotesDocument alloc],
+                    [RiskAssessmentDocument alloc],
+                    [BudgetDocument alloc],
+                    [ContingencyPlansDocument alloc],
+                    [ShootingDatesDocument alloc],
+                    [CallSheetDocument alloc]
+                    //[StoryboardDocument alloc],
+                    //[SoundtrackDocument alloc],
+                    //[LogBookDocument alloc]
+                    ];
+    
 }
 
 @end

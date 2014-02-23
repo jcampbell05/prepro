@@ -11,7 +11,7 @@
 @implementation RiskAssessmentDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"riskassessment"];
+    return [UIImage imageNamed:@"Risk Assessment"];
 }
 
 - (NSString *)single {

@@ -13,7 +13,7 @@
 @implementation ProposalDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"proposal"];
+    return [UIImage imageNamed:@"Proposal"];
 }
 
 - (NSString *)single {

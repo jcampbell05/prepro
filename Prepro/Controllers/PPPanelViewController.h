@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #define SLIDE_DURATION 0.3
-#define PANEL_LEFT_GAP 60
+#define PANEL_LEFT_GAP 55
 
 @protocol PPPanelViewControllerDelegate;
 

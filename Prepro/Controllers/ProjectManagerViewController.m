@@ -45,12 +45,7 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     [super viewDidLoad];
     
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.navigationController.navigationBar.shadowImage = [UIImage new];
-        self.navigationController.navigationBar.translucent = YES;
-        self.navigationController.view.backgroundColor = [UIColor clearColor];
-    } else {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                              forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.translucent = NO;
     }
     
     self.navigationItem.title = @"Projects";
@@ -59,13 +54,13 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
 	[self.collectionView registerClass:[ProjectCollectionViewCell class] forCellWithReuseIdentifier:projectCellIdentifier];
     self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
-    UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newProject)];
-    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"import"]  style:UIBarButtonItemStylePlain  target:self action:@selector(importProject:)];
+    UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"New"]  style:UIBarButtonItemStylePlain target:self action:@selector(newProject)];
+    UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Import"]  style:UIBarButtonItemStylePlain  target:self action:@selector(importProject:)];
     
     editProjectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleProjectEditMode)];
     editProjectsButton.enabled = NO;
     
-    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
     
     [self.navigationItem setLeftBarButtonItems:@[addProjectButton, importProjectButton]];
     self.navigationItem.rightBarButtonItems = @[settingsButton, editProjectsButton];
@@ -459,22 +454,6 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         [self updateButtons];
         [self.collectionView reloadData];
     }
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        if (scrollView.contentOffset.y > - 30) {
-            [self.navigationController.navigationBar setBackgroundImage:nil
-                                                          forBarMetrics:UIBarMetricsDefault];
-        } else {
-            [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                          forBarMetrics:UIBarMetricsDefault];
-        }
-    }
-    
 }
 
 @end

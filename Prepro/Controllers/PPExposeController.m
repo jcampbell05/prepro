@@ -47,8 +47,9 @@
 }
 
 - (UIView *)addViewForExposeController:(LIExposeController *)exposeController {
-    UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Add"]];
-    [view sizeToFit];
+    UIImageView * view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"New Tab"]];
+    view.frame = CGRectMake(0, 0, 600, 600);
+    view.contentMode = UIViewContentModeScaleAspectFill;
     return view;
 }
 

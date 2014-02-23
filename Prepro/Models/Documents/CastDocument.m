@@ -12,7 +12,7 @@
 @implementation CastDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"cast"];
+    return [UIImage imageNamed:@"Cast"];
 }
 
 - (NSString *)single {

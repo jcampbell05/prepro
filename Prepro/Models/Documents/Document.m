@@ -10,6 +10,7 @@
 #import "EntityManagerViewController.h"
 #import "MBAlertView.h"
 #import "Entity.h"
+#import "EntityCategory.h"
 
 @implementation Document
 
@@ -30,19 +31,11 @@
 }
 
 - (NSArray *)entityCategories {
-    if (!entityCategories) {
-        entityCategories = [self loadEntityCategories];
+    if ( !_entityCategories ) {
+        [self loadEntityCategories];
     }
     
-    return entityCategories;
-}
-
-- (EntityCategory *)defaultCategory {
-    return [[EntityCategory alloc] init];
-}
-
-- (NSArray *)loadEntityCategories {
-    return @[ [self defaultCategory] ];
+    return _entityCategories;
 }
 
 - (UIViewController *)viewControllerForManaging {
@@ -122,6 +115,22 @@
     };
 
     return quickDialogController;
+}
+
+#pragma mark Entity Category
+
+- (void)loadDefaultEntityCategory {
+    
+    self.defaultEntityCategory = [[EntityCategory alloc] init];
+}
+
+- (void)loadEntityCategories {
+    
+    if ( !_defaultEntityCategory ) {
+        [self loadDefaultEntityCategory];
+    }
+    
+    self.entityCategories = @[ self.defaultEntityCategory ];
 }
 
 @end

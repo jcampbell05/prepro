@@ -13,7 +13,7 @@
 @implementation CharacterProfilesDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"characters"];
+    return [UIImage imageNamed:@"Characters"];
 }
 
 - (NSString *)single {

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
 
+#import "EntityCategory.h"
 #import "EquipmentListDocument.h"
 #import "NSObject+AppDelegate.h"
 #import "TDBadgedCell.h"
@@ -14,7 +15,7 @@
 @implementation EquipmentListDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"equipment"];
+    return [UIImage imageNamed:@"Equipment"];
 }
 
 - (NSString *)single {
@@ -48,7 +49,7 @@
     }
 }
 
-- (NSArray *)loadEntityCategories {
+- (void)loadEntityCategories {
     
     QRootElement *bindingData = (QRootElement *)[self bindingData];
     QRadioElement *radioElement = (QRadioElement *)[bindingData elementWithKey:@"type"];
@@ -95,7 +96,7 @@
         [categories addObject:category];
     }];
     
-    return categories;
+    self.entityCategories = categories;
 }
 
 @end

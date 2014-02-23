@@ -11,7 +11,7 @@
 @implementation CallSheetDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"callsheet"];
+    return [UIImage imageNamed:@"Call Sheet"];
 }
 
 - (NSString *)single {

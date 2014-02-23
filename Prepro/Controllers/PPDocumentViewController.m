@@ -65,6 +65,10 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setToolbarHidden:NO animated:animated];
+    
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [self.navigationController.toolbar setTranslucent: NO];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

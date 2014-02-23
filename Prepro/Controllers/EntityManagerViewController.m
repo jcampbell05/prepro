@@ -7,6 +7,7 @@
 //
 // TODO: Make More Modular
 
+#import "EntityCategory.h"
 #import "EntityManagerViewController.h"
 #import "Project.h"
 #import "NSObject+AppDelegate.h"
@@ -409,7 +410,7 @@
     EntityCategory * category = [self categoryForSection:indexPath.section excludeEmpty:YES];
     
     if (!category) {
-        category = [_document defaultCategory];
+        category = [_document defaultEntityCategory];
     }
     
     return ([category canMoveEntityAtIndex:indexPath.row]) ? indexPath : nil ;
@@ -425,7 +426,7 @@
     
     //Handle empty documents
     if (!category) {
-        category = [_document defaultCategory];
+        category = [_document defaultEntityCategory];
         [category addEntityAtIndex:indexPath.row];
         [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
         

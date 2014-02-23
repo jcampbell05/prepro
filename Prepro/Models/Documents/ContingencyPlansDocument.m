@@ -11,7 +11,7 @@
 @implementation ContingencyPlansDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"contingency"];
+    return [UIImage imageNamed:@"Contingency"];
 }
 
 - (NSString *)single {

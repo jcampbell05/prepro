@@ -13,7 +13,7 @@
 @implementation NotesDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"notes"];
+    return [UIImage imageNamed:@"Notes"];
 }
 
 - (NSString *)single {

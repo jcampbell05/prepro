@@ -11,7 +11,7 @@
 @implementation BudgetDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"budget"];
+    return [UIImage imageNamed:@"Budget"];
 }
 
 - (NSString *)single {

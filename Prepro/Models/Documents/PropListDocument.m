@@ -14,7 +14,7 @@
 @implementation PropListDocument
 
 - (UIImage *) icon {
-    return [UIImage imageNamed:@"props"];
+    return [UIImage imageNamed:@"Props"];
 }
 
 - (NSString *)single {

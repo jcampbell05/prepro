@@ -8,23 +8,24 @@
 // TODO: Refactor and simplify as well as make more automated, way for it to control individual documents. Break into sub-classes.
 
 #import <Foundation/Foundation.h>
-#import "EntityCategory.h"
+
+@class EntityCategory;
 
 @interface Document : NSObject {
     NSArray *entityCategories;
 }
 
-@property (readonly) UIImage *icon;
-@property (readonly) NSString *single;
-@property (readonly) NSString *plural;
-@property (readonly) NSString *projectRelationshipKeyName;
-@property (readonly) NSArray *entityCategories;
+@property (readonly) UIImage * icon;
+@property (readonly) NSString * single;
+@property (readonly) NSString * plural;
+@property (readonly) NSString * projectRelationshipKeyName;
+@property (strong, nonatomic) NSArray * entityCategories;
+@property (strong, nonatomic) EntityCategory * defaultEntityCategory;
 
 
 //This is quickly getting ugly - Needs Tidy up :)
 - (bool)comingSoon;
-- (EntityCategory *)defaultCategory;
-- (NSArray *)loadEntityCategories;
+
 - (UIViewController *)viewControllerForManaging;
 - (Class)entityClass;
 - (id)newEntity;
@@ -36,5 +37,10 @@
 - (void)updateRowWithPlaceholder:(UITableViewCell *)cell;
 - (id)bindingData;
 - (id)viewControllerForEditingEntity:(id)entity;
+
+#pragma mark Entity Category
+
+- (void)loadDefaultEntityCategory;
+- (void)loadEntityCategories;
 
 @end
