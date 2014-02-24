@@ -16,6 +16,7 @@
     if (self) {
         
         self.contentView.backgroundColor = [UIColor lightGrayColor];
+        self.textLabel.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

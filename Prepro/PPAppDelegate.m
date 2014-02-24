@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
 
-#import <NewRelicAgent/NewRelicAgent.h>
-
+#import "Crittercism.h"
 #import "PPAppDelegate.h"
+#import "PPAppStyleManager.h"
+#import "PPAppStyle.h"
 #import "ProjectManagerViewController.h"
 #import "ProposalDocument.h"
 #import "ShotListDocument.h"
@@ -52,14 +53,14 @@
     
     [self loadDocuments];
     
+    [[PPAppStyleManager sharedInstance] setCurrentStyleWithName: @"Blue"];
+    
     //Move into settings default JSON
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
         @"pressAndHoldToRearrange": @YES,
         @"pinchPullToCreateGesture": @YES
     }];
-    
-    [NewRelicAgent startWithApplicationToken:@"AA77b276cfbbf23b32b1ba86ef1553f2c7b82e03cd"];
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     ProjectManagerViewController *projectManagerViewController = [[ProjectManagerViewController alloc] init];
@@ -68,30 +69,14 @@
     
     self.window.rootViewController = self.navigationController;
     
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.window.tintColor = [UIColor blackColor];
-        
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
-        [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
-    }
-    
-    [[WYPopoverBackgroundView appearance] setFillTopColor:[UIColor colorWithRed:0.216 green:0.247 blue:0.278 alpha:1.0]];
-    [[WYPopoverBackgroundView appearance] setFillBottomColor:[UIColor colorWithRed:0.231 green:0.263 blue:0.298 alpha:1.0]];
-    [[WYPopoverBackgroundView appearance] setInnerStrokeColor:[UIColor clearColor]];
-    [[WYPopoverBackgroundView appearance] setInnerShadowColor:[UIColor clearColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor, nil]];
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
     [self.window makeKeyAndVisible];
     
     SplashViewController *splashViewController = [[SplashViewController alloc] init];
     [self.window addSubview:splashViewController.view];
+    
+    [self setupStyle];
+    
+    [Crittercism enableWithAppID: @"530ba0ec7c376442a2000003"];
     
     return YES;
 }
@@ -131,11 +116,47 @@
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
              // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. - True True Fix in 1.4
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         } 
     }
+}
+
+- (void)setupStyle
+{
+    PPAppStyle * appStyle = [[PPAppStyleManager sharedInstance] appStyle];
+    
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
+        self.window.tintColor = [UIColor blackColor];
+        
+        [[UINavigationBar appearance] setTintColor: appStyle.primaryColour];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+        [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    } else {
+        
+        [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
+        [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
+        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{
+                                                          UITextAttributeTextColor: appStyle.primaryColour,
+                                                          UITextAttributeTextShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                                                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
+                                                          } forState:UIControlStateNormal];
+    }
+    
+    [[WYPopoverBackgroundView appearance] setFillTopColor:[UIColor colorWithRed:0.216 green:0.247 blue:0.278 alpha:1.0]];
+    [[WYPopoverBackgroundView appearance] setFillBottomColor:[UIColor colorWithRed:0.231 green:0.263 blue:0.298 alpha:1.0]];
+    [[WYPopoverBackgroundView appearance] setInnerStrokeColor:[UIColor clearColor]];
+    [[WYPopoverBackgroundView appearance] setInnerShadowColor:[UIColor clearColor]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           UITextAttributeTextColor: [UIColor blackColor],
+                                                           UITextAttributeTextShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                                                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
+                                                           }];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 #pragma mark - Core Data stack
@@ -180,7 +201,13 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
+    
+    NSDictionary *options = @{
+                              NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES
+                              };
+    
+    if ( ![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options: options error:&error] ) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

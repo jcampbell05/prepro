@@ -196,6 +196,7 @@
 	UIWindow *window = [[UIApplication sharedApplication] keyWindow];
 	
 	CGRect rect = [window frame];
+    
     if ([[UIApplication sharedApplication] statusBarStyle] == UIStatusBarStyleBlackOpaque) {
 		CGFloat height = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])?[[UIApplication sharedApplication] statusBarFrame].size.height:[[UIApplication sharedApplication] statusBarFrame].size.width;
 		
@@ -263,6 +264,10 @@
 		modal = YES;
 		
 		destFrame = [self fullScreenRect];
+        
+        if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+            destFrame = [self switchRectOrientation:destFrame];
+		}
 		
 		[[[self destinationViewController] view] setFrame:destFrame];
 		[[[self destinationViewController] view] setNeedsLayout];
@@ -383,6 +388,11 @@
 		modal = NO;
 		destFrame = [[[self destinationViewController] view] frame];
 	}
+    
+    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+        destFrame = [self switchRectOrientation:destFrame];
+    }
+    
 	CGRect srcFrame = [self actualRectInView:[self sourceView]];
 	
 	//create the destination animation view

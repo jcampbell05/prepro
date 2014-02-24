@@ -76,8 +76,13 @@
     
     _panelViewController = controller;
     _panelViewController.view.frame = [self rectForPanelInOpenState:_showingPanel];
+    
+    #if HAS_SHADOW
+    
     _panelViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
     _panelViewController.view.layer.shadowOpacity = 0.8;
+    
+    #endif
     
     [self insertViewController:_panelViewController withFrame:[self rectForPanelInOpenState:_showingPanel]];
     [self.view sendSubviewToBack:_rootViewController.view];

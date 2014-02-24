@@ -42,7 +42,10 @@
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _textView.font = [UIFont systemFontOfSize:18.0f];
         
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        if ( [self respondsToSelector:@selector(edgesForExtendedLayout)] ) {
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+        }
+        
     }
     return self;
 }

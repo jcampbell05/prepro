@@ -409,7 +409,7 @@ float M_PI2 = M_PI/2.0f;
 - (NSMutableArray *)createSingleRowOfButtons {
     NSMutableArray *buttonGrid = [@[ [@[] mutableCopy] ] mutableCopy];
     for(MBAlertViewButton *item in _buttons) {
-        [[buttonGrid lastObject] addObject:item];
+        [(NSMutableArray *)[buttonGrid lastObject] addObject:item];
     }
     return buttonGrid;
 }
@@ -435,7 +435,7 @@ float M_PI2 = M_PI/2.0f;
         buttonGridWidthTotal += size.width + kSpaceBetweenButtons;
         
         if (buttonGridWidthTotal <= maxWidthOnGrid) {
-            [[buttonGrid lastObject] addObject:item];
+            [(NSMutableArray *)[buttonGrid lastObject] addObject:item];
         } else {
             [buttonGrid addObject:[@[item] mutableCopy]];
             buttonGridWidthTotal = size.width;

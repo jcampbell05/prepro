@@ -5,10 +5,12 @@
 //  Created by James Campbell on 01/12/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
+// Allow User To Control Shadow
 
 #import <UIKit/UIKit.h>
 #define SLIDE_DURATION 0.3
 #define PANEL_LEFT_GAP 55
+#define HAS_SHADOW 0
 
 @protocol PPPanelViewControllerDelegate;
 

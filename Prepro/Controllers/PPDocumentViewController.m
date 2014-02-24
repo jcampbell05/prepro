@@ -156,7 +156,7 @@
     _titleTextField.font = [UIFont systemFontOfSize:20.0];
     _titleTextField.opaque = NO;
     _titleTextField.textAlignment = NSTextAlignmentCenter;
-    _titleTextField.textColor = [UIColor whiteColor];
+    _titleTextField.textColor = [UIColor blackColor];
     _titleTextField.returnKeyType = UIReturnKeyDone;
     _titleTextField.adjustsFontSizeToFitWidth = YES;
     

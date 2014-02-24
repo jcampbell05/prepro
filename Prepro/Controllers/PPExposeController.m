@@ -64,11 +64,8 @@
     projectViewController.projectManagerViewController = _projectManagerViewController;
     
     PPNavigationViewController * flipNavigationController =  [[PPNavigationViewController alloc] initWithRootViewController:projectViewController];
-    flipNavigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        flipNavigationController.navigationBar.tintColor = [UIColor whiteColor];
-        flipNavigationController.navigationBar.barTintColor = [UIColor blackColor];
         flipNavigationController.navigationBar.translucent = NO;
     }
     

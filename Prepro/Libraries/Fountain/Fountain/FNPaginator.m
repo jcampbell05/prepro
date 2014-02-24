@@ -531,7 +531,10 @@
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
 #if TARGET_OS_IPHONE
     NSTextContainer *textContainer = [[NSTextContainer alloc] init];
-    [textContainer setSize:CGSizeMake(maxWidth, MAXFLOAT)];
+    
+    if ( [textContainer respondsToSelector:@selector(setSize:)]) { //Check to prevent crash on Pre iOS 7
+         [textContainer setSize:CGSizeMake(maxWidth, MAXFLOAT)];
+    }
 #else
     NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(maxWidth, MAXFLOAT)];
 #endif

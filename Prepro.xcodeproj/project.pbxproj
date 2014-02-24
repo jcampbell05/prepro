@@ -136,6 +136,14 @@
 		1AEAC04A18B968850023B21D /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC04218B968850023B21D /* Settings@2x.png */; };
 		1AEAC04B18B968850023B21D /* Trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC04318B968850023B21D /* Trash.png */; };
 		1AEAC04D18B96C7A0023B21D /* New Tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC04C18B96C7A0023B21D /* New Tab@2x.png */; };
+		1AEAC05018BBA9D20023B21D /* PPAppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC04F18BBA9D20023B21D /* PPAppStyle.m */; };
+		1AEAC70018BBAC710023B21D /* PPAppStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC6FF18BBAC710023B21D /* PPAppStyleManager.m */; };
+		1AEAC70318BBAF020023B21D /* PPAppStyleParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC70218BBAF020023B21D /* PPAppStyleParser.m */; };
+		1AEAC71C18BBB1380023B21D /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC70818BBB1380023B21D /* HexColor.m */; };
+		1AEAC72B18BBB1D60023B21D /* Styles in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC72A18BBB1D60023B21D /* Styles */; };
+		1AEAC74318BBD61B0023B21D /* Prepro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC73C18BBD61B0023B21D /* Prepro.xcdatamodeld */; };
+		1AEAC77718BBD91B0023B21D /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC76518BBD91B0023B21D /* dsym_upload.sh */; };
+		1AEAC77818BBD91B0023B21D /* libCrittercism_v4_3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEAC76618BBD91B0023B21D /* libCrittercism_v4_3_1.a */; };
 		1AF4CD531728A1C500860600 /* NSObject+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF4CD521728A1C500860600 /* NSObject+AppDelegate.m */; };
 		1AF88E1A171205860065E577 /* EntityManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF88E19171205850065E577 /* EntityManagerViewController.m */; };
 		1AFB356B16FCF17100590D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356A16FCF17100590D87 /* UIKit.framework */; };
@@ -144,7 +152,6 @@
 		1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB357516FCF17100590D87 /* InfoPlist.strings */; };
 		1AFB357916FCF17100590D87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB357816FCF17100590D87 /* main.m */; };
 		1AFB357D16FCF17200590D87 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB357C16FCF17200590D87 /* PPAppDelegate.m */; };
-		1AFB358616FCF17200590D87 /* Prepro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB358416FCF17200590D87 /* Prepro.xcdatamodeld */; };
 		1AFB358E16FCF17200590D87 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB358D16FCF17200590D87 /* SenTestingKit.framework */; };
 		1AFB358F16FCF17200590D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356A16FCF17100590D87 /* UIKit.framework */; };
 		1AFB359016FCF17200590D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356C16FCF17100590D87 /* Foundation.framework */; };
@@ -152,7 +159,6 @@
 		1AFB359916FCF17300590D87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB359716FCF17300590D87 /* InfoPlist.strings */; };
 		1AFB359C16FCF17300590D87 /* PreproTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB359B16FCF17300590D87 /* PreproTests.m */; };
 		1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB35B516FCF92B00590D87 /* ProjectManagerViewController.m */; };
-		7410BE5D18018FCA001148D4 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7410BE5C18018FCA001148D4 /* NewRelicAgent.framework */; };
 		7410BE6018018FDB001148D4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7410BE5F18018FDB001148D4 /* CoreTelephony.framework */; };
 		7413CB001857AB170020E875 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7413CA901857AB160020E875 /* IASKAppSettingsViewController.m */; };
 		7413CB011857AB170020E875 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7413CA921857AB160020E875 /* IASKAppSettingsWebViewController.m */; };
@@ -539,6 +545,26 @@
 		1AEAC04218B968850023B21D /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
 		1AEAC04318B968850023B21D /* Trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trash.png; sourceTree = "<group>"; };
 		1AEAC04C18B96C7A0023B21D /* New Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Tab@2x.png"; sourceTree = "<group>"; };
+		1AEAC04E18BBA9D20023B21D /* PPAppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAppStyle.h; path = Models/PPAppStyle.h; sourceTree = "<group>"; };
+		1AEAC04F18BBA9D20023B21D /* PPAppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAppStyle.m; path = Models/PPAppStyle.m; sourceTree = "<group>"; };
+		1AEAC6FE18BBAC710023B21D /* PPAppStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAppStyleManager.h; path = Models/PPAppStyleManager.h; sourceTree = "<group>"; };
+		1AEAC6FF18BBAC710023B21D /* PPAppStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAppStyleManager.m; path = Models/PPAppStyleManager.m; sourceTree = "<group>"; };
+		1AEAC70118BBAF020023B21D /* PPAppStyleParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPAppStyleParser.h; path = Models/PPAppStyleParser.h; sourceTree = "<group>"; };
+		1AEAC70218BBAF020023B21D /* PPAppStyleParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAppStyleParser.m; path = Models/PPAppStyleParser.m; sourceTree = "<group>"; };
+		1AEAC70718BBB1380023B21D /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
+		1AEAC70818BBB1380023B21D /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
+		1AEAC72A18BBB1D60023B21D /* Styles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Styles; path = Resources/Data/Styles; sourceTree = "<group>"; };
+		1AEAC73D18BBD61B0023B21D /* Prepro1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.0.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC73E18BBD61B0023B21D /* Prepro1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.1.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC73F18BBD61B0023B21D /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC74018BBD61B0023B21D /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC74118BBD61B0023B21D /* Prepro1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.4.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC74218BBD61B0023B21D /* Prepro1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.5.xcdatamodel; sourceTree = "<group>"; };
+		1AEAC76218BBD91B0023B21D /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		1AEAC76318BBD91B0023B21D /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		1AEAC76418BBD91B0023B21D /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		1AEAC76518BBD91B0023B21D /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		1AEAC76618BBD91B0023B21D /* libCrittercism_v4_3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_1.a; sourceTree = "<group>"; };
 		1AF4CD511728A1C500860600 /* NSObject+AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+AppDelegate.h"; path = "Catergories/NSObject+AppDelegate.h"; sourceTree = "<group>"; };
 		1AF4CD521728A1C500860600 /* NSObject+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AppDelegate.m"; path = "Catergories/NSObject+AppDelegate.m"; sourceTree = "<group>"; };
 		1AF88E18171205850065E577 /* EntityManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManagerViewController.h; path = Controllers/EntityManagerViewController.h; sourceTree = "<group>"; };
@@ -554,7 +580,6 @@
 		1AFB357A16FCF17200590D87 /* Prepro-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prepro-Prefix.pch"; sourceTree = "<group>"; };
 		1AFB357B16FCF17200590D87 /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
 		1AFB357C16FCF17200590D87 /* PPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
-		1AFB358516FCF17200590D87 /* Prepro1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.0.xcdatamodel; sourceTree = "<group>"; };
 		1AFB358C16FCF17200590D87 /* PreproTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreproTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFB358D16FCF17200590D87 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1AFB359616FCF17300590D87 /* PreproTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PreproTests-Info.plist"; sourceTree = "<group>"; };
@@ -563,7 +588,6 @@
 		1AFB359B16FCF17300590D87 /* PreproTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreproTests.m; sourceTree = "<group>"; };
 		1AFB35B416FCF92B00590D87 /* ProjectManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectManagerViewController.h; path = Controllers/ProjectManagerViewController.h; sourceTree = "<group>"; };
 		1AFB35B516FCF92B00590D87 /* ProjectManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectManagerViewController.m; path = Controllers/ProjectManagerViewController.m; sourceTree = "<group>"; };
-		7410BE5C18018FCA001148D4 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NewRelicAgent.framework; path = Libraries/NewRelicAgent.framework; sourceTree = "<group>"; };
 		7410BE5F18018FDB001148D4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7413CA8F1857AB160020E875 /* IASKAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsViewController.h; sourceTree = "<group>"; };
 		7413CA901857AB160020E875 /* IASKAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsViewController.m; sourceTree = "<group>"; };
@@ -610,8 +634,6 @@
 		7438796A188691990075EA76 /* PPScriptDialogueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptDialogueFormatter.m; path = Models/ScriptFormatters/PPScriptDialogueFormatter.m; sourceTree = "<group>"; };
 		7438796C188691C20075EA76 /* PPScriptParentheticalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptParentheticalFormatter.h; path = Models/ScriptFormatters/PPScriptParentheticalFormatter.h; sourceTree = "<group>"; };
 		7438796D188691C20075EA76 /* PPScriptParentheticalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptParentheticalFormatter.m; path = Models/ScriptFormatters/PPScriptParentheticalFormatter.m; sourceTree = "<group>"; };
-		743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.3.xcdatamodel; sourceTree = "<group>"; };
-		744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.2.xcdatamodel; sourceTree = "<group>"; };
 		74487582185BF7C300BABB2D /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		744B80A318343E0C0034F4C2 /* LIExposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIExposeController.h; sourceTree = "<group>"; };
 		744B80A418343E0C0034F4C2 /* LIExposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIExposeController.m; sourceTree = "<group>"; };
@@ -644,7 +666,6 @@
 		7473211D17A7B67600E69EE4 /* PPPhotoPickerElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPhotoPickerElement.m; path = Controls/PPPhotoPickerElement.m; sourceTree = "<group>"; };
 		74762DCA185002BC00D81223 /* PPNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPNavigationViewController.h; path = Controllers/PPNavigationViewController.h; sourceTree = "<group>"; };
 		74762DCB185002BC00D81223 /* PPNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPNavigationViewController.m; path = Controllers/PPNavigationViewController.m; sourceTree = "<group>"; };
-		7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.4.xcdatamodel; sourceTree = "<group>"; };
 		7483054D1846ADAC00E79974 /* PPDocumentListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDocumentListTableViewCell.h; path = Views/PPDocumentListTableViewCell.h; sourceTree = "<group>"; };
 		7483054E1846ADAC00E79974 /* PPDocumentListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDocumentListTableViewCell.m; path = Views/PPDocumentListTableViewCell.m; sourceTree = "<group>"; };
 		748305501846B90900E79974 /* UIImage+NegativeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+NegativeImage.h"; path = "Catergories/UIImage+NegativeImage.h"; sourceTree = "<group>"; };
@@ -798,7 +819,6 @@
 		748D80591820753B00FB0DB8 /* WYStoryboardPopoverSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYStoryboardPopoverSegue.m; sourceTree = "<group>"; };
 		748D805D18207F2F00FB0DB8 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = "Libraries/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.h"; sourceTree = "<group>"; };
 		748D805E18207F2F00FB0DB8 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = "Libraries/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.m"; sourceTree = "<group>"; };
-		748D806018208A9C00FB0DB8 /* Prepro1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.1.xcdatamodel; sourceTree = "<group>"; };
 		749A4FDE177E51B500E357CA /* ProposalDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ProposalDocument.json; path = Resources/Data/Bindings/ProposalDocument.json; sourceTree = "<group>"; };
 		749E8C29177BB0B4006AD8DB /* LocationListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationListDocument.json; path = Resources/Data/Bindings/LocationListDocument.json; sourceTree = "<group>"; };
 		74A9B381185B46A800454EF8 /* deleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtn.png; sourceTree = "<group>"; };
@@ -866,6 +886,7 @@
 				7410BE6018018FDB001148D4 /* CoreTelephony.framework in Frameworks */,
 				1A589E5F176692EC00BC0458 /* AssetsLibrary.framework in Frameworks */,
 				745881B91772315D008F9307 /* CoreLocation.framework in Frameworks */,
+				1AEAC77818BBD91B0023B21D /* libCrittercism_v4_3_1.a in Frameworks */,
 				745881B7177230C0008F9307 /* MapKit.framework in Frameworks */,
 				1A589E621766932900BC0458 /* MobileCoreServices.framework in Frameworks */,
 				1A589E75176695F500BC0458 /* CFNetwork.framework in Frameworks */,
@@ -878,7 +899,6 @@
 				741CF2C917EFB8C2007DDD42 /* FPPicker.framework in Frameworks */,
 				1A589E651766937000BC0458 /* CoreFoundation.framework in Frameworks */,
 				1A6D31691729FDEF000171EE /* Foundation.framework in Frameworks */,
-				7410BE5D18018FCA001148D4 /* NewRelicAgent.framework in Frameworks */,
 				1AFB356B16FCF17100590D87 /* UIKit.framework in Frameworks */,
 				74BC2957176A7A1800205E29 /* EventKit.framework in Frameworks */,
 				1A589E6E1766949600BC0458 /* Security.framework in Frameworks */,
@@ -1182,6 +1202,12 @@
 				1ABF1F7C18AA5D51002F4F72 /* PPDocumentView.m */,
 				1A37C80318B2D28A00B65A81 /* PPPreproScript.h */,
 				1A37C80418B2D28A00B65A81 /* PPPreproScript.m */,
+				1AEAC04E18BBA9D20023B21D /* PPAppStyle.h */,
+				1AEAC04F18BBA9D20023B21D /* PPAppStyle.m */,
+				1AEAC6FE18BBAC710023B21D /* PPAppStyleManager.h */,
+				1AEAC6FF18BBAC710023B21D /* PPAppStyleManager.m */,
+				1AEAC70118BBAF020023B21D /* PPAppStyleParser.h */,
+				1AEAC70218BBAF020023B21D /* PPAppStyleParser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1216,6 +1242,45 @@
 				1A7BB33018B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.m */,
 			);
 			name = ScriptTableViewCell;
+			sourceTree = "<group>";
+		};
+		1AEAC70418BBB1380023B21D /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				1AEAC70618BBB1380023B21D /* Classes */,
+			);
+			name = HexColors;
+			path = Libraries/HexColors;
+			sourceTree = "<group>";
+		};
+		1AEAC70618BBB1380023B21D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1AEAC70718BBB1380023B21D /* HexColor.h */,
+				1AEAC70818BBB1380023B21D /* HexColor.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1AEAC74618BBD91B0023B21D /* Crittercism */ = {
+			isa = PBXGroup;
+			children = (
+				1AEAC76118BBD91B0023B21D /* CrittercismSDK */,
+			);
+			name = Crittercism;
+			path = Libraries/Crittercism;
+			sourceTree = "<group>";
+		};
+		1AEAC76118BBD91B0023B21D /* CrittercismSDK */ = {
+			isa = PBXGroup;
+			children = (
+				1AEAC76218BBD91B0023B21D /* CRFilter.h */,
+				1AEAC76318BBD91B0023B21D /* Crittercism.h */,
+				1AEAC76418BBD91B0023B21D /* CrittercismDelegate.h */,
+				1AEAC76518BBD91B0023B21D /* dsym_upload.sh */,
+				1AEAC76618BBD91B0023B21D /* libCrittercism_v4_3_1.a */,
+			);
+			path = CrittercismSDK;
 			sourceTree = "<group>";
 		};
 		1AF4CD501728A1B600860600 /* Catergories */ = {
@@ -1287,18 +1352,18 @@
 		1AFB357216FCF17100590D87 /* Prepro */ = {
 			isa = PBXGroup;
 			children = (
-				74D3EBDA179DDA3000E94FD9 /* Controls */,
-				1A2034F21735A2F9002BD6E5 /* Protocols */,
 				1AF4CD501728A1B600860600 /* Catergories */,
-				1AB5D25716FD185400423CEE /* Models */,
-				1AFB35A716FCF26300590D87 /* Libraries */,
 				1AFB35A616FCF1C600590D87 /* Controllers */,
-				1AFB35A516FCF1B800590D87 /* Views */,
+				74D3EBDA179DDA3000E94FD9 /* Controls */,
+				74D25C7B181495EA0097F9D7 /* Images.xcassets */,
+				1AFB35A716FCF26300590D87 /* Libraries */,
+				1AB5D25716FD185400423CEE /* Models */,
 				1AFB357B16FCF17200590D87 /* PPAppDelegate.h */,
 				1AFB357C16FCF17200590D87 /* PPAppDelegate.m */,
-				1AFB358416FCF17200590D87 /* Prepro.xcdatamodeld */,
-				74D25C7B181495EA0097F9D7 /* Images.xcassets */,
+				1AEAC73C18BBD61B0023B21D /* Prepro.xcdatamodeld */,
+				1A2034F21735A2F9002BD6E5 /* Protocols */,
 				1AFB357316FCF17100590D87 /* Supporting Files */,
+				1AFB35A516FCF1B800590D87 /* Views */,
 			);
 			path = Prepro;
 			sourceTree = "<group>";
@@ -1387,10 +1452,12 @@
 			children = (
 				7459339B182ACDF0001CE8D0 /* ADFlipTransition */,
 				1A6FD6FF17286BC50031B285 /* BWLongTextViewController */,
+				1AEAC74618BBD91B0023B21D /* Crittercism */,
 				1A398020173AF1F1009F6308 /* DTCustomColoredAccessory */,
 				74BACDA5176A6E7E00BBB316 /* FacebookSDK.framework */,
 				1A96114F18A2C797004DBFF6 /* Fountain */,
 				74AC37D617D3B68F00966861 /* GGFullscreenImageViewController */,
+				1AEAC70418BBB1380023B21D /* HexColors */,
 				7413CA751857AB160020E875 /* InAppSettingsKit */,
 				741CF25217EFB8C1007DDD42 /* Ink-ios-picker */,
 				7484E485180B7CBC003F6E4A /* JTGestureBasedTableViewDemo */,
@@ -1398,7 +1465,6 @@
 				1A10D58A18A2E45E00549780 /* Masonry */,
 				74B051DE185155D900ED4E88 /* MBAlertView */,
 				1A58963B176681D000BC0458 /* MBProgressHUD */,
-				7410BE5C18018FCA001148D4 /* NewRelicAgent.framework */,
 				1AB29336188F38F100DF96F3 /* PopoverView */,
 				74587F2C17723071008F9307 /* QuickDialog */,
 				748D805C18207F1B00FB0DB8 /* TDBadgedCell */,
@@ -1535,6 +1601,7 @@
 		7458828917723676008F9307 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1AEAC72A18BBB1D60023B21D /* Styles */,
 				7458828A177238E3008F9307 /* Bindings */,
 			);
 			name = Data;
@@ -2015,6 +2082,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AEAC77718BBD91B0023B21D /* dsym_upload.sh in Resources */,
 				1AEAC02E18B962820023B21D /* Call Sheet@2x.png in Resources */,
 				7484845C185E3768007905D6 /* facebook@2x.png in Resources */,
 				74A9B39C185B46A800454EF8 /* deleteBtn.png in Resources */,
@@ -2066,6 +2134,7 @@
 				749A4FDF177E51B500E357CA /* ProposalDocument.json in Resources */,
 				745933CA182ACDF0001CE8D0 /* ADFlipTransition.podspec in Resources */,
 				1AEAC02D18B962820023B21D /* Budget@2x.png in Resources */,
+				1AEAC72B18BBB1D60023B21D /* Styles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2112,9 +2181,9 @@
 				1A10D60518A2E45F00549780 /* MASViewAttribute.m in Sources */,
 				1ADC3056189A50600036AED6 /* PPDocumentViewController.m in Sources */,
 				1A3CE6FA1888995000F95C44 /* Shot.m in Sources */,
+				1AEAC05018BBA9D20023B21D /* PPAppStyle.m in Sources */,
 				1A7BB32818B2AA1A00D1E79E /* PPScriptDialogueSection.m in Sources */,
 				1AFB357D16FCF17200590D87 /* PPAppDelegate.m in Sources */,
-				1AFB358616FCF17200590D87 /* Prepro.xcdatamodeld in Sources */,
 				748D8002181DDFCB00FB0DB8 /* QAutoEntryElement.m in Sources */,
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
@@ -2234,6 +2303,7 @@
 				1A3CE6F21888995000F95C44 /* Entity.m in Sources */,
 				74B0520E185155D900ED4E88 /* MBFlatAlertView.m in Sources */,
 				1A3CE6E71888995000F95C44 /* PropListDocument.m in Sources */,
+				1AEAC70018BBAC710023B21D /* PPAppStyleManager.m in Sources */,
 				748D801F181DDFCB00FB0DB8 /* QMultilineElement.m in Sources */,
 				748D802D181DDFCB00FB0DB8 /* QSelectSection.m in Sources */,
 				1A3CE6F71888995000F95C44 /* Prop.m in Sources */,
@@ -2263,8 +2333,10 @@
 				1A303F83188DF4E6007BB0B7 /* PPPreproProjectExportType.m in Sources */,
 				1A10D58618A2DF5800549780 /* PPScriptPreviewViewController.m in Sources */,
 				748D7FFE181DDFCB00FB0DB8 /* DOAutocompleteTextField.m in Sources */,
+				1AEAC71C18BBB1380023B21D /* HexColor.m in Sources */,
 				748D8008181DDFCB00FB0DB8 /* QBooleanElement.m in Sources */,
 				1A3CE6EB1888995000F95C44 /* ShootingDatesDocument.m in Sources */,
+				1AEAC74318BBD61B0023B21D /* Prepro.xcdatamodeld in Sources */,
 				748D801E181DDFCB00FB0DB8 /* QMapViewController.m in Sources */,
 				1A9611BF18A2C798004DBFF6 /* FNPaginator.m in Sources */,
 				1A6643EA1898440B00BF10E8 /* PPTextView.m in Sources */,
@@ -2274,6 +2346,7 @@
 				1A3CE6E41888995000F95C44 /* LocationListDocument.m in Sources */,
 				1A3CE6EE1888995000F95C44 /* StoryboardDocument.m in Sources */,
 				748D801C181DDFCB00FB0DB8 /* QMapAnnotation.m in Sources */,
+				1AEAC70318BBAF020023B21D /* PPAppStyleParser.m in Sources */,
 				1A9611BC18A2C798004DBFF6 /* FastFountainParser.m in Sources */,
 				748D8015181DDFCB00FB0DB8 /* QEntryElement.m in Sources */,
 				748D802E181DDFCB00FB0DB8 /* QSortingSection.m in Sources */,
@@ -2438,7 +2511,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SDKROOT)/usr/include/libxml2\"";
 				INFOPLIST_FILE = "Prepro/Prepro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/james/Documents/prepro/Prepro/Libraries/Crittercism/CrittercismSDK;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2475,7 +2548,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SDKROOT)/usr/include/libxml2\"";
 				INFOPLIST_FILE = "Prepro/Prepro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/james/Documents/prepro/Prepro/Libraries/Crittercism/CrittercismSDK;
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2559,16 +2632,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1AFB358416FCF17200590D87 /* Prepro.xcdatamodeld */ = {
+		1AEAC73C18BBD61B0023B21D /* Prepro.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */,
-				744367FE18316958003BF76C /* Prepro1.2.xcdatamodel */,
-				743FB45418429558002E7C40 /* Prepro1.3.xcdatamodel */,
-				748D806018208A9C00FB0DB8 /* Prepro1.1.xcdatamodel */,
-				1AFB358516FCF17200590D87 /* Prepro1.0.xcdatamodel */,
+				1AEAC73D18BBD61B0023B21D /* Prepro1.0.xcdatamodel */,
+				1AEAC73E18BBD61B0023B21D /* Prepro1.1.xcdatamodel */,
+				1AEAC73F18BBD61B0023B21D /* Prepro1.2.xcdatamodel */,
+				1AEAC74018BBD61B0023B21D /* Prepro1.3.xcdatamodel */,
+				1AEAC74118BBD61B0023B21D /* Prepro1.4.xcdatamodel */,
+				1AEAC74218BBD61B0023B21D /* Prepro1.5.xcdatamodel */,
 			);
-			currentVersion = 7476F1431876257900EE52D1 /* Prepro1.4.xcdatamodel */;
+			currentVersion = 1AEAC74218BBD61B0023B21D /* Prepro1.5.xcdatamodel */;
 			path = Prepro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

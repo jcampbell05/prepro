@@ -14,6 +14,7 @@
 
 - (void)awakeFromInsert {
     self.name = @"New Script";
+    self.content = @"";
 }
 
 @end

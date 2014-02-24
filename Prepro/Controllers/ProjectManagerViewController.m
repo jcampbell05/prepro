@@ -55,18 +55,24 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
     UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"New"]  style:UIBarButtonItemStylePlain target:self action:@selector(newProject)];
+    [addProjectButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
     UIBarButtonItem *importProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Import"]  style:UIBarButtonItemStylePlain  target:self action:@selector(importProject:)];
+    [importProjectButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     editProjectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleProjectEditMode)];
+    [editProjectsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     editProjectsButton.enabled = NO;
     
     UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings"]  style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
+    [settingsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     [self.navigationItem setLeftBarButtonItems:@[addProjectButton, importProjectButton]];
     self.navigationItem.rightBarButtonItems = @[settingsButton, editProjectsButton];
     
     deleteProjectsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeProjects)];
     deleteProjectsButton.tintColor = [UIColor redColor];
+    
     
     selectedCount = [[UILabel alloc] initWithFrame:CGRectMake(37,7,250,35)];
     selectedCount.autoresizingMask = UIViewAutoresizingFlexibleWidth;

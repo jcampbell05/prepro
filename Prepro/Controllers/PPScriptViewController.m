@@ -53,6 +53,12 @@
     self.title = _script.name;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+}
+
 - (void)willSwitchToDocumentView:(PPDocumentView *)documentView {
     
     //Create way of not having to rely on this method, its kinda hacky

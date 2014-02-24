@@ -9,6 +9,8 @@
 
 #import "ProjectViewController.h"
 #import "PPAppDelegate.h"
+#import "PPAppStyleManager.h"
+#import "PPAppStyle.h"
 #import "Document.h"
 #import "MBAlertView.h"
 #import "DTCustomColoredAccessory.h"
@@ -40,20 +42,27 @@ static NSString *CellIdentifier = @"CellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    PPAppStyle * appStyle = [[PPAppStyleManager sharedInstance] appStyle];
+    
     self.navigationItem.title = [NSObject currentProject].title;
     
-    self.tableView.backgroundColor = [UIColor blackColor];
-    self.tableView.separatorColor = [UIColor grayColor];
+    self.tableView.backgroundColor = appStyle.primaryColour;
+    self.tableView.separatorColor = [UIColor whiteColor];
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Projects"] style:UIBarButtonItemStylePlain target:self action:@selector(backPressed:)];
+    [closeButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UIBarButtonItem *tabsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(showTabs)];
-    
-    self.navigationItem.leftBarButtonItems = @[closeButton, tabsButton];
+    [tabsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Export"]  style:UIBarButtonItemStylePlain target:self action:@selector(exportProject:)];
+    [exportButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    self.navigationItem.rightBarButtonItem = exportButton;
+    UIBarButtonItem *listButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(class)];
+    [listButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.leftBarButtonItems = @[closeButton, exportButton];
+    self.navigationItem.rightBarButtonItems = @[tabsButton, listButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -113,18 +122,11 @@ static NSString *CellIdentifier = @"CellIdentifier";
 }
 
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (section == 1) {
-        return [self.documents count];
-    } else {
-        //TODO: Remove all this strange hackery when we finally finish the new UI as we won't need this
-        return (self.navigationController.panelController.showingPanel) ? 2 : 0;
-    }
-    
+    return [self.documents count];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
@@ -146,34 +148,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     cell.backgroundView = nil;
-    cell.backgroundColor = [UIColor blackColor];
+    cell.backgroundColor = [UIColor clearColor];
     
-    if (indexPath.section == 1) {
+    Document * document = self.documents[ indexPath.row ];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell setImage:[document icon]];
+    cell.textLabel.text = [document plural];
     
-        Document * document = self.documents[ indexPath.row ];
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [cell setImage:[document icon]];
-        cell.textLabel.text = [document plural];
-        
-        if ([document comingSoon]) {
-            cell.imageView.alpha = 0.5;
-            cell.textLabel.alpha = 0.5;
-        } else {
-            cell.imageView.alpha = 1;
-            cell.textLabel.alpha = 1;
-        }
-        
+    if ([document comingSoon]) {
+        cell.imageView.alpha = 0.5;
+        cell.textLabel.alpha = 0.5;
     } else {
-        
         cell.imageView.alpha = 1;
         cell.textLabel.alpha = 1;
-        
-        if (indexPath.row == 0) {
-            [cell setImage:[UIImage imageNamed:@"tabs"]];
-        } else {
-            [cell setImage:[UIImage imageNamed:@"documentList"]];
-        }
-        
     }
     
     return cell;
@@ -181,41 +168,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-        
-        if (indexPath.row == 0) {
-            [self showTabs];
-        } else {
-            currentDocument = nil;
-        
-            [self.navigationController.panelController hidePanelViewController];
-        }
+    Document *document = self.documents[ indexPath.row ];
     
-    } else {
-    
-        Document *document = self.documents[ indexPath.row ];
+    if (![document comingSoon]) {
         
-        if (![document comingSoon]) {
-            
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[document viewControllerForManaging]];
-            navigationController.view.frame = CGRectMake(navigationController.view.frame.origin.x, navigationController.view.frame.origin.y, 270, navigationController.view.frame.size.height);
-            navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-            
-            if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-                navigationController.navigationBar.tintColor = [UIColor whiteColor];
-                navigationController.navigationBar.barTintColor = [UIColor blackColor];
-                navigationController.navigationBar.translucent = NO;
-            }
-            
-            currentDocument = indexPath;
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[document viewControllerForManaging]];
+        navigationController.view.frame = CGRectMake(navigationController.view.frame.origin.x, navigationController.view.frame.origin.y, 270, navigationController.view.frame.size.height);
+        
+        currentDocument = indexPath;
 
-            //TODO: Remove need for navigation controller
-            [self.navigationController.panelController showPanelViewController:navigationController];
-            
-        } else {
-            [[MBAlertView alertWithBody:@"This feature is coming soon." cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
-        }
+        //TODO: Remove need for navigation controller
+        [self.navigationController.panelController showPanelViewController:navigationController];
         
+    } else {
+        [[MBAlertView alertWithBody:@"This feature is coming soon." cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
     }
     
     [self.tableView selectRowAtIndexPath:currentDocument animated:YES scrollPosition:UITableViewScrollPositionMiddle];
@@ -253,19 +219,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)backPressed:(UIButton *)sender {
     [self.projectManagerViewController closeProject];
-}
-
-- (void)panelWillShow {
-    [self.tableView beginUpdates];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self.tableView endUpdates];
-    [self.tableView selectRowAtIndexPath:currentDocument animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-}
-
-- (void)panelWillHide {
-    [self.tableView beginUpdates];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self.tableView endUpdates];
 }
 
 - (void)panelDidSwap {

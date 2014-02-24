@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Cast" representedClassName="Cast" syncable="YES">
         <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -89,15 +89,15 @@
         <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="shots" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cast" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="CharacterProfile" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="Crew" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Equipment" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="Location" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Note" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Project" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="Prop" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="Proposal" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="Shot" positionX="-369" positionY="-468" width="128" height="165"/>
+        <element name="Cast" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CharacterProfile" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Equipment" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Prop" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Proposal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Shot" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

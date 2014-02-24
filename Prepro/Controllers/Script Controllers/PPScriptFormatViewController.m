@@ -45,6 +45,12 @@
     [self.view addSubview: _navigationController.view];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+}
+
 - (void)addScriptSection {
     [_navigationController popToRootViewControllerAnimated: NO];
 }
