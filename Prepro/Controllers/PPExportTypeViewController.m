@@ -8,8 +8,11 @@
 
 #import "PPExportTypeViewController.h"
 #import "PPExportType.h"
+#import "PPExposeController.h"
+#import "PPPanelViewController.h"
 #import <FPPicker/FPPicker.h>
 #import "NSObject+AppDelegate.h"
+#import "PPSaveControllerViewController.h"
 
 @interface PPExportTypeViewController ()
 
@@ -29,6 +32,10 @@
 - (void)viewDidLoad {
     
     self.navigationItem.title = [NSString stringWithFormat:@"Export: %@", [_dataSource exportTitle]];
+    
+    UIBarButtonItem * closeBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closePressed)];
+    
+    self.navigationItem.leftBarButtonItem = closeBarButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +74,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // To create the object
-    FPSaveController *fpSave = [[FPSaveController alloc] init];
+    PPSaveControllerViewController *fpSave = [[PPSaveControllerViewController alloc] init];
     
     // Set the delegate
     //fpSave.fpdelegate = self;
@@ -84,7 +91,9 @@
     //optional: propose the default file name
     fpSave.proposedFilename = project.title;
     
-    //Caused Issues in 1.3 - fix in 1.3.1
+    //New Expose screen in 1.5
+    
+    //Caused Issues in 1.3
     //[self.navigationController pushViewController:fpSave animated:YES];
     
     //Hack until we fix it
@@ -92,10 +101,19 @@
     
     [self dismissViewControllerAnimated:YES completion:^{
         
-        fpSave.delegate = presentor;
+        //This is hacky
+        PPExposeController * expose = presentor;
+        PPPanelViewController * panel = expose.selectedViewController;
+        
+        UINavigationController * nav = panel.rootViewController;
+        
         [presentor presentViewController:fpSave animated:YES completion:nil];
     }];
     
+}
+    
+- (void)closePressed {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

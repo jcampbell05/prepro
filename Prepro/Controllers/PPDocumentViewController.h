@@ -14,6 +14,9 @@
     UITextField * _titleTextField;
     UISegmentedControl * _viewSelector;
     
+    UIBarButtonItem * _exposeButton;
+    UIBarButtonItem * _documentListButton;
+    
     UITapGestureRecognizer *_singleTapRecognizer;
     UITapGestureRecognizer *_titleDoubleTapGestureRecognizer;
     
@@ -28,8 +31,6 @@
 - (void)loadDocumentViews;
 - (void)startEditingTitle;
 - (void)endEditingTitle;
-- (void)willSwitchToDocumentView:(PPDocumentView *)documentView;
-- (void)didSwitchToDocumentView:(PPDocumentView *)documentView;
 - (void)save;
 
 @end

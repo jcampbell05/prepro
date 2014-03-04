@@ -27,10 +27,7 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
-        
-        if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-            self.tableView.tintColor = [UIColor redColor];
-        }
+        self.tableView.tintColor = [UIColor redColor];
         
         self.tableViewRecognizer = [self.tableView enableGestureTableViewWithDelegate:self];
     }

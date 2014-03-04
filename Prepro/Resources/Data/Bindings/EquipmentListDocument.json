@@ -25,6 +25,11 @@
                     "bind": "selectedItem:type",
                 },
                 {
+                    "type" : "QLabelElement",
+                    "key" : "product",
+                    "title" : "Product"
+                },
+                {
                     "type": "QDecimalElement",
                     "key": "price",
                     "title": "Price",

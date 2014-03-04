@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
 
+
+//TODO: Reduce these Imports
 #import "Crittercism.h"
 #import "PPAppDelegate.h"
 #import "PPAppStyleManager.h"
@@ -127,34 +129,31 @@
 {
     PPAppStyle * appStyle = [[PPAppStyleManager sharedInstance] appStyle];
     
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.window.tintColor = [UIColor blackColor];
-        
-        [[UINavigationBar appearance] setTintColor: appStyle.primaryColour];
-        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-        [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
-    } else {
-        
-        [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
-        [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
-        [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{
-                                                          UITextAttributeTextColor: appStyle.primaryColour,
-                                                          UITextAttributeTextShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
-                                                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
-                                                          } forState:UIControlStateNormal];
-    }
+    self.window.tintColor = [UIColor blackColor];
     
-    [[WYPopoverBackgroundView appearance] setFillTopColor:[UIColor colorWithRed:0.216 green:0.247 blue:0.278 alpha:1.0]];
-    [[WYPopoverBackgroundView appearance] setFillBottomColor:[UIColor colorWithRed:0.231 green:0.263 blue:0.298 alpha:1.0]];
-    [[WYPopoverBackgroundView appearance] setInnerStrokeColor:[UIColor clearColor]];
-    [[WYPopoverBackgroundView appearance] setInnerShadowColor:[UIColor clearColor]];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearanceWhenContainedIn:[WYPopoverBackgroundView class], nil] setTintColor: [UIColor whiteColor]];
+    [[UINavigationBar appearanceWhenContainedIn:[WYPopoverBackgroundView class], nil] setTitleTextAttributes:@{
+                                                                                                                             UITextAttributeTextColor: [UIColor whiteColor],
+                                                                                                                             UITextAttributeTextShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
+                                                                                                                             UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
+                                                                                                                             }];
+    [[UINavigationBar appearance] setTintColor: appStyle.primaryColour];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                            UITextAttributeTextColor: [UIColor blackColor],
                                                            UITextAttributeTextShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0],
                                                            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
                                                            }];
+    
+    [[UIToolbar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    
+    
+    [[WYPopoverBackgroundView appearance] setFillTopColor:[UIColor colorWithRed:0.216 green:0.247 blue:0.278 alpha:1.0]];
+    [[WYPopoverBackgroundView appearance] setFillBottomColor:[UIColor colorWithRed:0.231 green:0.263 blue:0.298 alpha:1.0]];
+    [[WYPopoverBackgroundView appearance] setInnerStrokeColor:[UIColor clearColor]];
+    [[WYPopoverBackgroundView appearance] setInnerShadowColor:[UIColor clearColor]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }

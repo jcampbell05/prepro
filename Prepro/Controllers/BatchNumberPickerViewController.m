@@ -15,7 +15,7 @@
 @implementation BatchNumberPickerViewController
 
 - (void)viewDidLoad {
-    self.view.frame = CGRectMake(0,0, 250, 180);
+    self.view.frame = CGRectMake(0,0, 250, 100);
     
     int componentsWidth = 95;
     
@@ -23,16 +23,10 @@
     [self.navigationItem setPrompt:[NSString stringWithFormat:@"Enter the number of %@ to add.", [_document plural]]];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelPressed)];
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-    }
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleDone target:self action:@selector(addPressed)];
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    }
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     toolbar.barStyle = UIBarStyleBlackTranslucent;
@@ -61,10 +55,7 @@
     _stepper.minimumValue = 1;
     _stepper.maximumValue = INT32_MAX;
     [_stepper addTarget:self action:@selector(stepperPressed) forControlEvents:UIControlEventValueChanged];
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        _stepper.tintColor = [UIColor whiteColor];
-    }
+    _stepper.tintColor = [UIColor whiteColor];
     
     [self.view addSubview:_textField];
     [self.view addSubview:_stepper];
@@ -123,6 +114,10 @@
 
 - (void)cancelPressed {
     _cancelBlock();
+}
+
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(300, 180);
 }
 
 @end

@@ -15,11 +15,11 @@
 }
 
 - (NSString *)single {
-    return @"Shooting Date";
+    return @"Shooting Schedule";
 }
 
 - (NSString *)plural {
-    return @"Shooting Dates";
+    return @"Shooting Schedule";
 }
 
 - (bool)comingSoon {

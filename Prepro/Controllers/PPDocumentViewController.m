@@ -7,6 +7,7 @@
 //
 
 #import "PPDocumentViewController.h"
+#import "LIExposeController.h"
 #import "MBAlertView.h"
 #import "Masonry.h"
 
@@ -14,15 +15,24 @@
 
 - (void)createTitleView;
 - (void)createViewSelector;
+
+- (void)createExposeBarButton;
+- (void)createDocumentListBarButton;
+
 - (void)attachSingleTapRecognizer;
 - (void)attachTitleViewDoubleTapGesture;
 
 - (void)switchToView:(PPDocumentView *)documentView;
 - (void)viewSelected:(UISegmentedControl *)segment;
+
 - (void)switchViewController:(UIViewController *)viewController;
+- (void)willSwitchToDocumentView:(PPDocumentView *)documentView;
+- (void)didSwitchToDocumentView:(PPDocumentView *)documentView;
 
 - (BOOL)isTitleValid;
 - (void)showEnterTitleAlert;
+    
+- (void)exposePressed;
 
 @end
 
@@ -54,6 +64,11 @@
     [self createTitleView];
     [self createViewSelector];
     
+    [self createExposeBarButton];
+    [self createDocumentListBarButton];
+    
+    self.navigationItem.rightBarButtonItems = @[_exposeButton, _documentListButton];
+    
     if ( _views.count > 0 ) {
         [self setSelectedView: 0];
     }
@@ -65,10 +80,7 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setToolbarHidden:NO animated:animated];
-    
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-        [self.navigationController.toolbar setTranslucent: NO];
-    }
+    [self.navigationController.toolbar setTranslucent: NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -173,18 +185,24 @@
     }];
     
     _viewSelector = [[UISegmentedControl alloc] initWithItems: viewSelectorItems];
-    _viewSelector.segmentedControlStyle = UISegmentedControlStyleBar;
     
     [_viewSelector addTarget:self action:@selector(viewSelected:) forControlEvents:UIControlEventValueChanged];
-    
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        _viewSelector.tintColor = [UIColor whiteColor];
-    }
+    _viewSelector.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem * spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem * viewPickerWrapper = [[UIBarButtonItem alloc] initWithCustomView: _viewSelector];
     
     self.toolbarItems = @[spacer, viewPickerWrapper, spacer];
+}
+
+- (void)createExposeBarButton {
+    
+    _exposeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(exposePressed)];
+}
+
+- (void)createDocumentListBarButton {
+    
+    _documentListButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(class)];
 }
 
 - (void)attachSingleTapRecognizer {
@@ -252,6 +270,10 @@
     [[MBAlertView alertWithBody:@"Please enter a title" cancelTitle:@"Continue" cancelBlock:^{
         [self startEditingTitle];
     }] addToDisplayQueue];
+}
+    
+- (void)exposePressed {
+    [self.exposeController toggleExpose];
 }
 
 #pragma mark Events

@@ -10,12 +10,11 @@
 
 #define ProjectCollectionViewCellTitleHeight 20
 #define ProjectCollectionViewCellTitleTopMargin 5
-#define ProjectCollectionViewCellMargin 5
+#define ProjectCollectionViewCellMargin 0
 #define ProjectCollectionViewCellTickPadding 0
 #define ProjectCollectionViewCellTickSize 32
 
 @interface ProjectCollectionViewCell : UICollectionViewCell {
-    UILabel *titleOverlay;
     UILabel *titleLabel;
     UIImageView *tickImageView;
 }

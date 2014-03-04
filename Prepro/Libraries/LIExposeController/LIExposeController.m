@@ -1032,7 +1032,15 @@ NSString * const DELETE_BUTTON_IMAGE = @"deleteBtn.png";
 NSString const * kExposeController = @"exposeController";
 
 - (LIExposeController *)exposeController {
-    return (LIExposeController *)objc_getAssociatedObject(self, kExposeController);
+    
+    LIExposeController * exposeController = (LIExposeController *)objc_getAssociatedObject(self, kExposeController);
+    
+    if (exposeController == nil && self.parentViewController != nil) {
+        
+        exposeController = self.parentViewController.exposeController;
+    }
+    
+    return exposeController;
 }
 
 - (void)setExposeController:(LIExposeController *)exposeController {

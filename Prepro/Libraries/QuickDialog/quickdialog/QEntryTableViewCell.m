@@ -26,11 +26,9 @@
 @synthesize textField = _textField;
 
 -(UIToolbar *)createActionBar {
-    UIToolbar *actionBar = [[UIToolbar alloc] init];
     
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        actionBar.tintColor = [UIColor whiteColor];
-    }
+    UIToolbar *actionBar = [[UIToolbar alloc] init];
+    actionBar.tintColor = [UIColor whiteColor];
     
     actionBar.translucent = YES;
     [actionBar sizeToFit];

@@ -24,7 +24,7 @@
         int thumbnailWidth = width - (ProjectCollectionViewCellMargin * 2);
         int thumbnailHeight = height - ( ProjectCollectionViewCellTitleTopMargin + ProjectCollectionViewCellTitleHeight + (ProjectCollectionViewCellMargin * 2) );
         
-        UIImage *thumbnailImage = [UIImage imageNamed:@"ProjectThumbnail.jpg"];
+        UIImage *thumbnailImage = [UIImage imageNamed:@"ProjectThumbnail"];
         
         CGRect thumbnailFrame = CGRectMake(ProjectCollectionViewCellMargin, ProjectCollectionViewCellMargin, thumbnailWidth, thumbnailHeight);
         _thumbnail = [[UIImageView alloc] initWithFrame:thumbnailFrame];
@@ -32,19 +32,9 @@
         [_thumbnail setImage:thumbnailImage];
         [self addSubview:_thumbnail];
         
-        titleOverlay = [[UILabel alloc] initWithFrame: thumbnailFrame];
-        titleOverlay.textColor = [UIColor whiteColor];
-        titleOverlay.text = _title;
-        titleOverlay.backgroundColor = [UIColor clearColor];
-        titleOverlay.textAlignment = NSTextAlignmentLeft;
-        titleOverlay.numberOfLines = 4;
-        titleOverlay.lineBreakMode = NSLineBreakByWordWrapping;
-        titleOverlay.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:titleOverlay];
-        
-        
         CGRect titleLabelFrame = CGRectMake(ProjectCollectionViewCellMargin, ProjectCollectionViewCellMargin + thumbnailFrame.size.height + ProjectCollectionViewCellTitleTopMargin, frame.size.width - (ProjectCollectionViewCellMargin * 2), ProjectCollectionViewCellTitleHeight );
         titleLabel = [[UILabel alloc] initWithFrame:titleLabelFrame];
+        titleLabel.font = [UIFont fontWithName:@"Arial" size:12];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.text = _title;
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -67,7 +57,6 @@
 
 - (void)setTitle:(NSString *)title {
     titleLabel.text = title;
-    titleOverlay.text = title;
     _title = title;
 }
 

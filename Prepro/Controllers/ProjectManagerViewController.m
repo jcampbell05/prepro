@@ -44,15 +44,12 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     
     [super viewDidLoad];
     
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        self.navigationController.navigationBar.translucent = NO;
-    }
-    
+     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"Projects";
     
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	[self.collectionView registerClass:[ProjectCollectionViewCell class] forCellWithReuseIdentifier:projectCellIdentifier];
-    self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
     
     UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"New"]  style:UIBarButtonItemStylePlain target:self action:@selector(newProject)];
     [addProjectButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

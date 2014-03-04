@@ -65,9 +65,7 @@
     
     PPNavigationViewController * flipNavigationController =  [[PPNavigationViewController alloc] initWithRootViewController:projectViewController];
     
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" )) {
-        flipNavigationController.navigationBar.translucent = NO;
-    }
+    flipNavigationController.navigationBar.translucent = NO;
     
     PPPanelViewController *panelViewController = [[PPPanelViewController alloc] initWithRootViewController:flipNavigationController];
     panelViewController.delegate = projectViewController;

@@ -13,13 +13,13 @@
 #import "PPAppStyle.h"
 #import "Document.h"
 #import "MBAlertView.h"
-#import "DTCustomColoredAccessory.h"
 #import "ProjectManagerViewController.h"
 #import "LIExposeController.h"
 #import "PPDocumentListTableViewCell.h"
 #import "UIViewController+PPPanel.h"
 #import "PPExportTypeViewController.h"
 #import "PPPreproProjectExportType.h"
+#import "PPSaveControllerViewController.h"
 
 @interface ProjectViewController ()
 
@@ -28,7 +28,6 @@
 @implementation ProjectViewController
 
 static NSString *CellIdentifier = @"CellIdentifier";
-
 
 - (void)loadView {
     
@@ -50,19 +49,10 @@ static NSString *CellIdentifier = @"CellIdentifier";
     self.tableView.separatorColor = [UIColor whiteColor];
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Projects"] style:UIBarButtonItemStylePlain target:self action:@selector(backPressed:)];
-    [closeButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    UIBarButtonItem *tabsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(showTabs)];
-    [tabsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UIBarButtonItem *exportButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Export"]  style:UIBarButtonItemStylePlain target:self action:@selector(exportProject:)];
-    [exportButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    UIBarButtonItem *listButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(class)];
-    [listButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     self.navigationItem.leftBarButtonItems = @[closeButton, exportButton];
-    self.navigationItem.rightBarButtonItems = @[tabsButton, listButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -105,16 +95,41 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     [self saveProject];
     
-    PPExportTypeViewController * exportTypeViewController = [[PPExportTypeViewController alloc] initWithDataSource:self];
+    PPPreproProjectExportType * exportType = [PPPreproProjectExportType alloc];
     
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:exportTypeViewController];
+    // To create the object
+    PPSaveControllerViewController *fpSave = [[PPSaveControllerViewController alloc] init];
+    
+    // Set the delegate
+    //fpSave.fpdelegate = self;
+    fpSave.sourceNames = [[NSArray alloc] initWithObjects: FPSourceDropbox, FPSourceGoogleDrive, FPSourceSkydrive, FPSourceGmail, FPSourceGithub, FPSourceBox, nil];
+    
+    Project *project = [NSObject currentProject];
+    
+    // Set the data and data type to be saved.
+    fpSave.data = [exportType generateExportDataFromObject:[self exportObject]];
+    fpSave.dataType = [exportType mimeType];
+    fpSave.dataExtension = [exportType extension];
+    fpSave.fpdelegate = self;
+    
+    //optional: propose the default file name
+    fpSave.proposedFilename = project.title;
+    
+    //New Expose screen in 1.5
+    
+    //Caused Issues in 1.3
+    //[self.navigationController pushViewController:fpSave animated:YES];
+
+    //Future 1.5 code ?
+//    //PPExportTypeViewController * exportTypeViewController = [[PPExportTypeViewController alloc] initWithDataSource:self];
+//
+//    
+//     [self presentViewController:navigationController animated:YES completion:nil];
     
     /*Display it in pop over - diabled in 1.3 due to issues with new export feaure, restore old 1.2.1 popover feature, perhaps with different Popover library ?*/
-//    popoverController = [[WYPopoverController alloc] initWithContentViewController:navigationController];
-//    
-//    [popoverController presentPopoverFromBarButtonItem:exportTypeViewController permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:fpSave];
     
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
 }
 
 - (NSArray *)documents {
@@ -127,16 +142,6 @@ static NSString *CellIdentifier = @"CellIdentifier";
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.documents count];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
-forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.textColor = [UIColor whiteColor];
-    
-    DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:cell.textLabel.textColor];
-    accessory.highlightedColor = [UIColor blackColor];
-    
-    cell.accessoryView = accessory;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -191,30 +196,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)FPSaveController:(FPSaveController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     //Hack for 1.3
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    //[picker dismissViewControllerAnimated:YES completion:nil];
     
    //1.2 - Code get working for 1.3 +
-    // [popoverController dismissPopoverAnimated:YES];
+     [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)FPSaveControllerDidCancel:(FPSaveController *)picker {
     
     //Hack for 1.3
-    [picker dismissViewControllerAnimated:YES completion:nil];
+   // [picker dismissViewControllerAnimated:YES completion:nil];
     
     //1.2 - Code get working for 1.3 +
-   // [popoverController dismissPopoverAnimated:YES];
-    return;
+   [popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)FPSaveControllerDidSave:(FPSaveController *)picker {
     
     //Hack for 1.3
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    //[picker dismissViewControllerAnimated:YES completion:nil];
     
     //1.2 - Code get working for 1.3 +
-    //[popoverController dismissPopoverAnimated:YES];
-    return;
+    [popoverController dismissPopoverAnimated:YES];
 }
 
 - (IBAction)backPressed:(UIButton *)sender {

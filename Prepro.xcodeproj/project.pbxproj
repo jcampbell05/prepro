@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0BD83818C5C1D60047F764 /* PPHireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BD83718C5C1D60047F764 /* PPHireViewController.m */; };
+		1A0BD83B18C5C1E40047F764 /* PPProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BD83A18C5C1E40047F764 /* PPProductViewController.m */; };
+		1A0BD83D18C692600047F764 /* ProjectThumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0BD83C18C692600047F764 /* ProjectThumbnail@2x.png */; };
 		1A10D58618A2DF5800549780 /* PPScriptPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D58518A2DF5800549780 /* PPScriptPreviewViewController.m */; };
 		1A10D58918A2DF6B00549780 /* PPScriptRawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D58818A2DF6B00549780 /* PPScriptRawViewController.m */; };
 		1A10D60118A2E45F00549780 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D5B518A2E45F00549780 /* MASCompositeConstraint.m */; };
@@ -111,6 +114,7 @@
 		1ABF201E18AC310D002F4F72 /* PPScriptSceneSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF201D18AC310D002F4F72 /* PPScriptSceneSection.m */; };
 		1ABF202218AC3465002F4F72 /* PPScriptSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF202118AC3465002F4F72 /* PPScriptSceneTableViewCell.m */; };
 		1ADC3056189A50600036AED6 /* PPDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC3055189A50600036AED6 /* PPDocumentViewController.m */; };
+		1AE2FDBD18C54BA100B9A3E5 /* PPSaveControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2FDBC18C54BA100B9A3E5 /* PPSaveControllerViewController.m */; };
 		1AE63D201739989800B07175 /* BatchNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */; };
 		1AEAC02D18B962820023B21D /* Budget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC01E18B962820023B21D /* Budget@2x.png */; };
 		1AEAC02E18B962820023B21D /* Call Sheet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC01F18B962820023B21D /* Call Sheet@2x.png */; };
@@ -282,7 +286,6 @@
 		749E8C2A177BB0B4006AD8DB /* LocationListDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 749E8C29177BB0B4006AD8DB /* LocationListDocument.json */; };
 		74A9B39C185B46A800454EF8 /* deleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B381185B46A800454EF8 /* deleteBtn.png */; };
 		74A9B39D185B46A800454EF8 /* DeleteTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B382185B46A800454EF8 /* DeleteTick.png */; };
-		74A9B3B1185B46A800454EF8 /* ProjectThumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B397185B46A800454EF8 /* ProjectThumbnail.jpg */; };
 		74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B3B5185B484400454EF8 /* Settings.bundle */; };
 		74AC37EF17D3B69000966861 /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */; };
 		74B05204185155D900ED4E88 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B051E1185155D900ED4E88 /* NSString+Trim.m */; };
@@ -325,6 +328,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A0BD83618C5C1D60047F764 /* PPHireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPHireViewController.h; path = Controllers/PPHireViewController.h; sourceTree = "<group>"; };
+		1A0BD83718C5C1D60047F764 /* PPHireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPHireViewController.m; path = Controllers/PPHireViewController.m; sourceTree = "<group>"; };
+		1A0BD83918C5C1E40047F764 /* PPProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPProductViewController.h; path = Controllers/PPProductViewController.h; sourceTree = "<group>"; };
+		1A0BD83A18C5C1E40047F764 /* PPProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPProductViewController.m; path = Controllers/PPProductViewController.m; sourceTree = "<group>"; };
+		1A0BD83C18C692600047F764 /* ProjectThumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProjectThumbnail@2x.png"; sourceTree = "<group>"; };
 		1A10D58418A2DF5800549780 /* PPScriptPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptPreviewViewController.h; path = "Controllers/Script Controllers/PPScriptPreviewViewController.h"; sourceTree = "<group>"; };
 		1A10D58518A2DF5800549780 /* PPScriptPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptPreviewViewController.m; path = "Controllers/Script Controllers/PPScriptPreviewViewController.m"; sourceTree = "<group>"; };
 		1A10D58718A2DF6B00549780 /* PPScriptRawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptRawViewController.h; path = Controllers/PPScriptRawViewController.h; sourceTree = "<group>"; };
@@ -519,6 +527,8 @@
 		1ABF202118AC3465002F4F72 /* PPScriptSceneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptSceneTableViewCell.m; path = Views/ScriptTableViewCell/PPScriptSceneTableViewCell.m; sourceTree = "<group>"; };
 		1ADC3054189A50600036AED6 /* PPDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDocumentViewController.h; path = Controllers/PPDocumentViewController.h; sourceTree = "<group>"; };
 		1ADC3055189A50600036AED6 /* PPDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDocumentViewController.m; path = Controllers/PPDocumentViewController.m; sourceTree = "<group>"; };
+		1AE2FDBB18C54BA100B9A3E5 /* PPSaveControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSaveControllerViewController.h; path = Controllers/PPSaveControllerViewController.h; sourceTree = "<group>"; };
+		1AE2FDBC18C54BA100B9A3E5 /* PPSaveControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSaveControllerViewController.m; path = Controllers/PPSaveControllerViewController.m; sourceTree = "<group>"; };
 		1AE63D1E1739989800B07175 /* BatchNumberPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatchNumberPickerViewController.h; path = Controllers/BatchNumberPickerViewController.h; sourceTree = "<group>"; };
 		1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatchNumberPickerViewController.m; path = Controllers/BatchNumberPickerViewController.m; sourceTree = "<group>"; };
 		1AEAC01E18B962820023B21D /* Budget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Budget@2x.png"; sourceTree = "<group>"; };
@@ -823,7 +833,6 @@
 		749E8C29177BB0B4006AD8DB /* LocationListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationListDocument.json; path = Resources/Data/Bindings/LocationListDocument.json; sourceTree = "<group>"; };
 		74A9B381185B46A800454EF8 /* deleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtn.png; sourceTree = "<group>"; };
 		74A9B382185B46A800454EF8 /* DeleteTick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteTick.png; sourceTree = "<group>"; };
-		74A9B397185B46A800454EF8 /* ProjectThumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProjectThumbnail.jpg; sourceTree = "<group>"; };
 		74A9B3B5185B484400454EF8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		74AC37E217D3B69000966861 /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullScreenImageViewController.h; sourceTree = "<group>"; };
 		74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullScreenImageViewController.m; sourceTree = "<group>"; };
@@ -1443,6 +1452,12 @@
 				1A303F7A188DED0B007BB0B7 /* PPExportTypeViewController.m */,
 				1ADC3054189A50600036AED6 /* PPDocumentViewController.h */,
 				1ADC3055189A50600036AED6 /* PPDocumentViewController.m */,
+				1AE2FDBB18C54BA100B9A3E5 /* PPSaveControllerViewController.h */,
+				1AE2FDBC18C54BA100B9A3E5 /* PPSaveControllerViewController.m */,
+				1A0BD83618C5C1D60047F764 /* PPHireViewController.h */,
+				1A0BD83718C5C1D60047F764 /* PPHireViewController.m */,
+				1A0BD83918C5C1E40047F764 /* PPProductViewController.h */,
+				1A0BD83A18C5C1E40047F764 /* PPProductViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1839,6 +1854,7 @@
 		74A9B37F185B46A800454EF8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1A0BD83C18C692600047F764 /* ProjectThumbnail@2x.png */,
 				1AEAC04C18B96C7A0023B21D /* New Tab@2x.png */,
 				1A6FC2AC1887219F00F08C49 /* Default-568h.png */,
 				1A6FC2AD1887219F00F08C49 /* Default.png */,
@@ -1853,7 +1869,6 @@
 				74487582185BF7C300BABB2D /* Logo.png */,
 				1AEAC04018B968850023B21D /* New@2x.png */,
 				1AEAC04118B968850023B21D /* Projects@2x.png */,
-				74A9B397185B46A800454EF8 /* ProjectThumbnail.jpg */,
 				1AEAC04218B968850023B21D /* Settings@2x.png */,
 				1AEAC04318B968850023B21D /* Trash.png */,
 				7484845A185E3768007905D6 /* twitter@2x.png */,
@@ -2091,6 +2106,7 @@
 				1AEAC04618B968850023B21D /* Import@2x.png in Resources */,
 				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				74848456185E30CF007905D6 /* Changelog in Resources */,
+				1A0BD83D18C692600047F764 /* ProjectThumbnail@2x.png in Resources */,
 				1AEAC04A18B968850023B21D /* Settings@2x.png in Resources */,
 				1A6FC2B01887219F00F08C49 /* Default.png in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
@@ -2114,7 +2130,6 @@
 				1AEAC03218B962820023B21D /* Contingency@2x.png in Resources */,
 				1AEAC03418B962820023B21D /* Location@2x.png in Resources */,
 				1AEAC03618B962820023B21D /* Proposal@2x.png in Resources */,
-				74A9B3B1185B46A800454EF8 /* ProjectThumbnail.jpg in Resources */,
 				74B2E5E21778AE16009B4E84 /* CrewDocument.json in Resources */,
 				74B2E5E51778B026009B4E84 /* PropListDocument.json in Resources */,
 				1AEAC03B18B962820023B21D /* Shots@2x.png in Resources */,
@@ -2174,6 +2189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A9611C118A2C798004DBFF6 /* FountainParser.m in Sources */,
+				1A0BD83B18C5C1E40047F764 /* PPProductViewController.m in Sources */,
 				1AFB357916FCF17100590D87 /* main.m in Sources */,
 				748D803C181DDFCB00FB0DB8 /* QWebViewController.m in Sources */,
 				7413CB091857AB170020E875 /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
@@ -2187,6 +2203,7 @@
 				748D8002181DDFCB00FB0DB8 /* QAutoEntryElement.m in Sources */,
 				1AFB35B616FCF92B00590D87 /* ProjectManagerViewController.m in Sources */,
 				748D801D181DDFCB00FB0DB8 /* QMapElement.m in Sources */,
+				1A0BD83818C5C1D60047F764 /* PPHireViewController.m in Sources */,
 				1A3CE6DE1888995000F95C44 /* CastDocument.m in Sources */,
 				1AB2933B188F38F100DF96F3 /* PopoverView.m in Sources */,
 				7413CB051857AB170020E875 /* IASKSettingsStoreFile.m in Sources */,
@@ -2264,6 +2281,7 @@
 				748D801A181DDFCB00FB0DB8 /* QLabelElement.m in Sources */,
 				1A3CE6DC1888995000F95C44 /* BudgetDocument.m in Sources */,
 				1A3CE6E31888995000F95C44 /* EquipmentListDocument.m in Sources */,
+				1AE2FDBD18C54BA100B9A3E5 /* PPSaveControllerViewController.m in Sources */,
 				1A2034EE17359290002BD6E5 /* UIView+FindAndResignFirstResponder.m in Sources */,
 				74B05205185155D900ED4E88 /* UIFont+Alert.m in Sources */,
 				1A7BB33118B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.m in Sources */,
@@ -2456,7 +2474,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2481,7 +2499,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2508,10 +2526,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prepro/Prepro-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SDKROOT)/usr/include/libxml2\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Prepro/Libraries/UI7Kit/UI7Kit\"/**",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
 				INFOPLIST_FILE = "Prepro/Prepro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = /Users/james/Documents/prepro/Prepro/Libraries/Crittercism/CrittercismSDK;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Prepro/Libraries/Crittercism/CrittercismSDK\"";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2545,9 +2566,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prepro/Prepro-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SDKROOT)/usr/include/libxml2\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Prepro/Libraries/UI7Kit/UI7Kit\"/**",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
 				INFOPLIST_FILE = "Prepro/Prepro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = /Users/james/Documents/prepro/Prepro/Libraries/Crittercism/CrittercismSDK;
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
 				ONLY_ACTIVE_ARCH = NO;

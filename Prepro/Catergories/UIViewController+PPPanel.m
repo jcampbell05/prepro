@@ -14,7 +14,15 @@
 NSString const * kPanelController = @"panelController";
 
 - (PPPanelViewController *)panelController {
-    return (PPPanelViewController *)objc_getAssociatedObject(self, (__bridge const void *)(kPanelController));
+    
+    PPPanelViewController * panelController = (PPPanelViewController *)objc_getAssociatedObject(self, (__bridge const void *)(kPanelController));
+    
+    if (panelController == nil && self.parentViewController) {
+        
+        panelController = self.parentViewController.panelController;
+    }
+
+    return panelController;
 }
 
 - (void)setPanelController:(PPPanelViewController *)panelController {

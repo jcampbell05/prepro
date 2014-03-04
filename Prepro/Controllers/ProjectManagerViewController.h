@@ -15,7 +15,7 @@
 #import "IASKAppSettingsViewController.h"
 
 #define ProjectManagerViewCollectionViewCellWidth 100
-#define ProjectManagerViewCollectionViewCellHeight 150
+#define ProjectManagerViewCollectionViewCellHeight 120
 
 @interface ProjectManagerViewController : UICollectionViewController<FPPickerDelegate, UIScrollViewDelegate, IASKSettingsDelegate> {
     

@@ -11,6 +11,7 @@
 #import "NSObject+AppDelegate.h"
 #import "TDBadgedCell.h"
 #import "Equipment.h"
+#import "PPProductViewController.h"
 
 @implementation EquipmentListDocument
 
@@ -47,6 +48,26 @@
     if ([equipment.quantity intValue] > 1) {
         cell.badgeString = [equipment.quantity stringValue];
     }
+}
+    
+    //TODO: Switch to new Form System - This is important
+- (id)viewControllerForEditingEntity:(id)entity {
+    
+    QuickDialogController *quickDialogController = [super viewControllerForEditingEntity:entity];
+    
+    QLabelElement * productElement = (QLabelElement *)[quickDialogController.root elementWithKey:@"product"];
+    
+    productElement.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    productElement.onSelected = ^() {
+    
+        PPProductViewController * productViewController = [[PPProductViewController alloc] initWithEquipment: (Equipment *)entity];
+        
+        [quickDialogController presentViewController:productViewController animated:YES completion:nil];
+        
+    };
+    
+    return quickDialogController;
 }
 
 - (void)loadEntityCategories {
