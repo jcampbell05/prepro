@@ -15,6 +15,7 @@
 
 @dynamic number;
 @dynamic title;
+@dynamic subject;
 @dynamic type;
 @dynamic duration;
 @dynamic descriptionText;

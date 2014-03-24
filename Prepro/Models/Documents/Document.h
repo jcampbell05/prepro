@@ -5,7 +5,7 @@
 //  Created by James Campbell on 04/05/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
-// TODO: Refactor and simplify as well as make more automated, way for it to control individual documents. Break into sub-classes.
+// TODO: Refactor and simplify as well as make more automated, way for it to control individual documents. Break into sub-classes or sub protocols ?
 
 #import <Foundation/Foundation.h>
 
@@ -25,6 +25,7 @@
 
 //This is quickly getting ugly - Needs Tidy up :)
 - (bool)comingSoon;
+- (bool)decodeEnabled;
 
 - (UIViewController *)viewControllerForManaging;
 - (Class)entityClass;

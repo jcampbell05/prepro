@@ -24,6 +24,8 @@
         [self setExposeDelegate:self];
         [self setExposeDataSource:self];
         [self setViewControllers:[@[[self makeNewProjectView]] mutableCopy]];
+        
+        self.editing = YES;
     }
     
     return self;
@@ -64,7 +66,6 @@
     projectViewController.projectManagerViewController = _projectManagerViewController;
     
     PPNavigationViewController * flipNavigationController =  [[PPNavigationViewController alloc] initWithRootViewController:projectViewController];
-    
     flipNavigationController.navigationBar.translucent = NO;
     
     PPPanelViewController *panelViewController = [[PPPanelViewController alloc] initWithRootViewController:flipNavigationController];

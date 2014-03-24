@@ -481,7 +481,7 @@ NSString * const DELETE_BUTTON_IMAGE = @"deleteBtn.png";
     // Add delete buttons (optional)
     if ([self.exposeDelegate respondsToSelector:@selector(exposeController:canDeleteViewController:)] &&
         [self.exposeDelegate exposeController:self canDeleteViewController:viewController]) {
-        UIImage *deleteImage = [UIImage imageNamed:DELETE_BUTTON_IMAGE];
+        UIImage *deleteImage = [UIImage imageNamed:@"deleteBtn"];
         UIButton *deleteBtn = [[[UIButton alloc] initWithFrame:CGRectMake(containerView.exposeLeft - floorf(deleteImage.size.width / 2),
                                                                           containerView.exposeTop - floorf(deleteImage.size.height / 2),
                                                                           deleteImage.size.width,

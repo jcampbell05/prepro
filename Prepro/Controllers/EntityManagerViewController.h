@@ -19,18 +19,22 @@
     
     WYPopoverController *popoverController;
     
-    UIBarButtonItem *editModeButtonBar;
-    UIBarButtonItem *deleteEntitiesButton;
+    UIBarButtonItem * _exposeButton;
+    UIBarButtonItem * _documentListButton;
     
-    UILabel *selectedCount;
-    NSArray *toolbarItems;
+    UIBarButtonItem * editModeButtonBar;
+    UIBarButtonItem * deleteEntitiesButton;
+    UIBarButtonItem * decodeHireButton;
+    
+    UILabel * selectedCount;
+    NSArray * toolbarItems;
     
     NSArray * categories;
     NSIndexPath * placeholderIndexPath;
 }
 
-@property (atomic, strong) Document *document;
-@property (readonly) NSArray *entities;
+@property (atomic, strong) Document * document;
+@property (readonly) NSArray * entities;
 @property (assign) bool allowsBatchEntry;
 @property (nonatomic, strong) JTTableViewGestureRecognizer * tableViewRecognizer;
 

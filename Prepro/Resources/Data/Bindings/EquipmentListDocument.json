@@ -6,6 +6,18 @@
             "bind": "title:name",
             "elements": [
                 {
+                     "type":"QRadioElement",
+                     "key": "type",
+                     "title":"Type",
+                     "items":["Camera", "Lenses", "Storage", "Power/Cabling", "Grip", "Sound", "Lighting", "Accessories", "Misc"],
+                     "bind": "selectedItem:type",
+                },
+                {
+                    "type" : "QLabelElement",
+                    "key" : "product",
+                    "title" : "Hire With Decode"
+                },
+                {
                     "type": "PPPhotoPickerElement",
                     "key": "photo",
                     "title": "Photo",
@@ -16,18 +28,6 @@
                     "key": "name",
                     "title": "Name",
                     "bind": "textValue:name"
-                },
-                {
-                    "type":"QRadioElement",
-                    "key": "type",
-                    "title":"Type",
-                    "items":["Camera", "Lenses", "Storage", "Power", "Rigs", "Audio", "Lighting", "Accessories", "Misc"],
-                    "bind": "selectedItem:type",
-                },
-                {
-                    "type" : "QLabelElement",
-                    "key" : "product",
-                    "title" : "Product"
                 },
                 {
                     "type": "QDecimalElement",

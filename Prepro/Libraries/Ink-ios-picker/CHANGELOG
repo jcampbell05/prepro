@@ -1,3 +1,18 @@
+v 2.6.1 - 12/18/2013
+- Updated code base to use dialog.filepicker.io hostname
+
+v 2.6.0 - 12/9/2013
+- Open sourced library
+- Added selection from multiple sources
+- Fixed some remaining iOS7 issues
+
+v 2.5.0 - 11/25/2013
+- Added 64 bit support
+
+v2.4.7 - 09/24/2013
+
+- Better about passing dismiss messages
+
 v2.4.6 - 09/20/2013
 
 - ios 7 patch for first item on refresh

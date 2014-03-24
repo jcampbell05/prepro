@@ -32,6 +32,68 @@
 		</dict>
 		<dict>
 			<key>Title</key>
+			<string>Decode</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeFirstName</string>
+			<key>Title</key>
+			<string>First Name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeLastName</string>
+			<key>Title</key>
+			<string>Last Name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeAddress</string>
+			<key>Title</key>
+			<string>Address</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeCity</string>
+			<key>Title</key>
+			<string>City</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeCounty</string>
+			<key>Title</key>
+			<string>County</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodePhone</string>
+			<key>Title</key>
+			<string>Phone</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>decodeEmail</string>
+			<key>Title</key>
+			<string>Email</string>
+		</dict>
+		<dict>
+			<key>Title</key>
 			<string>About</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

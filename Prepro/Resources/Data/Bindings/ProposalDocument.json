@@ -60,6 +60,23 @@
                     ], "bind":"selectedItem:fps"
                 },
                 {
+                  "type":"QRadioElement",
+                  "key":"aspectRation",
+                  "title":"Aspect Ratio",
+                  "items":[
+                           "1.33:1 (4:3)",
+                           "1.375:1",
+                           "1.43:1",
+                           "1.6:1",
+                           "1.6180:1",
+                           "1.66:1",
+                           "1.78:1 (16:9)",
+                           "1.85:1",
+                           "2.39:1",
+                           "2.75:1"
+                           ], "bind":"selectedItem:aspectRatio"
+                },
+                {
                     "type":"QEntryElement", "key":"format", "title":"Format", "bind":"textValue:format"
                 },
                 {

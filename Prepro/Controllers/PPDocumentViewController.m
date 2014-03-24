@@ -7,9 +7,15 @@
 //
 
 #import "PPDocumentViewController.h"
+#import "UIViewController+PPPanel.h"
 #import "LIExposeController.h"
 #import "MBAlertView.h"
 #import "Masonry.h"
+#import "PPAppStyle.h"
+#import "PPAppStyleManager.h"
+
+const NSString * exposeNotification = @"expose";
+const NSString * documentListNotification = @"document";
 
 @interface PPDocumentViewController ()
 
@@ -33,12 +39,13 @@
 - (void)showEnterTitleAlert;
     
 - (void)exposePressed;
+- (void)documentListPressed;
 
 @end
 
 @implementation PPDocumentViewController
 
-#pragma mark UIViewController Lifecycle
+#pragma mark - UIViewController Lifecycle
 
 - (id)init {
     
@@ -81,11 +88,15 @@
     
     [self.navigationController setToolbarHidden:NO animated:animated];
     [self.navigationController.toolbar setTranslucent: NO];
+    
+    self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self save];
     
@@ -99,7 +110,7 @@
     [self attachTitleViewDoubleTapGesture];
 }
 
-#pragma mark PPDocumentViewController Implementation
+#pragma mark - PPDocumentViewController Implementation
 
 - (void)setSelectedView:(NSUInteger)selectedView {
     
@@ -187,7 +198,9 @@
     _viewSelector = [[UISegmentedControl alloc] initWithItems: viewSelectorItems];
     
     [_viewSelector addTarget:self action:@selector(viewSelected:) forControlEvents:UIControlEventValueChanged];
-    _viewSelector.tintColor = [UIColor whiteColor];
+    
+    PPAppStyle * appStyle = [[PPAppStyleManager sharedInstance] appStyle];
+    _viewSelector.tintColor = appStyle.primaryColour;
     
     UIBarButtonItem * spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem * viewPickerWrapper = [[UIBarButtonItem alloc] initWithCustomView: _viewSelector];
@@ -198,11 +211,15 @@
 - (void)createExposeBarButton {
     
     _exposeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(exposePressed)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exposePressed) name:exposeNotification object:nil];
 }
 
 - (void)createDocumentListBarButton {
     
-    _documentListButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(class)];
+    _documentListButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(documentListPressed)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(documentListPressed) name:documentListNotification object:nil];
 }
 
 - (void)attachSingleTapRecognizer {
@@ -276,13 +293,17 @@
     [self.exposeController toggleExpose];
 }
 
-#pragma mark Events
+- (void)documentListPressed {
+    [self.panelController hidePanelViewController];
+}
+
+#pragma mark - Events
 
 - (void)viewSelected:(UISegmentedControl *)segment {
     self.selectedView = segment.selectedSegmentIndex;
 }
 
-#pragma mark UITextFieldDelegate
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     

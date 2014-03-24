@@ -179,6 +179,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
         
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[document viewControllerForManaging]];
         navigationController.view.frame = CGRectMake(navigationController.view.frame.origin.x, navigationController.view.frame.origin.y, 270, navigationController.view.frame.size.height);
+        navigationController.navigationBar.translucent = NO;
         
         currentDocument = indexPath;
 

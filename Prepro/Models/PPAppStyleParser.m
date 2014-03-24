@@ -22,7 +22,7 @@
     PPAppStyle * result = [[PPAppStyle alloc] init];
     
     NSData * jsonData = [NSData dataWithContentsOfFile: path];
-    id jsonObject = [NSJSONSerialization JSONObjectWithData: jsonData options:NULL error:nil];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil];
     
     NSArray * keys = [jsonObject allKeys];
     

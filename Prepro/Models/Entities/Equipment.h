@@ -18,8 +18,10 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * supplier;
 @property (nonatomic, retain) NSNumber * price;
+@property (nonatomic, retain) NSString * priceRate;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * product;
 @property (nonatomic, retain) NSData *photo;
 @property (nonatomic, retain) Project *project;
 

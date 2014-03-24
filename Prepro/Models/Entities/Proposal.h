@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString *genre;
 @property (nonatomic, retain) NSString *duration;
 @property (nonatomic, retain) NSString *fps;
+@property (nonatomic, retain) NSString *aspectRatio;
 @property (nonatomic, retain) NSString *format;
 @property (nonatomic, retain) NSString *synopsis;
 @property (nonatomic, retain) NSString *style;

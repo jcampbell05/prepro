@@ -16,8 +16,10 @@
 @dynamic name;
 @dynamic supplier;
 @dynamic price;
+@dynamic priceRate;
 @dynamic notes;
 @dynamic type;
+@dynamic product;
 @dynamic photo;
 @dynamic project;
 

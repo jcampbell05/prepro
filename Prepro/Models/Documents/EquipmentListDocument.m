@@ -12,8 +12,13 @@
 #import "TDBadgedCell.h"
 #import "Equipment.h"
 #import "PPProductViewController.h"
+#import "MBAlertView.h"
 
 @implementation EquipmentListDocument
+
+- (bool)decodeEnabled {
+    return YES;
+}
 
 - (UIImage *) icon {
     return [UIImage imageNamed:@"Equipment"];
@@ -51,7 +56,7 @@
 }
     
     //TODO: Switch to new Form System - This is important
-- (id)viewControllerForEditingEntity:(id)entity {
+- (id)viewControllerForEditingEntity:(Equipment *)entity {
     
     QuickDialogController *quickDialogController = [super viewControllerForEditingEntity:entity];
     
@@ -60,10 +65,22 @@
     productElement.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     productElement.onSelected = ^() {
+        
+        //Remove and tidy up in 1.4.1 +
+        NSError * error;
+        
+        if(![entity save:&error]){
+            NSLog(@"Error saving equipment.");
+            [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+        } else {
+            NSLog(@"Equipment Saved before showing Product Page.");
+        }
     
         PPProductViewController * productViewController = [[PPProductViewController alloc] initWithEquipment: (Equipment *)entity];
         
-        [quickDialogController presentViewController:productViewController animated:YES completion:nil];
+        productViewController.quickTableView = quickDialogController.quickDialogTableView;
+        
+        [quickDialogController.navigationController pushViewController:productViewController animated:YES];
         
     };
     

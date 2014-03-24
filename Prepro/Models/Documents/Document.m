@@ -11,10 +11,15 @@
 #import "MBAlertView.h"
 #import "Entity.h"
 #import "EntityCategory.h"
+#import "PPQuickDialogController.h"
 
 @implementation Document
 
 - (bool)comingSoon {
+    return NO;
+}
+
+- (bool)decodeEnabled {
     return NO;
 }
 
@@ -90,9 +95,10 @@
 - (id)viewControllerForEditingEntity:(id)entity {
     
     QRootElement  *root = (QRootElement *)[self bindingData];
+    root.controllerName = NSStringFromClass([PPQuickDialogController class]);
     [root bindToObject: entity];
     
-    QuickDialogController *quickDialogController = [QuickDialogController controllerForRoot:root];
+    PPQuickDialogController *quickDialogController = (PPQuickDialogController *)[PPQuickDialogController controllerForRoot:root];
     
     quickDialogController.willDisappearCallback = ^(){
         

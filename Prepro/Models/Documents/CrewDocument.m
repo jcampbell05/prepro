@@ -45,7 +45,7 @@
     cell.imageView.image = [UIImage imageWithData:crewMember.photo];
 }
 
-- (NSArray *)loadEntityCategories {
+- (void)loadEntityCategories {
     
     QRootElement *bindingData = (QRootElement *)[self bindingData];
     QRadioElement *radioElement = (QRadioElement *)[bindingData elementWithKey:@"department"];
@@ -92,7 +92,7 @@
         [categories addObject:category];
     }];
     
-    return categories;
+    self.entityCategories = categories;
 }
 
 @end

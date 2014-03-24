@@ -10,7 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FPExternalHeaders.h"
 
-@interface FPPickerController : UINavigationController <UIImagePickerControllerDelegate, FPSourcePickerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+@interface FPPickerController : UINavigationController <UIImagePickerControllerDelegate, FPSourcePickerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) id <FPPickerDelegate> fpdelegate;
 @property (nonatomic, strong) NSArray *sourceNames;
@@ -18,6 +18,9 @@
 
 //imagepicker properties
 @property (nonatomic) BOOL allowsEditing;
+@property (nonatomic) BOOL selectMultiple;
+@property (nonatomic) NSInteger maxFiles;
+
 @property (nonatomic) UIImagePickerControllerQualityType videoQuality;
 @property (nonatomic) NSTimeInterval videoMaximumDuration;
 @property (nonatomic) BOOL showsCameraControls;

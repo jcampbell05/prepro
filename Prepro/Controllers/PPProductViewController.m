@@ -5,10 +5,21 @@
 //  Created by James Campbell on 04/03/2014.
 //  Copyright (c) 2014 Dean Uzzell. All rights reserved.
 //
+// Move to Magical Record
 
 #import "PPProductViewController.h"
+#import "Equipment.h"
+#import "CHCSVParser.h"
+#import "NSObject+AppDelegate.h"
+#import "MBAlertView.h"
+#import "PPProduct.h"
 
 @interface PPProductViewController ()
+
+@property (strong, nonatomic) NSArray * items;
+
+- (void)setupSearchBar;
+- (void)loadItems;
 
 @end
 
@@ -21,101 +32,114 @@
         
         self.equipment = equipment;
     }
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.clearsSelectionOnViewWillAppear = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadItems];
+}
+
+- (void)loadItems {
+    
+    NSString * csvPath = [[NSBundle mainBundle] pathForResource:@"Products" ofType:@"csv"];
+    
+    NSMutableArray * csvData = [NSMutableArray arrayWithContentsOfCSVFile:csvPath];
+    [csvData removeObjectAtIndex: 0];
+    
+    NSMutableArray * newItems = [[NSMutableArray alloc] init];
+    
+    for (NSArray * row in csvData) {
+        
+        PPProduct * newProduct = [[PPProduct alloc] init];
+        
+        newProduct.name = row[0];
+        newProduct.type = row[1];
+        newProduct.subtype = row[2];
+        newProduct.price = row[3];
+        newProduct.priceType = row[4];
+        
+        [newItems addObject: newProduct];
+    }
+    
+    NSPredicate * productFilter = [NSPredicate predicateWithFormat:@"type == %@", self.equipment.type];
+    
+    self.items = [newItems filteredArrayUsingPredicate: productFilter];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tabeView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
-    // Configure the cell...
+    if ( cell == nil ) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: CellIdentifier];
+        
+    }
+    
+    PPProduct * item = self.items[ indexPath.row ];
+    
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [item priceAsString];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"Product Selected");
+    
+    PPProduct * item = self.items[ indexPath.row ];
+    
+    self.equipment.product = item.name;
+    self.equipment.name = item.name;
+    self.equipment.price = @([item.price floatValue]);
+    self.equipment.priceRate = item.priceType;
+    
+    NSError *error;
+    
+    NSLog(@"Entity: %@", self.equipment);
+    
+    if( ![self.equipment save:&error] ) {
+        NSLog(@"Error saving equipment.");
+        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+    } else {
+        NSLog(@"Equipment Saved.");
+    }
+    
+    
+    //TODO: Remove the need for this workaround.
+    QEntryElement * nameElement = (QEntryElement *)[self.quickTableView.root elementWithKey:@"name"];
+    nameElement.textValue = item.name;
+    
+    QDecimalElement * priceElement = (QDecimalElement *)[self.quickTableView.root elementWithKey:@"price"];
+    priceElement.floatValue = @([item.price floatValue]);
+    
+    [self.quickTableView reloadCellForElements:nameElement, priceElement, nil];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

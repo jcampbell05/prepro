@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) NSNumber * number;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * subject;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSString * duration;
 @property (nonatomic, retain) NSString * descriptionText;

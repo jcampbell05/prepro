@@ -111,7 +111,6 @@
             [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
 
     }
-
 }
 
 - (BOOL)disablesAutomaticKeyboardDismissal

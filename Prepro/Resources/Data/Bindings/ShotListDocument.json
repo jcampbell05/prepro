@@ -15,6 +15,9 @@
                     "type":"QEntryElement", "key":"title", "title":"Title", "bind":"textValue:title"
                   },
                   {
+                  "type":"QEntryElement", "key":"subject", "title":"Subject", "bind":"textValue:subject"
+                  },
+                  {
                     "type":"QRadioElement",
                     "key":"type",
                     "title":"Type",

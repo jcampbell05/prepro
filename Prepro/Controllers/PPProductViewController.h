@@ -12,6 +12,7 @@
 
 @interface PPProductViewController : UITableViewController
 
+@property (strong, nonatomic) QuickDialogTableView * quickTableView;
 @property (strong, nonatomic) Equipment * equipment;
 
 - (id)initWithEquipment:(Equipment *)equipment;

@@ -19,6 +19,12 @@
 
 @interface EntityManagerViewController ()
 
+- (void)createExposeBarButton;
+- (void)createDocumentListBarButton;
+
+- (void)exposePressed;
+- (void)documentListPressed;
+
 @end
 
 @implementation EntityManagerViewController
@@ -46,13 +52,15 @@
         addProjectButtonBar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showBatchEntityPopover:forEvent:)];
     }
     
-    editModeButtonBar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)];
-    self.navigationItem.rightBarButtonItems = @[addProjectButtonBar, editModeButtonBar];
+    editModeButtonBar = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditMode)];
+    self.navigationItem.leftBarButtonItems = @[addProjectButtonBar, editModeButtonBar];
     
     deleteEntitiesButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeEntities)];
     deleteEntitiesButton.tintColor = [UIColor redColor];
     
-    selectedCount = [[UILabel alloc] initWithFrame:CGRectMake(37,7,250,35)];
+    decodeHireButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"decode"] style:UIBarButtonItemStylePlain target:self action:@selector(class)];
+    
+    selectedCount = [[UILabel alloc] initWithFrame:CGRectMake(37,7,200,35)];
     selectedCount.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     selectedCount.backgroundColor = [UIColor clearColor];
     selectedCount.textColor = [UIColor whiteColor];
@@ -60,18 +68,51 @@
     
     UIBarButtonItem *selectedCountWrapper = [[UIBarButtonItem alloc] initWithCustomView:selectedCount];
     
-    toolbarItems = @[deleteEntitiesButton, selectedCountWrapper];
+    if ([self.document decodeEnabled]) {
+        
+        toolbarItems = @[deleteEntitiesButton, decodeHireButton, selectedCountWrapper];
+        
+    } else {
+        
+        toolbarItems = @[deleteEntitiesButton, selectedCountWrapper];
+        
+    }
     
     [self setToolbarItems:toolbarItems animated:YES];
     
-    self.navigationItem.title = [_document plural];
+    //Causes issues with long names in 1.4 - Need new header.
+    //self.navigationItem.title = [_document plural];
+    
     [self updateCategories];
     [self.tableView reloadData];
     [self updateButtons];
+    
+    [self createExposeBarButton];
+    [self createDocumentListBarButton];
+    
+    self.navigationItem.rightBarButtonItems = @[_exposeButton, _documentListButton];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setToolbarHidden:YES];
+}
+
+- (void)createExposeBarButton {
+    
+    _exposeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Expose"] style:UIBarButtonItemStylePlain target:self action:@selector(exposePressed)];
+}
+
+- (void)createDocumentListBarButton {
+    
+    _documentListButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"List View"]  style:UIBarButtonItemStylePlain target:self action:@selector(documentListPressed)];
+}
+
+- (void)exposePressed {
+    [[NSNotificationCenter defaultCenter] postNotificationName:exposeNotification object:nil];
+}
+
+- (void)documentListPressed {
+    [[NSNotificationCenter defaultCenter] postNotificationName:documentListNotification object:nil];
 }
 
 - (NSArray *)entities {
@@ -270,10 +311,13 @@
     
     if (noSelected == 0){
         deleteEntitiesButton.enabled = NO;
+        decodeHireButton.enabled = NO;
     } else {
         deleteEntitiesButton.enabled = YES;
+        decodeHireButton.enabled = YES;
     }
     
+    //TODO: Fix Entities Count
     selectedCount.text = [NSString stringWithFormat:@"%i of %i selected", noSelected, [self.entities count]];
 }
 

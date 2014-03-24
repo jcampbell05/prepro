@@ -16,6 +16,7 @@
 @dynamic genre;
 @dynamic duration;
 @dynamic fps;
+@dynamic aspectRatio;
 @dynamic format;
 @dynamic synopsis;
 @dynamic style;
