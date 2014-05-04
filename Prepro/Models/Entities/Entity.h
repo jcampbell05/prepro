@@ -5,6 +5,7 @@
 //  Created by James Campbell on 05/05/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
+// Set defaults in core data model file
 // TODO: Add Other Methods to make managing entities easier for things like removing / moving
 
 #import <CoreData/CoreData.h>

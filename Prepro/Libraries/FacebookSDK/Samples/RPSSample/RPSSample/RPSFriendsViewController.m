@@ -4,9 +4,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *    http://www.apache.org/licenses/LICENSE-2.0
- 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,9 @@
  */
 
 #import "RPSFriendsViewController.h"
-#import "RPSAppDelegate.h"
+
 #import "OGProtocols.h"
+#import "RPSAppDelegate.h"
 
 @interface RPSFriendsViewController () <FBFriendPickerDelegate, UIAlertViewDelegate>
 
@@ -29,10 +30,7 @@
 
 @implementation RPSFriendsViewController
 
-@synthesize activityTextView = _activityTextView;
-@synthesize friendCache = _friendCache;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Rock w/Friends", @"Rock w/Friends");
@@ -50,14 +48,14 @@
 
 - (void)refreshView {
     [self loadData];
-    
+
     // we use frictionless requests, so let's get a cache and request the
     // current list of frictionless friends before enabling the invite button
     if (!self.friendCache) {
         self.friendCache = [[FBFrictionlessRecipientCache alloc] init];
         [self.friendCache prefetchAndCacheForSession:nil
                                    completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                       
+
                                        self.inviteButton.enabled = YES;
                                    }];
     } else  {
@@ -75,15 +73,15 @@
     } else {
         self.inviteButton.enabled = NO;
         self.friendCache = nil;
-        
+
         // display the message that we have
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In with Facebook"
                                                         message:@"When you Log In with Facebook, you can view "
-                                                                @"friends' activity within Rock Paper Scissors, and "
-                                                                @"invite friends to play.\n\n"
-                                                                @"What would you like to do?"
+                              @"friends' activity within Rock Paper Scissors, and "
+                              @"invite friends to play.\n\n"
+                              @"What would you like to do?"
                                                        delegate:self
-                                              cancelButtonTitle:@"Do Nothing"
+                                              cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Log In", nil];
         [alert show];
     }
@@ -124,24 +122,24 @@
 }
 
 - (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
-                 shouldIncludeUser:(id <FBGraphUser>)user {
-    return [[user objectForKey:@"installed"] boolValue];     
+                 shouldIncludeUser:(id<FBGraphUser>)user {
+    return [[user objectForKey:@"installed"] boolValue];
 }
 
 #pragma mark - private methods
 
 // FBSample logic
-// This is the workhorse method of this view. It updates the textView with the activity of a given user. It 
+// This is the workhorse method of this view. It updates the textView with the activity of a given user. It
 // accomplishes this by fetching the "throw" actions for the selected user.
 - (void)updateActivityForID:(NSString *)fbid {
-    
+
     // keep track of the selction
     self.fbidSelection = fbid;
 
     // create a request for the "throw" activity
     FBRequest *playActivity = [FBRequest requestForGraphPath:[NSString stringWithFormat:@"%@/fb_sample_rps:throw", fbid]];
     [playActivity.parameters setObject:@"U" forKey:@"date_format"];
-    
+
     // this block is the one that does the real handling work for the requests
     void (^handleBlock)(id) = ^(id<RPSGraphActionList> result) {
         if (result) {
@@ -160,40 +158,40 @@
             }
             return NSOrderedSame;
         }];
-            
+
         NSMutableString *output = [NSMutableString string];
         for (id<RPSGraphPublishedThrowAction> entry in activity) {
             NSDateComponents *c = [[NSCalendar currentCalendar]
                                    components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit
                                    fromDate:entry.publish_date];
-            [output appendFormat:@"%02d/%02d/%02d - %@ %@ %@\n",
-             c.month,
-             c.day,
-             c.year,
+            [output appendFormat:@"%02li/%02li/%02li - %@ %@ %@\n",
+             (long)c.month,
+             (long)c.day,
+             (long)c.year,
              entry.data.gesture.title,
              @"vs",
              entry.data.opposing_gesture.title];
         }
         self.activityTextView.text = output;
     };
-    
+
     // this is an example of a batch request using FBRequestConnection; we accomplish this by adding
     // two request objects to the connection, and then calling start; note that each request handles its
     // own response, despite the fact that the SDK is serializing them into a single request to the server
     FBRequestConnection *connection = [[FBRequestConnection alloc] init];
     [connection addRequest:playActivity
-         completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+         completionHandler:^(FBRequestConnection *innerConnection, id result, NSError *error) {
              handleBlock(result);
          }];
     // start the actual request
-    [connection start];    
+    [connection start];
 }
 
 - (IBAction)clickInviteFriends:(id)sender {
     // if there is a selected user, seed the dialog with that user
     NSDictionary *parameters = self.fbidSelection ? @{@"to":self.fbidSelection} : nil;
     [FBWebDialogs presentRequestsDialogModallyWithSession:nil
-                                                  message:@"Please come rock the logic with me!"
+                                                  message:@"Please come play RPS with me!"
                                                     title:@"Invite a Friend"
                                                parameters:parameters
                                                   handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
@@ -226,7 +224,7 @@
                                                   me = nil;
                                               }
                                           }];
-            
+
             break;
         }
     }

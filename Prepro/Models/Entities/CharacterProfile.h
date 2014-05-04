@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *background;
 @property (nonatomic, retain) NSString *characteristics;
 @property (nonatomic, retain) NSString *fears;
+@property (nonatomic, retain) NSNumber *idNo;
 @property (nonatomic, retain) NSString *motives;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *notes;

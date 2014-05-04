@@ -14,8 +14,9 @@
 #import "WYPopoverController.h"
 #import "JTTableViewGestureRecognizer.h"
 #import "JTTransformableTableViewCell.h"
+#import <MessageUI/MessageUI.h>
 
-@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate> {
+@interface EntityManagerViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, JTTableViewGestureAddingRowDelegate, JTTableViewGestureMoveRowDelegate, MFMailComposeViewControllerDelegate> {
     
     WYPopoverController *popoverController;
     

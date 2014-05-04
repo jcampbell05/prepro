@@ -11,7 +11,7 @@
 #import "PPScriptVisualViewController.h"
 #import "PPScriptPreviewViewController.h"
 #import "PPScriptRawViewController.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 
 @interface PPScriptViewController ()
 
@@ -72,7 +72,14 @@
     NSError *error;
     if(![_script save:&error]){
         NSLog(@"Error saving script.");
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+    
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: error.description];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
+        
     } else {
         NSLog(@"Script saved.");
     }

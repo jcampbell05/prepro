@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1.5" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="1.5" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Cast" representedClassName="Cast" syncable="YES">
         <attribute name="agency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNo" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pay" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="payrate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="roleType" optional="YES" attributeType="String" defaultValueString="Cast" syncable="YES"/>
         <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="cast" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="CharacterProfile" representedClassName="CharacterProfile" syncable="YES">
@@ -121,16 +123,16 @@
         <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="shots" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cast" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CharacterProfile" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Equipment" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Prop" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Proposal" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Script" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Shot" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Cast" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="CharacterProfile" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="Crew" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="Equipment" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Location" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="Note" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Project" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Prop" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Proposal" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Script" positionX="0" positionY="0" width="128" height="119"/>
+        <element name="Shot" positionX="0" positionY="0" width="128" height="210"/>
     </elements>
 </model>

@@ -12,7 +12,7 @@
 #import "PPAppStyleManager.h"
 #import "PPAppStyle.h"
 #import "Document.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 #import "ProjectManagerViewController.h"
 #import "LIExposeController.h"
 #import "PPDocumentListTableViewCell.h"
@@ -80,12 +80,20 @@ static NSString *CellIdentifier = @"CellIdentifier";
 }
 
 - (void)saveProject {
+    
     NSManagedObjectContext *managedObjectContext = [(PPAppDelegate *)[UIApplication sharedApplication]. delegate managedObjectContext];
     
     NSError *error;
     if(![managedObjectContext save:&error]){
         NSLog(@"Error saving project.");
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+    
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self];
+        
+        [alert showAlertWithMessage: error.description];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
+        
     } else {
         NSLog(@"Project saved.");
     }
@@ -187,7 +195,13 @@ static NSString *CellIdentifier = @"CellIdentifier";
         [self.navigationController.panelController showPanelViewController:navigationController];
         
     } else {
-        [[MBAlertView alertWithBody:@"This feature is coming soon." cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+        
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self];
+        
+        [alert showAlertWithMessage: @"This feature is coming soon."];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
     }
     
     [self.tableView selectRowAtIndexPath:currentDocument animated:YES scrollPosition:UITableViewScrollPositionMiddle];

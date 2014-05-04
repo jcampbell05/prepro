@@ -13,7 +13,7 @@
 #import "ProjectManagerViewController.h"
 #import "ProjectCollectionViewCell.h"
 #import "Project.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 #import "IASKSettingsReader.h"
 #import "SplashViewController.h"
 
@@ -148,7 +148,12 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
     if (!fetchedProjects) {
         NSLog(@"Failed to load projects");
         
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: error.description];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
         
         return NO;
     } else {
@@ -193,8 +198,16 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         message = [NSString stringWithFormat:@"Are you sure you want to delete all %i projects?", noSelected];
     }
     
-    MBAlertView *alert = [MBAlertView alertWithBody:message cancelTitle:@"No" cancelBlock:nil];
-    [alert addButtonWithText:@"Delete" type:MBAlertViewItemTypeDestructive block:^{
+    ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+    
+    [alert showAlertWithMessage: message];
+    [alert addButtonWithText:@"No" forType:ALFSAlertButtonTypeNormal onTap:^{
+        [alert removeAlert];
+    }];
+    [alert addButtonWithText:@"Delete" forType:ALFSAlertButtonTypeDelete onTap:^{
+        
+        [alert removeAlert];
+       
         [self.collectionView.indexPathsForSelectedItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSIndexPath *indexPath = (NSIndexPath *)obj;
             
@@ -208,7 +221,14 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
             
             if(![managedObjectContext save:&error]){
                 NSLog(@"Error deleting selected projects.");
-                [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+                
+                ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+                
+                [alert showAlertWithMessage: error.description];
+                [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+                    [alert removeAlert];
+                }];
+                
             } else {
                 NSLog(@"Projects deleted.");
             }
@@ -217,8 +237,8 @@ static NSString * projectCellIdentifier = @"ProjectCellIdentifier";
         [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForSelectedItems];
         [self updateButtons];
         [self updateToolbar];
+
     }];
-    [alert addToDisplayQueue];
 }
 
 - (void)updateButtons {

@@ -12,6 +12,16 @@
                     "type":"QEntryElement", "key":"name", "title":"Name", "bind":"textValue:name"
                 },
                 {
+                  "type":"QRadioElement",
+                  "key": "roleType",
+                  "title":"Role Type",
+                  "items":["Cast", "Extra", "Stunt", "Voice"],
+                  "bind" : "selectedItem:roleType"
+                },
+                {
+                    "type":"QDecimalElement", "key":"idNo", "title":"ID No.", "bind":"floatValue:idNo", "fractionDigits":0
+                },
+                {
                     "type":"QEntryElement", "key":"characterName", "title":"Character Name", "bind":"textValue:characterName"
                 },
                 {

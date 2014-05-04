@@ -12,7 +12,7 @@
 
 @implementation CharacterProfile
 
-@dynamic age, background, characteristics, fears, motives, name, notes, project, photo;
+@dynamic age, background, characteristics, fears, idNo, motives, name, notes, project, photo;
 
 - (void)awakeFromInsert {
     self.name = @"New Character";

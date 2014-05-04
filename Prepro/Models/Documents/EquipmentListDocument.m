@@ -12,7 +12,7 @@
 #import "TDBadgedCell.h"
 #import "Equipment.h"
 #import "PPProductViewController.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 
 @implementation EquipmentListDocument
 
@@ -71,7 +71,14 @@
         
         if(![entity save:&error]){
             NSLog(@"Error saving equipment.");
-            [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+            
+            ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: quickDialogController.parentViewController];
+            
+            [alert showAlertWithMessage: error.description];
+            [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+                [alert removeAlert];
+            }];
+            
         } else {
             NSLog(@"Equipment Saved before showing Product Page.");
         }

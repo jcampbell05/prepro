@@ -61,7 +61,7 @@
                 },
                 {
                   "type":"QRadioElement",
-                  "key":"aspectRation",
+                  "key":"aspectRatio",
                   "title":"Aspect Ratio",
                   "items":[
                            "1.33:1 (4:3)",

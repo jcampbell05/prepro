@@ -16,6 +16,7 @@
 @dynamic name;
 @dynamic agency;
 @dynamic characterName;
+@dynamic roleType;
 @dynamic mobile;
 @dynamic email;
 @dynamic pay;

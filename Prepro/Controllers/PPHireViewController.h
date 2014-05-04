@@ -2,12 +2,18 @@
 //  PPHireViewController.h
 //  Prepro
 //
-//  Created by James Campbell on 04/03/2014.
+//  Created by James Campbell on 26/03/2014.
 //  Copyright (c) 2014 Dean Uzzell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "QuickDialogController.h"
 
-@interface PPHireViewController : UITableViewController
+@interface PPHireViewController : QuickDialogController
+
+@property (nonatomic, strong) NSArray * items;
+@property (nonatomic, strong) UIViewController * parentVC;
+
+- (void)done;
+- (void)close;
 
 @end

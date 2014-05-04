@@ -8,7 +8,7 @@
 
 #import "Document.h"
 #import "EntityManagerViewController.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 #import "Entity.h"
 #import "EntityCategory.h"
 #import "PPQuickDialogController.h"
@@ -100,6 +100,8 @@
     
     PPQuickDialogController *quickDialogController = (PPQuickDialogController *)[PPQuickDialogController controllerForRoot:root];
     
+    __weak id weakQuickDialogController = quickDialogController;
+    
     quickDialogController.willDisappearCallback = ^(){
         
         [root fetchValueIntoObject:entity];
@@ -114,7 +116,14 @@
         NSError *error;
         if(![managedObjectContext save:&error]){
             NSLog(@"Error saving Project.");
-            [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+            
+            ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: ((UIViewController *)weakQuickDialogController).parentViewController];
+            
+            [alert showAlertWithMessage: error.description];
+            [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+                
+                [alert removeAlert];
+            }];
         } else {
             NSLog(@"Project saved.");
         }

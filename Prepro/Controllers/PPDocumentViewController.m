@@ -9,7 +9,7 @@
 #import "PPDocumentViewController.h"
 #import "UIViewController+PPPanel.h"
 #import "LIExposeController.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 #import "Masonry.h"
 #import "PPAppStyle.h"
 #import "PPAppStyleManager.h"
@@ -284,9 +284,14 @@ const NSString * documentListNotification = @"document";
 }
 
 - (void)showEnterTitleAlert {
-    [[MBAlertView alertWithBody:@"Please enter a title" cancelTitle:@"Continue" cancelBlock:^{
+    
+    ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+    
+    [alert showAlertWithMessage: @"Please enter a title"];
+    [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+        [alert removeAlert];
         [self startEditingTitle];
-    }] addToDisplayQueue];
+    }];
 }
     
 - (void)exposePressed {

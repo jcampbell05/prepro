@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * agency;
 @property (nonatomic, retain) NSString * characterName;
+@property (nonatomic, retain) NSNumber * roleType;
 @property (nonatomic, retain) NSString * mobile;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSNumber * pay;

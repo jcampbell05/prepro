@@ -8,7 +8,7 @@
 
 #import "FullScreenTextViewEditorViewController.h"
 #import "NSObject+AppDelegate.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 
 @interface FullScreenTextViewEditorViewController ()
 
@@ -39,7 +39,14 @@
     NSError *error;
     if(![managedObjectContext save:&error]){
         NSLog(@"Error saving Project.");
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+        
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: error.description];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
+        
     } else {
         NSLog(@"Project saved.");
     }

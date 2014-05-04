@@ -5,17 +5,19 @@
 //  Created by James Campbell on 07/04/2013.
 //  Copyright (c) 2013 Dean Uzzell. All rights reserved.
 //
-// TODO: Make More Modular
+// TODO: Make More Modular - Refactor
 
 #import "EntityCategory.h"
 #import "EntityManagerViewController.h"
 #import "Project.h"
 #import "NSObject+AppDelegate.h"
 #import "BatchNumberPickerViewController.h"
-#import "MBAlertView.h"
+#import "ALFSAlert.h"
 #import "Entity.h"
 #import "PPAppDelegate.h"
 #import "ProjectViewController.h"
+#import "PPDecodeDetailsEntryViewController.h"
+#import "PPHireViewController.h"
 
 @interface EntityManagerViewController ()
 
@@ -24,6 +26,7 @@
 
 - (void)exposePressed;
 - (void)documentListPressed;
+- (void)decodePressed;
 
 @end
 
@@ -58,7 +61,7 @@
     deleteEntitiesButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeEntities)];
     deleteEntitiesButton.tintColor = [UIColor redColor];
     
-    decodeHireButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"decode"] style:UIBarButtonItemStylePlain target:self action:@selector(class)];
+    decodeHireButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"decode"] style:UIBarButtonItemStylePlain target:self action:@selector(decodePressed)];
     
     selectedCount = [[UILabel alloc] initWithFrame:CGRectMake(37,7,200,35)];
     selectedCount.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -178,29 +181,42 @@
         
         NSString *message = [NSString stringWithFormat:@"Are you sure you want to delete \"%@\"?", [_document titleForEntity:entity]];
         
-        MBAlertView *alert = [MBAlertView alertWithBody:message cancelTitle:@"No" cancelBlock:nil];
-        [alert addButtonWithText:@"Delete" type:MBAlertViewItemTypeDestructive block:^{
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: message];
+        [alert addButtonWithText:@"No" forType:ALFSAlertButtonTypeNormal onTap:^{
+            
+            [alert removeAlert];
+        }];
+        [alert addButtonWithText:@"Delete" forType:ALFSAlertButtonTypeDelete onTap:^{
+            
+            [alert removeAlert];
+            
+            NSManagedObjectContext *managedObjectContext = [NSObject managedObjectContext];
+            
+            [managedObjectContext deleteObject:entity];
+            
+            NSError *error;
+            
+            if(![managedObjectContext save:&error]){
+                NSLog(@"Error deleting entity.");
                 
-                NSManagedObjectContext *managedObjectContext = [NSObject managedObjectContext];
+                ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
                 
-                [managedObjectContext deleteObject:entity];
+                [alert showAlertWithMessage: error.description];
+                [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+                    [alert removeAlert];
+                }];
                 
-                NSError *error;
+            } else {
+                NSLog(@"Entity deleted.");
                 
-                if(![managedObjectContext save:&error]){
-                    NSLog(@"Error deleting entity.");
-                    
-                    [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
-                } else {
-                    NSLog(@"Entity deleted.");
-                    
-                    [self syncTableView];
-                    [self updateButtons];
-                    
-                }
+                [self syncTableView];
+                [self updateButtons];
+                
+            }
             
         }];
-        [alert addToDisplayQueue];
     }
 }
 
@@ -294,6 +310,8 @@
     [self.navigationController setToolbarHidden:self.editing animated:YES];
     [self setEditing:!self.editing animated:YES];
     
+    editModeButtonBar.title = (self.editing) ? @"Done" : @"Select";
+    
     [self updateToolbar];
 }
 
@@ -321,13 +339,61 @@
     selectedCount.text = [NSString stringWithFormat:@"%i of %i selected", noSelected, [self.entities count]];
 }
 
+- (void)decodePressed {
+    
+    NSArray *rowsForDecode = [self.tableView indexPathsForSelectedRows];
+    NSMutableArray * decodeItems = [[NSMutableArray alloc] init];
+    
+    [rowsForDecode enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        NSIndexPath *indexPath = (NSIndexPath *)obj;
+        EntityCategory *category = [self categoryForSection:indexPath.section excludeEmpty:YES];
+        
+        
+        [decodeItems addObject: category.entities[indexPath.row]];
+    }];
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults synchronize];
+    BOOL firstDecodeRun = [userDefaults boolForKey:@"decodeShownDetailsEntryScreen"];
+    
+    if ( firstDecodeRun ) {
+        
+        PPHireViewController * hireViewController = [[PPHireViewController alloc] init];
+        hireViewController.items = [decodeItems copy];
+        hireViewController.parentVC = self;
+        
+        UINavigationController * navigaitionVontroller = [[UINavigationController alloc] initWithRootViewController: hireViewController];
+        
+        [self presentViewController:navigaitionVontroller animated:YES completion:nil];
+        
+    } else {
+        
+        PPDecodeDetailsEntryViewController * hireViewController = [[PPDecodeDetailsEntryViewController alloc] init];
+        hireViewController.items = [decodeItems copy];
+        hireViewController.parentVC = self;
+        
+        UINavigationController * navigaitionVontroller = [[UINavigationController alloc] initWithRootViewController: hireViewController];
+        
+        [self presentViewController:navigaitionVontroller animated:YES completion:nil];
+    }
+    
+   
+}
+
 - (void)removeEntities {
     
     NSString *message = [NSString stringWithFormat:@"Are you sure you want to delete these %@?", _document.plural];
     
-    MBAlertView *alert = [MBAlertView alertWithBody:message cancelTitle:@"No" cancelBlock:nil];
-    [alert addButtonWithText:@"Delete" type:MBAlertViewItemTypeDestructive block:^{
+    ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+    
+    [alert showAlertWithMessage: message];
+    [alert addButtonWithText:@"Cancel" forType:ALFSAlertButtonTypeNormal onTap:^{
+        [alert removeAlert];
+    }];
+    [alert addButtonWithText:@"Delete" forType:ALFSAlertButtonTypeDelete onTap:^{
         
+        [alert removeAlert];
         
         NSManagedObjectContext *managedObjectContext = [NSObject managedObjectContext];
         NSArray *rowsToDelete = [self.tableView indexPathsForSelectedRows];
@@ -346,7 +412,12 @@
         if(![managedObjectContext save:&error]){
             NSLog(@"Error deleting entities.");
             
-            [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+            ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+            
+            [alert showAlertWithMessage: error.description];
+            [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+                [alert removeAlert];
+            }];
         } else {
             NSLog(@"Entities deleted.");
             
@@ -358,8 +429,8 @@
                 [self toggleEditMode];
             }
         }
+
     }];
-    [alert addToDisplayQueue];
    
 }
 
@@ -527,7 +598,13 @@
     NSError *error;
     if(![managedObjectContext save:&error]){
         NSLog(@"Error saving project.");
-        [[MBAlertView alertWithBody:error.description cancelTitle:@"Continue" cancelBlock:nil] addToDisplayQueue];
+        
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: error.description];
+        [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
     } else {
         NSLog(@"Project saved.");
     }
@@ -541,6 +618,23 @@
 
 - (int)numberOfPrintDocumentSectionSubSections {
     return [self.entities count];
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    if (result == MFMailComposeResultSent) {
+        
+        ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: self.parentViewController];
+        
+        [alert showAlertWithMessage: @"Quote request sent, keep an eye on your emails!"];
+        [alert addButtonWithText:@"Ok" forType:ALFSAlertButtonTypeNormal onTap:^{
+            [alert removeAlert];
+        }];
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

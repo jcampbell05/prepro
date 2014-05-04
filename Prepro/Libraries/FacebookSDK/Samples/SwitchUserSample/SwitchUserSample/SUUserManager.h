@@ -6,7 +6,7 @@
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
- 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,6 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
+
 #import <FacebookSDK/FacebookSDK.h>
 
 extern NSString *const SUInvalidSlotNumber;
@@ -23,22 +24,20 @@ extern NSString *const SUInvalidSlotNumber;
 
 @interface SUUserManager : NSObject
 
-@property (readonly) int maximumUserSlots;
+@property (readonly) NSInteger maximumUserSlots;
 // FBSample logic
 // This is where our active session is maintained
 @property (strong, readonly) FBSession *currentSession;
-@property (readonly) int currentUserSlot;
+@property (readonly) NSInteger currentUserSlot;
 
-- (id)init;
+- (NSString *)getUserIDInSlot:(NSInteger)slot;
+- (NSString *)getUserNameInSlot:(NSInteger)slot;
+- (void)updateUser:(NSDictionary<FBGraphUser> *)user inSlot:(NSInteger)slot;
 
-- (NSString*)getUserIDInSlot:(int)slot;
-- (NSString*)getUserNameInSlot:(int)slot;
-- (void)updateUser:(NSDictionary<FBGraphUser> *)user inSlot:(int)slot;
-
-- (BOOL)isSlotEmpty:(int)slot;
+- (BOOL)isSlotEmpty:(NSInteger)slot;
 - (BOOL)areAllSlotsEmpty;
 
 - (void)switchToNoActiveUser;
-- (FBSession *)switchToUserInSlot:(int)slot;
+- (FBSession *)switchToUserInSlot:(NSInteger)slot;
 
 @end
