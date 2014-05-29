@@ -7,7 +7,14 @@
 //
 
 #import "QuickDialogController.h"
+#import "Document.h"
+#import "Entity.h"
 
 @interface PPQuickDialogController : QuickDialogController
+
+@property (nonatomic, strong) Entity * entity;
+
+- (instancetype)initWithEntity:(Entity *)entity;
+- (void)subSectionElementPressed:(QElement *)element;
 
 @end

@@ -7,6 +7,8 @@
 //
 // TODO: Refactor and simplify as well as make more automated, way for it to control individual documents. Break into sub-classes or sub protocols ?
 
+// This document and entity system doesn't really work, figure out something better !
+
 #import <Foundation/Foundation.h>
 
 @class EntityCategory;
@@ -25,7 +27,7 @@
 
 //This is quickly getting ugly - Needs Tidy up :)
 - (bool)comingSoon;
-- (bool)decodeEnabled;
+- (bool)decodeEnabled; //<--- We will replace this soon with a generic hire system
 
 - (UIViewController *)viewControllerForManaging;
 - (Class)entityClass;
@@ -36,12 +38,14 @@
 - (UITableViewCellStyle)entityRowStyle;
 - (void)updateRow:(UITableViewCell *)cell ForEntity:(id)entity;
 - (void)updateRowWithPlaceholder:(UITableViewCell *)cell;
-- (id)bindingData;
 - (id)viewControllerForEditingEntity:(id)entity;
 
 #pragma mark Entity Category
 
 - (void)loadDefaultEntityCategory;
 - (void)loadEntityCategories;
+
+#pragma mark - Deprecated
+- (id)bindingData DEPRECATED_MSG_ATTRIBUTE("Deprecated in 1.4.1");
 
 @end

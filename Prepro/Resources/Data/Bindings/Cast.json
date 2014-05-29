@@ -42,6 +42,9 @@
                 },
                 {
                     "type":"QDecimalElement", "key":"pay", "title":"Pay", "floatValue":0, "fractionDigits":2, "bind":"floatValue:pay"
+                },
+                {
+                    "type":"QLabelElement", "title":"Appearance", "key":"appearance", "controllerAction" : "subSectionElementPressed:"
                 }
              ]
         }

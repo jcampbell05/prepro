@@ -33,7 +33,7 @@
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
 
     NSError *jsonParsingError = nil;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonPath ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[jsonPath lastPathComponent] ofType:@"json" inDirectory:[jsonPath stringByDeletingLastPathComponent]];
     NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
     if (jsonData==nil)
             NSLog(@"Couldn't read any data for JSON file named: %@", jsonPath);

@@ -21,6 +21,9 @@
                   "type":"QMultilineElement", "key":"characteristics", "title":"Characteristics", "bind":"textValue:characteristics"
                   },
                   {
+                  "type":"QLabelElement", "title":"Appearance", "key":"appearance", "controllerAction" : "subSectionElementPressed:"
+                  },
+                  {
                   "type":"QMultilineElement", "key":"motives", "title":"Motives", "bind":"textValue:motives"
                   },
                   {

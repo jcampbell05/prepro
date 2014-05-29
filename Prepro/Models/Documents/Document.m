@@ -82,51 +82,20 @@
     cell.detailTextLabel.text = @"";
 }
 
-- (id)bindingData {
-    return [[QRootElement alloc] initWithJSONFile: NSStringFromClass([self class]) ];
-}
-
 - (NSString *)titleForEntity:(id)entity {
     return @"";
 }
 
-
-//TODO: Switch to new Form System - This is important
 - (id)viewControllerForEditingEntity:(id)entity {
     
-    QRootElement  *root = (QRootElement *)[self bindingData];
-    root.controllerName = NSStringFromClass([PPQuickDialogController class]);
-    [root bindToObject: entity];
+    PPQuickDialogController *quickDialogController = (PPQuickDialogController *)[[PPQuickDialogController alloc] initWithEntity:entity];
     
-    PPQuickDialogController *quickDialogController = (PPQuickDialogController *)[PPQuickDialogController controllerForRoot:root];
-    
-    __weak id weakQuickDialogController = quickDialogController;
+    __weak PPQuickDialogController * weakQuickDialogController = quickDialogController;
     
     quickDialogController.willDisappearCallback = ^(){
         
-        [root fetchValueIntoObject:entity];
-        
-        NSLog(@"Entity: %@", [entity description]);
-        
-        //Tell entity we are about to save it so it can do some last minute processing
+        [weakQuickDialogController.root fetchValueIntoObject:entity];
         [entity onSave:self];
-        
-        NSManagedObjectContext *managedObjectContext = [NSObject managedObjectContext];
-     
-        NSError *error;
-        if(![managedObjectContext save:&error]){
-            NSLog(@"Error saving Project.");
-            
-            ALFSAlert * alert = [[ALFSAlert alloc] initInViewController: ((UIViewController *)weakQuickDialogController).parentViewController];
-            
-            [alert showAlertWithMessage: error.description];
-            [alert addButtonWithText:@"Continue" forType:ALFSAlertButtonTypeNormal onTap:^{
-                
-                [alert removeAlert];
-            }];
-        } else {
-            NSLog(@"Project saved.");
-        }
     };
 
     return quickDialogController;
@@ -146,6 +115,14 @@
     }
     
     self.entityCategories = @[ self.defaultEntityCategory ];
+}
+
+#pragma mark - deprecated
+- (id)bindingData {
+    
+    QRootElement  *root = [[QRootElement alloc] initWithJSONFile: NSStringFromClass([self entityClass]) ];
+    
+    return root;
 }
 
 @end

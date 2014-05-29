@@ -90,6 +90,14 @@
 		1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AC1887219F00F08C49 /* Default-568h.png */; };
 		1A6FC2B01887219F00F08C49 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AD1887219F00F08C49 /* Default.png */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
+		1A73B532192FDA520049F14A /* Cast.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52A192FDA520049F14A /* Cast.json */; };
+		1A73B533192FDA520049F14A /* CharacterProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52B192FDA520049F14A /* CharacterProfile.json */; };
+		1A73B534192FDA520049F14A /* Crew.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52C192FDA520049F14A /* Crew.json */; };
+		1A73B535192FDA520049F14A /* EquipmentList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52D192FDA520049F14A /* EquipmentList.json */; };
+		1A73B536192FDA520049F14A /* LocationList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52E192FDA520049F14A /* LocationList.json */; };
+		1A73B537192FDA520049F14A /* PropList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52F192FDA520049F14A /* PropList.json */; };
+		1A73B538192FDA520049F14A /* Proposal.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B530192FDA520049F14A /* Proposal.json */; };
+		1A73B539192FDA520049F14A /* ShotList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B531192FDA520049F14A /* ShotList.json */; };
 		1A7BB32218B2A7B800D1E79E /* PPScriptActionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32118B2A7B800D1E79E /* PPScriptActionSection.m */; };
 		1A7BB32518B2A9FF00D1E79E /* PPScriptCharacterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32418B2A9FF00D1E79E /* PPScriptCharacterSection.m */; };
 		1A7BB32818B2AA1A00D1E79E /* PPScriptDialogueSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32718B2AA1A00D1E79E /* PPScriptDialogueSection.m */; };
@@ -108,6 +116,7 @@
 		1A9611ED18A2C798004DBFF6 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A9611A318A2C798004DBFF6 /* License.rtf */; };
 		1A9611EE18A2C798004DBFF6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9611A518A2C798004DBFF6 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1A961608190D9F30005A7BBD /* libCrittercism_v4_3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEAC76618BBD91B0023B21D /* libCrittercism_v4_3_1.a */; };
+		1A9F24E41927600D006DAEC0 /* Subpages in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F24E31927600D006DAEC0 /* Subpages */; };
 		1AA8D12118DDB234004AE0E3 /* PPQuickDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8D12018DDB234004AE0E3 /* PPQuickDialogController.m */; };
 		1AA8D12218DDB792004AE0E3 /* deleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B381185B46A800454EF8 /* deleteBtn.png */; };
 		1AA8D12418DF059F004AE0E3 /* decode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA8D12318DF059F004AE0E3 /* decode@2x.png */; };
@@ -158,7 +167,6 @@
 		1AEAC71C18BBB1380023B21D /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC70818BBB1380023B21D /* HexColor.m */; };
 		1AEAC72B18BBB1D60023B21D /* Styles in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC72A18BBB1D60023B21D /* Styles */; };
 		1AEAC74318BBD61B0023B21D /* Prepro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAC73C18BBD61B0023B21D /* Prepro.xcdatamodeld */; };
-		1AEAC77718BBD91B0023B21D /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAC76518BBD91B0023B21D /* dsym_upload.sh */; };
 		1AF4CD531728A1C500860600 /* NSObject+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF4CD521728A1C500860600 /* NSObject+AppDelegate.m */; };
 		1AF88E1A171205860065E577 /* EntityManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF88E19171205850065E577 /* EntityManagerViewController.m */; };
 		1AFB356B16FCF17100590D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFB356A16FCF17100590D87 /* UIKit.framework */; };
@@ -202,8 +210,6 @@
 		745503BD184BCE0100BD58DE /* UIViewController+PPPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 745503BC184BCE0100BD58DE /* UIViewController+PPPanel.m */; };
 		745881B7177230C0008F9307 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 745881B6177230C0008F9307 /* MapKit.framework */; };
 		745881B91772315D008F9307 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 745881B81772315D008F9307 /* CoreLocation.framework */; };
-		7458828C17723930008F9307 /* CastDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 7458828B17723930008F9307 /* CastDocument.json */; };
-		7458828E177261A2008F9307 /* CharacterProfilesDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 7458828D177261A2008F9307 /* CharacterProfilesDocument.json */; };
 		745933C5182ACDF0001CE8D0 /* ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7459339F182ACDF0001CE8D0 /* ADFlipTransition.m */; };
 		745933C6182ACDF0001CE8D0 /* UICollectionViewController+ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 745933A1182ACDF0001CE8D0 /* UICollectionViewController+ADFlipTransition.m */; };
 		745933C7182ACDF0001CE8D0 /* UITableViewController+ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 745933A3182ACDF0001CE8D0 /* UITableViewController+ADFlipTransition.m */; };
@@ -291,16 +297,10 @@
 		748D805A1820753B00FB0DB8 /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D80571820753B00FB0DB8 /* WYPopoverController.m */; };
 		748D805B1820753B00FB0DB8 /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D80591820753B00FB0DB8 /* WYStoryboardPopoverSegue.m */; };
 		748D805F18207F2F00FB0DB8 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D805E18207F2F00FB0DB8 /* TDBadgedCell.m */; };
-		749A4FDF177E51B500E357CA /* ProposalDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 749A4FDE177E51B500E357CA /* ProposalDocument.json */; };
-		749E8C2A177BB0B4006AD8DB /* LocationListDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 749E8C29177BB0B4006AD8DB /* LocationListDocument.json */; };
 		74A7A7CA18E3919900BE52FF /* PPHireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A7A7C918E3919900BE52FF /* PPHireViewController.m */; };
 		74A9B39D185B46A800454EF8 /* DeleteTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B382185B46A800454EF8 /* DeleteTick.png */; };
 		74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74A9B3B5185B484400454EF8 /* Settings.bundle */; };
 		74AC37EF17D3B69000966861 /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */; };
-		74B2E5E21778AE16009B4E84 /* CrewDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 74B2E5E11778AE16009B4E84 /* CrewDocument.json */; };
-		74B2E5E51778B026009B4E84 /* PropListDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 74B2E5E41778B026009B4E84 /* PropListDocument.json */; };
-		74B2E5E91778B306009B4E84 /* ShotListDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 74B2E5E81778B305009B4E84 /* ShotListDocument.json */; };
-		74B2E5EB1778B3D6009B4E84 /* EquipmentListDocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 74B2E5EA1778B3D5009B4E84 /* EquipmentListDocument.json */; };
 		74B8FABA17BBA82300BD2D69 /* PPTimeCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FAB917BBA82300BD2D69 /* PPTimeCodeInputView.m */; };
 		74BC2957176A7A1800205E29 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BC2956176A7A1800205E29 /* EventKit.framework */; };
 		74BC2959176A7A2B00205E29 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BC2958176A7A2B00205E29 /* libz.dylib */; };
@@ -467,6 +467,14 @@
 		1A6FC2AD1887219F00F08C49 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
+		1A73B52A192FDA520049F14A /* Cast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cast.json; path = Resources/Data/Bindings/Cast.json; sourceTree = "<group>"; };
+		1A73B52B192FDA520049F14A /* CharacterProfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CharacterProfile.json; path = Resources/Data/Bindings/CharacterProfile.json; sourceTree = "<group>"; };
+		1A73B52C192FDA520049F14A /* Crew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Crew.json; path = Resources/Data/Bindings/Crew.json; sourceTree = "<group>"; };
+		1A73B52D192FDA520049F14A /* EquipmentList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EquipmentList.json; path = Resources/Data/Bindings/EquipmentList.json; sourceTree = "<group>"; };
+		1A73B52E192FDA520049F14A /* LocationList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationList.json; path = Resources/Data/Bindings/LocationList.json; sourceTree = "<group>"; };
+		1A73B52F192FDA520049F14A /* PropList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PropList.json; path = Resources/Data/Bindings/PropList.json; sourceTree = "<group>"; };
+		1A73B530192FDA520049F14A /* Proposal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Proposal.json; path = Resources/Data/Bindings/Proposal.json; sourceTree = "<group>"; };
+		1A73B531192FDA520049F14A /* ShotList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ShotList.json; path = Resources/Data/Bindings/ShotList.json; sourceTree = "<group>"; };
 		1A7BB32018B2A7B800D1E79E /* PPScriptActionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptActionSection.h; path = Models/ScriptSection/PPScriptActionSection.h; sourceTree = "<group>"; };
 		1A7BB32118B2A7B800D1E79E /* PPScriptActionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptActionSection.m; path = Models/ScriptSection/PPScriptActionSection.m; sourceTree = "<group>"; };
 		1A7BB32318B2A9FF00D1E79E /* PPScriptCharacterSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptCharacterSection.h; path = Models/ScriptSection/PPScriptCharacterSection.h; sourceTree = "<group>"; };
@@ -500,6 +508,8 @@
 		1A9611A318A2C798004DBFF6 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		1A9611A418A2C798004DBFF6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		1A9611A518A2C798004DBFF6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		1A9F24E31927600D006DAEC0 /* Subpages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Subpages; path = Prepro/Resources/Data/Bindings/Subpages; sourceTree = SOURCE_ROOT; };
+		1AA8C89219254A6C004A1F00 /* Prepro1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prepro1.6.xcdatamodel; sourceTree = "<group>"; };
 		1AA8D11F18DDB234004AE0E3 /* PPQuickDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPQuickDialogController.h; path = Controllers/PPQuickDialogController.h; sourceTree = "<group>"; };
 		1AA8D12018DDB234004AE0E3 /* PPQuickDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPQuickDialogController.m; path = Controllers/PPQuickDialogController.m; sourceTree = "<group>"; };
 		1AA8D12318DF059F004AE0E3 /* decode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "decode@2x.png"; sourceTree = "<group>"; };
@@ -659,8 +669,6 @@
 		745503BE184BD8F800BD58DE /* PPPanelViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPPanelViewControllerDelegate.h; sourceTree = "<group>"; };
 		745881B6177230C0008F9307 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		745881B81772315D008F9307 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		7458828B17723930008F9307 /* CastDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CastDocument.json; path = Resources/Data/Bindings/CastDocument.json; sourceTree = "<group>"; };
-		7458828D177261A2008F9307 /* CharacterProfilesDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CharacterProfilesDocument.json; path = Resources/Data/Bindings/CharacterProfilesDocument.json; sourceTree = "<group>"; };
 		7459339D182ACDF0001CE8D0 /* ADFlipTransition-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADFlipTransition-Prefix.pch"; sourceTree = "<group>"; };
 		7459339E182ACDF0001CE8D0 /* ADFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFlipTransition.h; sourceTree = "<group>"; };
 		7459339F182ACDF0001CE8D0 /* ADFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFlipTransition.m; sourceTree = "<group>"; };
@@ -834,8 +842,6 @@
 		748D80591820753B00FB0DB8 /* WYStoryboardPopoverSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYStoryboardPopoverSegue.m; sourceTree = "<group>"; };
 		748D805D18207F2F00FB0DB8 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = "Libraries/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.h"; sourceTree = "<group>"; };
 		748D805E18207F2F00FB0DB8 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = "Libraries/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.m"; sourceTree = "<group>"; };
-		749A4FDE177E51B500E357CA /* ProposalDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ProposalDocument.json; path = Resources/Data/Bindings/ProposalDocument.json; sourceTree = "<group>"; };
-		749E8C29177BB0B4006AD8DB /* LocationListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationListDocument.json; path = Resources/Data/Bindings/LocationListDocument.json; sourceTree = "<group>"; };
 		74A7A7C818E3919900BE52FF /* PPHireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPHireViewController.h; path = Controllers/PPHireViewController.h; sourceTree = "<group>"; };
 		74A7A7C918E3919900BE52FF /* PPHireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPHireViewController.m; path = Controllers/PPHireViewController.m; sourceTree = "<group>"; };
 		74A9B381185B46A800454EF8 /* deleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtn.png; sourceTree = "<group>"; };
@@ -843,10 +849,6 @@
 		74A9B3B5185B484400454EF8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		74AC37E217D3B69000966861 /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullScreenImageViewController.h; sourceTree = "<group>"; };
 		74AC37E317D3B69000966861 /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullScreenImageViewController.m; sourceTree = "<group>"; };
-		74B2E5E11778AE16009B4E84 /* CrewDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CrewDocument.json; path = Resources/Data/Bindings/CrewDocument.json; sourceTree = "<group>"; };
-		74B2E5E41778B026009B4E84 /* PropListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PropListDocument.json; path = Resources/Data/Bindings/PropListDocument.json; sourceTree = "<group>"; };
-		74B2E5E81778B305009B4E84 /* ShotListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ShotListDocument.json; path = Resources/Data/Bindings/ShotListDocument.json; sourceTree = "<group>"; };
-		74B2E5EA1778B3D5009B4E84 /* EquipmentListDocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EquipmentListDocument.json; path = Resources/Data/Bindings/EquipmentListDocument.json; sourceTree = "<group>"; };
 		74B8FAB817BBA82300BD2D69 /* PPTimeCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTimeCodeInputView.h; path = Views/PPTimeCodeInputView.h; sourceTree = "<group>"; };
 		74B8FAB917BBA82300BD2D69 /* PPTimeCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTimeCodeInputView.m; path = Views/PPTimeCodeInputView.m; sourceTree = "<group>"; };
 		74BACDA5176A6E7E00BBB316 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Libraries/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -1188,6 +1190,15 @@
 			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		1A9F24E71927A9FD006DAEC0 /* Quick Dialog Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AA8D11F18DDB234004AE0E3 /* PPQuickDialogController.h */,
+				1AA8D12018DDB234004AE0E3 /* PPQuickDialogController.m */,
+			);
+			name = "Quick Dialog Controllers";
+			sourceTree = "<group>";
+		};
 		1AB29336188F38F100DF96F3 /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1459,6 +1470,7 @@
 		1AFB35A616FCF1C600590D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1A9F24E71927A9FD006DAEC0 /* Quick Dialog Controllers */,
 				1A10D58318A2DF2D00549780 /* Script Controllers */,
 				1AE63D1E1739989800B07175 /* BatchNumberPickerViewController.h */,
 				1AE63D1F1739989800B07175 /* BatchNumberPickerViewController.m */,
@@ -1492,8 +1504,6 @@
 				1A0BD83718C5C1D60047F764 /* PPDecodeDetailsEntryViewController.m */,
 				1A0BD83918C5C1E40047F764 /* PPProductViewController.h */,
 				1A0BD83A18C5C1E40047F764 /* PPProductViewController.m */,
-				1AA8D11F18DDB234004AE0E3 /* PPQuickDialogController.h */,
-				1AA8D12018DDB234004AE0E3 /* PPQuickDialogController.m */,
 				74A7A7C818E3919900BE52FF /* PPHireViewController.h */,
 				74A7A7C918E3919900BE52FF /* PPHireViewController.m */,
 			);
@@ -1656,14 +1666,15 @@
 		7458828A177238E3008F9307 /* Bindings */ = {
 			isa = PBXGroup;
 			children = (
-				7458828B17723930008F9307 /* CastDocument.json */,
-				749A4FDE177E51B500E357CA /* ProposalDocument.json */,
-				74B2E5E11778AE16009B4E84 /* CrewDocument.json */,
-				7458828D177261A2008F9307 /* CharacterProfilesDocument.json */,
-				74B2E5E41778B026009B4E84 /* PropListDocument.json */,
-				749E8C29177BB0B4006AD8DB /* LocationListDocument.json */,
-				74B2E5EA1778B3D5009B4E84 /* EquipmentListDocument.json */,
-				74B2E5E81778B305009B4E84 /* ShotListDocument.json */,
+				1A73B52A192FDA520049F14A /* Cast.json */,
+				1A73B52B192FDA520049F14A /* CharacterProfile.json */,
+				1A73B52C192FDA520049F14A /* Crew.json */,
+				1A73B52D192FDA520049F14A /* EquipmentList.json */,
+				1A73B52E192FDA520049F14A /* LocationList.json */,
+				1A73B52F192FDA520049F14A /* PropList.json */,
+				1A73B530192FDA520049F14A /* Proposal.json */,
+				1A73B531192FDA520049F14A /* ShotList.json */,
+				1A9F24E31927600D006DAEC0 /* Subpages */,
 			);
 			name = Bindings;
 			sourceTree = "<group>";
@@ -2002,6 +2013,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PP;
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Dean Uzzell";
 				TargetAttributes = {
@@ -2042,17 +2054,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AEAC77718BBD91B0023B21D /* dsym_upload.sh in Resources */,
 				1AEAC02E18B962820023B21D /* Call Sheet@2x.png in Resources */,
 				7484845C185E3768007905D6 /* facebook@2x.png in Resources */,
 				1AEAC04D18B96C7A0023B21D /* New Tab@2x.png in Resources */,
+				1A73B538192FDA520049F14A /* Proposal.json in Resources */,
 				1A9611ED18A2C798004DBFF6 /* License.rtf in Resources */,
 				1AEAC04618B968850023B21D /* Import@2x.png in Resources */,
 				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				74848456185E30CF007905D6 /* Changelog in Resources */,
 				1A0BD83D18C692600047F764 /* ProjectThumbnail@2x.png in Resources */,
+				1A73B534192FDA520049F14A /* Crew.json in Resources */,
 				1AEAC04A18B968850023B21D /* Settings@2x.png in Resources */,
+				1A9F24E41927600D006DAEC0 /* Subpages in Resources */,
 				1A6FC2B01887219F00F08C49 /* Default.png in Resources */,
+				1A73B539192FDA520049F14A /* ShotList.json in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
 				1AEAC04518B968850023B21D /* Expose@2x.png in Resources */,
 				1AEAC02F18B962820023B21D /* Equipment@2x.png in Resources */,
@@ -2060,11 +2075,10 @@
 				1ADFBAA018C9049B00BBCCC3 /* Products.csv in Resources */,
 				74D25C7C181495EA0097F9D7 /* Images.xcassets in Resources */,
 				7484845E185E3768007905D6 /* twitter@2x.png in Resources */,
+				1A73B535192FDA520049F14A /* EquipmentList.json in Resources */,
 				1AEAC03018B962820023B21D /* Cast@2x.png in Resources */,
-				7458828C17723930008F9307 /* CastDocument.json in Resources */,
 				1A2AFC8818D1294E000F3125 /* FPPicker.bundle in Resources */,
 				7484E4C5180B7CBC003F6E4A /* LICENSE in Resources */,
-				7458828E177261A2008F9307 /* CharacterProfilesDocument.json in Resources */,
 				1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */,
 				1A9611C418A2C798004DBFF6 /* ScriptCSS.css in Resources */,
 				1AEAC04418B968850023B21D /* Export@2x.png in Resources */,
@@ -2075,25 +2089,23 @@
 				1AEAC03218B962820023B21D /* Contingency@2x.png in Resources */,
 				1AEAC03418B962820023B21D /* Location@2x.png in Resources */,
 				1AEAC03618B962820023B21D /* Proposal@2x.png in Resources */,
-				74B2E5E21778AE16009B4E84 /* CrewDocument.json in Resources */,
-				74B2E5E51778B026009B4E84 /* PropListDocument.json in Resources */,
 				1AEAC03B18B962820023B21D /* Shots@2x.png in Resources */,
+				1A73B536192FDA520049F14A /* LocationList.json in Resources */,
+				1A73B537192FDA520049F14A /* PropList.json in Resources */,
 				745933D9182ACDF0001CE8D0 /* Readme.md in Resources */,
 				745933D8182ACDF0001CE8D0 /* License.txt in Resources */,
 				1AEAC04718B968850023B21D /* List View@2x.png in Resources */,
 				1AEAC04918B968850023B21D /* Projects@2x.png in Resources */,
-				74B2E5E91778B306009B4E84 /* ShotListDocument.json in Resources */,
 				74A9B39D185B46A800454EF8 /* DeleteTick.png in Resources */,
 				1AEAC04B18B968850023B21D /* Trash.png in Resources */,
 				1AA8D12218DDB792004AE0E3 /* deleteBtn.png in Resources */,
 				1AEAC03718B962820023B21D /* Props@2x.png in Resources */,
 				1AEAC03518B962820023B21D /* Notes@2x.png in Resources */,
+				1A73B533192FDA520049F14A /* CharacterProfile.json in Resources */,
 				1AA8D12418DF059F004AE0E3 /* decode@2x.png in Resources */,
-				74B2E5EB1778B3D6009B4E84 /* EquipmentListDocument.json in Resources */,
 				1AEAC03A18B962820023B21D /* Shooting Dates@2x.png in Resources */,
-				749E8C2A177BB0B4006AD8DB /* LocationListDocument.json in Resources */,
 				74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */,
-				749A4FDF177E51B500E357CA /* ProposalDocument.json in Resources */,
+				1A73B532192FDA520049F14A /* Cast.json in Resources */,
 				745933CA182ACDF0001CE8D0 /* ADFlipTransition.podspec in Resources */,
 				1AEAC02D18B962820023B21D /* Budget@2x.png in Resources */,
 				1AEAC72B18BBB1D60023B21D /* Styles in Resources */,
@@ -2588,6 +2600,7 @@
 		1AEAC73C18BBD61B0023B21D /* Prepro.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1AA8C89219254A6C004A1F00 /* Prepro1.6.xcdatamodel */,
 				1AEAC73D18BBD61B0023B21D /* Prepro1.0.xcdatamodel */,
 				1AEAC73E18BBD61B0023B21D /* Prepro1.1.xcdatamodel */,
 				1AEAC73F18BBD61B0023B21D /* Prepro1.2.xcdatamodel */,
@@ -2595,7 +2608,7 @@
 				1AEAC74118BBD61B0023B21D /* Prepro1.4.xcdatamodel */,
 				1AEAC74218BBD61B0023B21D /* Prepro1.5.xcdatamodel */,
 			);
-			currentVersion = 1AEAC74218BBD61B0023B21D /* Prepro1.5.xcdatamodel */;
+			currentVersion = 1AA8C89219254A6C004A1F00 /* Prepro1.6.xcdatamodel */;
 			path = Prepro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
