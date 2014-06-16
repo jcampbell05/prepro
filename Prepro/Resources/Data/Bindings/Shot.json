@@ -50,6 +50,9 @@
                   },
                   {
                     "type":"QMultilineElement", "key":"descriptionText", "title":"Description", "bind":"textValue:descriptionText"
+                  },
+                  {
+                  "type":"QLabelElement", "title":"Continuity", "key":"continuity", "controllerAction" : "subSectionElementPressed:"
                   }
                 ]
             }

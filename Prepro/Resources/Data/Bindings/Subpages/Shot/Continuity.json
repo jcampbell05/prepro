@@ -1,0 +1,35 @@
+{
+	"grouped": true,
+    "sections": [
+                 {
+                 
+                 "title" : "Continuity", "bind":"title:title", "elements":
+                 [
+                  {
+                  "type": "QMultilineElement",
+                  "key": "continuityContent",
+                  "title": "Content",
+                  "bind": "textValue:continuityContent"
+                  },
+                  {
+                  "type": "QMultilineElement",
+                  "key": "continuityMovement",
+                  "title": "Movement",
+                  "bind": "textValue:continuityMovement"
+                  },
+                  {
+                  "type": "QMultilineElement",
+                  "key": "continuityPosition",
+                  "title": "Position",
+                  "bind": "textValue:continuityPosition"
+                  },
+                  {
+                  "type": "QMultilineElement",
+                  "key": "continuityTime",
+                  "title": "Time",
+                  "bind": "textValue:continuityTime"
+                  }
+                ]
+            }
+     ]
+}

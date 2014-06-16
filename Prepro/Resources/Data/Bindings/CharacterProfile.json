@@ -12,6 +12,9 @@
                   "type":"QEntryElement", "key":"name", "title":"Name", "bind":"textValue:name"
                   },
                   {
+                  "type":"QLabelElement", "title":"Appearance", "key":"appearance", "controllerAction" : "subSectionElementPressed:"
+                  },
+                  {
                   "type":"QDecimalElement", "key":"age", "title":"Age", "floatValue":0, "fractionDigits":0, "bind":"floatValue:age"
                   },
                   {
@@ -19,9 +22,6 @@
                   },
                   {
                   "type":"QMultilineElement", "key":"characteristics", "title":"Characteristics", "bind":"textValue:characteristics"
-                  },
-                  {
-                  "type":"QLabelElement", "title":"Appearance", "key":"appearance", "controllerAction" : "subSectionElementPressed:"
                   },
                   {
                   "type":"QMultilineElement", "key":"motives", "title":"Motives", "bind":"textValue:motives"

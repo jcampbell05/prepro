@@ -14,6 +14,7 @@ const NSString * exposeNotification;
 const NSString * documentListNotification;
 
 @interface PPDocumentViewController : UIViewController<UITextFieldDelegate> {
+    
     UITextField * _titleTextField;
     UISegmentedControl * _viewSelector;
     

@@ -19,6 +19,13 @@
                   "bind" : "selectedItem:roleType"
                 },
                 {
+                  "type":"QRadioElement",
+                  "key": "status",
+                  "title":"Status",
+                  "items":["Approved To Play", "Approved To Voice", "Call For Rehearsal", "Call For Audition", "Shortlisted", "Dropped", "Backup"],
+                  "bind" : "selectedItem:status"
+                },
+                {
                     "type":"QDecimalElement", "key":"idNo", "title":"ID No.", "bind":"floatValue:idNo", "fractionDigits":0
                 },
                 {

@@ -8,6 +8,7 @@
 
 #import "Shot.h"
 #import "Document.h"
+#import "ShotListDocument.h"
 #import "Project.h"
 #import "NSObject+AppDelegate.h"
 
@@ -34,6 +35,8 @@
 
 //TODO: Make a better way of doing, maybe make the models more magical with ORM ? Look for library for this or roll your own maybe ? 
 - (void)onSave:(Document *)document {
+    
+    document = [[ShotListDocument alloc] init];
     
     NSSet *shots = (NSSet *)[self.project valueForKey:[document projectRelationshipKeyName]];
 

@@ -103,6 +103,8 @@
     
     QRootElement * root = [[QRootElement alloc] initWithJSONFile: [NSString stringWithFormat:@"Subpages/%@/%@", NSStringFromClass(self.entity.class),  element.title]];
     
+    [root bindToObject: self.entity];
+    
     PPQuickDialogController * quickDialogController = [[PPQuickDialogController alloc] initWithRoot: root];
     quickDialogController.entity = self.entity;
     

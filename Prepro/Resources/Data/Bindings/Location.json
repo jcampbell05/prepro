@@ -19,21 +19,6 @@
                   "bind": "selectedItem:type",
                   },
                   {
-                  "type":"QEntryElement", "key":"addressLine1", "title":"Address Line 1", "bind":"textValue:addressLine1"
-                  },
-                  {
-                  "type":"QEntryElement", "key":"addressLine2", "title":"Address Line 2", "bind":"textValue:addressLine2"
-                  },
-                  {
-                  "type":"QEntryElement", "key":"addressLine3", "title":"Address Line 3", "bind":"textValue:addressLine3"
-                  },
-                  {
-                  "type":"QEntryElement", "key":"addressLine4", "title":"Address Line 4", "bind":"textValue:addressLine4"
-                  },
-                  {
-                  "type":"QEntryElement", "key":"addressLine5", "title":"Address Line 5", "bind":"textValue:addressLine5"
-                  },
-                  {
                   "type":"QEntryElement", "key":"contactName", "title":"Contact Name", "bind":"textValue:contactName"
                   },
                   {
@@ -46,6 +31,28 @@
                   "type":"QMultilineElement", "key":"notes", "title":"Notes", "bind":"textValue:notes"
                   }
                 ]
-            }
+                }, {
+                 
+                 "title" : "Address", "elements" : [
+                    {
+                    "type":"QEntryElement", "key":"addressLine1", "title":"House Number", "bind":"textValue:addressLine1"
+                    },
+                    {
+                    "type":"QEntryElement", "key":"addressLine2", "title":"Street Name", "bind":"textValue:addressLine2"
+                    },
+                    {
+                    "type":"QEntryElement", "key":"addressLine3", "title":"Town", "bind":"textValue:addressLine3"
+                    },
+                    {
+                    "type":"QEntryElement", "key":"addressLine4", "title":"County", "bind":"textValue:addressLine4"
+                    },
+                    {
+                    "type":"QEntryElement", "key":"addressLine5", "title":"Country", "bind":"textValue:addressLine5"
+                    },
+                    {
+                    "type":"QEntryElement", "key":"addressLine6", "title":"Postcode", "bind":"textValue:addressLine6"
+                    }
+                 ]
+                }
      ]
 }

@@ -90,20 +90,20 @@
 		1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AC1887219F00F08C49 /* Default-568h.png */; };
 		1A6FC2B01887219F00F08C49 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6FC2AD1887219F00F08C49 /* Default.png */; };
 		1A6FD7BD17286BC50031B285 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6FD70117286BC50031B285 /* BWLongTextViewController.m */; };
-		1A73B532192FDA520049F14A /* Cast.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52A192FDA520049F14A /* Cast.json */; };
-		1A73B533192FDA520049F14A /* CharacterProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52B192FDA520049F14A /* CharacterProfile.json */; };
-		1A73B534192FDA520049F14A /* Crew.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52C192FDA520049F14A /* Crew.json */; };
-		1A73B535192FDA520049F14A /* EquipmentList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52D192FDA520049F14A /* EquipmentList.json */; };
-		1A73B536192FDA520049F14A /* LocationList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52E192FDA520049F14A /* LocationList.json */; };
-		1A73B537192FDA520049F14A /* PropList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B52F192FDA520049F14A /* PropList.json */; };
-		1A73B538192FDA520049F14A /* Proposal.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B530192FDA520049F14A /* Proposal.json */; };
-		1A73B539192FDA520049F14A /* ShotList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B531192FDA520049F14A /* ShotList.json */; };
 		1A7BB32218B2A7B800D1E79E /* PPScriptActionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32118B2A7B800D1E79E /* PPScriptActionSection.m */; };
 		1A7BB32518B2A9FF00D1E79E /* PPScriptCharacterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32418B2A9FF00D1E79E /* PPScriptCharacterSection.m */; };
 		1A7BB32818B2AA1A00D1E79E /* PPScriptDialogueSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32718B2AA1A00D1E79E /* PPScriptDialogueSection.m */; };
 		1A7BB32B18B2AA4E00D1E79E /* PPScriptParentheticalSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32A18B2AA4E00D1E79E /* PPScriptParentheticalSection.m */; };
 		1A7BB32E18B2ABBC00D1E79E /* PPScriptTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB32D18B2ABBC00D1E79E /* PPScriptTableViewCell.m */; };
 		1A7BB33118B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7BB33018B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.m */; };
+		1A925E871937C8630012C69F /* Cast.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E7F1937C8630012C69F /* Cast.json */; };
+		1A925E881937C8630012C69F /* CharacterProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E801937C8630012C69F /* CharacterProfile.json */; };
+		1A925E891937C8630012C69F /* Crew.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E811937C8630012C69F /* Crew.json */; };
+		1A925E8A1937C8630012C69F /* Equipment.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E821937C8630012C69F /* Equipment.json */; };
+		1A925E8B1937C8630012C69F /* Location.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E831937C8630012C69F /* Location.json */; };
+		1A925E8C1937C8630012C69F /* Prop.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E841937C8630012C69F /* Prop.json */; };
+		1A925E8D1937C8630012C69F /* Proposal.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E851937C8630012C69F /* Proposal.json */; };
+		1A925E8E1937C8630012C69F /* Shot.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A925E861937C8630012C69F /* Shot.json */; };
 		1A9611BC18A2C798004DBFF6 /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A96115218A2C797004DBFF6 /* FastFountainParser.m */; };
 		1A9611BD18A2C798004DBFF6 /* FNElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A96115418A2C797004DBFF6 /* FNElement.m */; };
 		1A9611BE18A2C798004DBFF6 /* FNHTMLScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A96115618A2C797004DBFF6 /* FNHTMLScript.m */; };
@@ -467,14 +467,6 @@
 		1A6FC2AD1887219F00F08C49 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1A6FD70017286BC50031B285 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		1A6FD70117286BC50031B285 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
-		1A73B52A192FDA520049F14A /* Cast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cast.json; path = Resources/Data/Bindings/Cast.json; sourceTree = "<group>"; };
-		1A73B52B192FDA520049F14A /* CharacterProfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CharacterProfile.json; path = Resources/Data/Bindings/CharacterProfile.json; sourceTree = "<group>"; };
-		1A73B52C192FDA520049F14A /* Crew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Crew.json; path = Resources/Data/Bindings/Crew.json; sourceTree = "<group>"; };
-		1A73B52D192FDA520049F14A /* EquipmentList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EquipmentList.json; path = Resources/Data/Bindings/EquipmentList.json; sourceTree = "<group>"; };
-		1A73B52E192FDA520049F14A /* LocationList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationList.json; path = Resources/Data/Bindings/LocationList.json; sourceTree = "<group>"; };
-		1A73B52F192FDA520049F14A /* PropList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PropList.json; path = Resources/Data/Bindings/PropList.json; sourceTree = "<group>"; };
-		1A73B530192FDA520049F14A /* Proposal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Proposal.json; path = Resources/Data/Bindings/Proposal.json; sourceTree = "<group>"; };
-		1A73B531192FDA520049F14A /* ShotList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ShotList.json; path = Resources/Data/Bindings/ShotList.json; sourceTree = "<group>"; };
 		1A7BB32018B2A7B800D1E79E /* PPScriptActionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptActionSection.h; path = Models/ScriptSection/PPScriptActionSection.h; sourceTree = "<group>"; };
 		1A7BB32118B2A7B800D1E79E /* PPScriptActionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptActionSection.m; path = Models/ScriptSection/PPScriptActionSection.m; sourceTree = "<group>"; };
 		1A7BB32318B2A9FF00D1E79E /* PPScriptCharacterSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptCharacterSection.h; path = Models/ScriptSection/PPScriptCharacterSection.h; sourceTree = "<group>"; };
@@ -487,6 +479,14 @@
 		1A7BB32D18B2ABBC00D1E79E /* PPScriptTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptTableViewCell.m; path = Views/ScriptTableViewCell/PPScriptTableViewCell.m; sourceTree = "<group>"; };
 		1A7BB32F18B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPScriptCenteredTableViewCell.h; path = Views/ScriptTableViewCell/PPScriptCenteredTableViewCell.h; sourceTree = "<group>"; };
 		1A7BB33018B2AE1F00D1E79E /* PPScriptCenteredTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPScriptCenteredTableViewCell.m; path = Views/ScriptTableViewCell/PPScriptCenteredTableViewCell.m; sourceTree = "<group>"; };
+		1A925E7F1937C8630012C69F /* Cast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cast.json; path = Resources/Data/Bindings/Cast.json; sourceTree = "<group>"; };
+		1A925E801937C8630012C69F /* CharacterProfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CharacterProfile.json; path = Resources/Data/Bindings/CharacterProfile.json; sourceTree = "<group>"; };
+		1A925E811937C8630012C69F /* Crew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Crew.json; path = Resources/Data/Bindings/Crew.json; sourceTree = "<group>"; };
+		1A925E821937C8630012C69F /* Equipment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Equipment.json; path = Resources/Data/Bindings/Equipment.json; sourceTree = "<group>"; };
+		1A925E831937C8630012C69F /* Location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Location.json; path = Resources/Data/Bindings/Location.json; sourceTree = "<group>"; };
+		1A925E841937C8630012C69F /* Prop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Prop.json; path = Resources/Data/Bindings/Prop.json; sourceTree = "<group>"; };
+		1A925E851937C8630012C69F /* Proposal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Proposal.json; path = Resources/Data/Bindings/Proposal.json; sourceTree = "<group>"; };
+		1A925E861937C8630012C69F /* Shot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Shot.json; path = Resources/Data/Bindings/Shot.json; sourceTree = "<group>"; };
 		1A96115118A2C797004DBFF6 /* FastFountainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastFountainParser.h; sourceTree = "<group>"; };
 		1A96115218A2C797004DBFF6 /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
 		1A96115318A2C797004DBFF6 /* FNElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNElement.h; sourceTree = "<group>"; };
@@ -1666,14 +1666,14 @@
 		7458828A177238E3008F9307 /* Bindings */ = {
 			isa = PBXGroup;
 			children = (
-				1A73B52A192FDA520049F14A /* Cast.json */,
-				1A73B52B192FDA520049F14A /* CharacterProfile.json */,
-				1A73B52C192FDA520049F14A /* Crew.json */,
-				1A73B52D192FDA520049F14A /* EquipmentList.json */,
-				1A73B52E192FDA520049F14A /* LocationList.json */,
-				1A73B52F192FDA520049F14A /* PropList.json */,
-				1A73B530192FDA520049F14A /* Proposal.json */,
-				1A73B531192FDA520049F14A /* ShotList.json */,
+				1A925E7F1937C8630012C69F /* Cast.json */,
+				1A925E801937C8630012C69F /* CharacterProfile.json */,
+				1A925E811937C8630012C69F /* Crew.json */,
+				1A925E821937C8630012C69F /* Equipment.json */,
+				1A925E831937C8630012C69F /* Location.json */,
+				1A925E841937C8630012C69F /* Prop.json */,
+				1A925E851937C8630012C69F /* Proposal.json */,
+				1A925E861937C8630012C69F /* Shot.json */,
 				1A9F24E31927600D006DAEC0 /* Subpages */,
 			);
 			name = Bindings;
@@ -2057,28 +2057,29 @@
 				1AEAC02E18B962820023B21D /* Call Sheet@2x.png in Resources */,
 				7484845C185E3768007905D6 /* facebook@2x.png in Resources */,
 				1AEAC04D18B96C7A0023B21D /* New Tab@2x.png in Resources */,
-				1A73B538192FDA520049F14A /* Proposal.json in Resources */,
+				1A925E8D1937C8630012C69F /* Proposal.json in Resources */,
 				1A9611ED18A2C798004DBFF6 /* License.rtf in Resources */,
 				1AEAC04618B968850023B21D /* Import@2x.png in Resources */,
 				74487583185BF7C300BABB2D /* Logo.png in Resources */,
 				74848456185E30CF007905D6 /* Changelog in Resources */,
 				1A0BD83D18C692600047F764 /* ProjectThumbnail@2x.png in Resources */,
-				1A73B534192FDA520049F14A /* Crew.json in Resources */,
+				1A925E891937C8630012C69F /* Crew.json in Resources */,
 				1AEAC04A18B968850023B21D /* Settings@2x.png in Resources */,
 				1A9F24E41927600D006DAEC0 /* Subpages in Resources */,
+				1A925E8E1937C8630012C69F /* Shot.json in Resources */,
 				1A6FC2B01887219F00F08C49 /* Default.png in Resources */,
-				1A73B539192FDA520049F14A /* ShotList.json in Resources */,
 				1AFB357716FCF17100590D87 /* InfoPlist.strings in Resources */,
 				1AEAC04518B968850023B21D /* Expose@2x.png in Resources */,
+				1A925E8C1937C8630012C69F /* Prop.json in Resources */,
 				1AEAC02F18B962820023B21D /* Equipment@2x.png in Resources */,
 				1AEAC03118B962820023B21D /* Characters@2x.png in Resources */,
 				1ADFBAA018C9049B00BBCCC3 /* Products.csv in Resources */,
 				74D25C7C181495EA0097F9D7 /* Images.xcassets in Resources */,
 				7484845E185E3768007905D6 /* twitter@2x.png in Resources */,
-				1A73B535192FDA520049F14A /* EquipmentList.json in Resources */,
 				1AEAC03018B962820023B21D /* Cast@2x.png in Resources */,
 				1A2AFC8818D1294E000F3125 /* FPPicker.bundle in Resources */,
 				7484E4C5180B7CBC003F6E4A /* LICENSE in Resources */,
+				1A925E8B1937C8630012C69F /* Location.json in Resources */,
 				1A6FC2AF1887219F00F08C49 /* Default-568h.png in Resources */,
 				1A9611C418A2C798004DBFF6 /* ScriptCSS.css in Resources */,
 				1AEAC04418B968850023B21D /* Export@2x.png in Resources */,
@@ -2090,22 +2091,21 @@
 				1AEAC03418B962820023B21D /* Location@2x.png in Resources */,
 				1AEAC03618B962820023B21D /* Proposal@2x.png in Resources */,
 				1AEAC03B18B962820023B21D /* Shots@2x.png in Resources */,
-				1A73B536192FDA520049F14A /* LocationList.json in Resources */,
-				1A73B537192FDA520049F14A /* PropList.json in Resources */,
 				745933D9182ACDF0001CE8D0 /* Readme.md in Resources */,
 				745933D8182ACDF0001CE8D0 /* License.txt in Resources */,
 				1AEAC04718B968850023B21D /* List View@2x.png in Resources */,
 				1AEAC04918B968850023B21D /* Projects@2x.png in Resources */,
 				74A9B39D185B46A800454EF8 /* DeleteTick.png in Resources */,
 				1AEAC04B18B968850023B21D /* Trash.png in Resources */,
+				1A925E8A1937C8630012C69F /* Equipment.json in Resources */,
 				1AA8D12218DDB792004AE0E3 /* deleteBtn.png in Resources */,
 				1AEAC03718B962820023B21D /* Props@2x.png in Resources */,
 				1AEAC03518B962820023B21D /* Notes@2x.png in Resources */,
-				1A73B533192FDA520049F14A /* CharacterProfile.json in Resources */,
+				1A925E881937C8630012C69F /* CharacterProfile.json in Resources */,
 				1AA8D12418DF059F004AE0E3 /* decode@2x.png in Resources */,
 				1AEAC03A18B962820023B21D /* Shooting Dates@2x.png in Resources */,
 				74A9B3B6185B484400454EF8 /* Settings.bundle in Resources */,
-				1A73B532192FDA520049F14A /* Cast.json in Resources */,
+				1A925E871937C8630012C69F /* Cast.json in Resources */,
 				745933CA182ACDF0001CE8D0 /* ADFlipTransition.podspec in Resources */,
 				1AEAC02D18B962820023B21D /* Budget@2x.png in Resources */,
 				1AEAC72B18BBB1D60023B21D /* Styles in Resources */,

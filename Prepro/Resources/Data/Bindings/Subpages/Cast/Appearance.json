@@ -1,0 +1,35 @@
+{
+	"grouped": true,
+    "sections": [
+                 {
+                 
+                 "title" : "Apperance", "bind":"title:name", "elements":
+                 [
+                  {
+                  "type":"QEntryElement", "key":"gender", "title":"Gender", "bind":"textValue:gender"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"ethnicity", "title":"Ethnicity", "bind":"textValue:ethnicity"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"build", "title":"Build", "bind":"textValue:build"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"height", "title":"Height", "bind":"textValue:height"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"weight", "title":"Weight", "bind":"textValue:weight"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"hairColour", "title":"Hair Colour", "bind":"textValue:hairColour"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"hairLength", "title":"Hair Length", "bind":"textValue:hairLength"
+                  },
+                  {
+                  "type":"QEntryElement", "key":"eyeColour", "title":"Eye Colour", "bind":"textValue:eyeColour"
+                  }
+                  ]
+                 }
+                 ]
+}
